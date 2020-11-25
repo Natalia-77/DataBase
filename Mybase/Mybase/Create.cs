@@ -15,9 +15,7 @@ namespace Mybase
         }
 
         public void Procedure()
-        {
-            //string paths = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\SQL");
-            //string[] files = Directory.GetFiles(paths);
+        {          
            
             string[] files = System.IO.Directory.GetFiles(@"SQL");
             SqlConnection con = new SqlConnection(strConnection);
@@ -36,7 +34,7 @@ namespace Mybase
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error" + ex.Message);
+                Console.WriteLine("Error-->>" + ex.Message);
             }
             finally
             {
