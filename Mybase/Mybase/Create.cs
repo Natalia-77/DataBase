@@ -9,9 +9,10 @@ namespace Mybase
     {
         private string strConnection;
 
-        public Create(string strConnection)
+        public Create()
         {
-            this.strConnection = strConnection;
+             strConnection= "Data Source=nataliaserver.database.windows.net;Initial Catalog=Base;User ID=natalia;Password=Querty1*";
+           // this.strConnection = strConnection;
         }
 
         public void Procedure()
