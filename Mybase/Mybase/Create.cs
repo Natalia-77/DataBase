@@ -12,7 +12,7 @@ namespace Mybase
         public Create()
         {
              strConnection= "Data Source=nataliaserver.database.windows.net;Initial Catalog=Base;User ID=natalia;Password=Querty1*";
-           // this.strConnection = strConnection;
+           
         }
 
         public void Procedure()
@@ -24,7 +24,7 @@ namespace Mybase
             try
             {
                     con.Open();
-                    Console.WriteLine("Yes");
+                    Console.WriteLine("It's ok-->>");
                     foreach (var item in files)
                     {
                         string sql = File.ReadAllText(item);
