@@ -1,0 +1,8 @@
+D:\Natalia\Project1\DataBase\AddData\AddData\bin\Debug\AddData.sql
+D:\Natalia\Project1\DataBase\AddData\AddData\bin\Debug\AddData.exe.config
+D:\Natalia\Project1\DataBase\AddData\AddData\bin\Debug\AddData.exe
+D:\Natalia\Project1\DataBase\AddData\AddData\bin\Debug\AddData.pdb
+D:\Natalia\Project1\DataBase\AddData\AddData\obj\Debug\AddData.csprojAssemblyReference.cache
+D:\Natalia\Project1\DataBase\AddData\AddData\obj\Debug\AddData.csproj.CoreCompileInputs.cache
+D:\Natalia\Project1\DataBase\AddData\AddData\obj\Debug\AddData.exe
+D:\Natalia\Project1\DataBase\AddData\AddData\obj\Debug\AddData.pdb
