@@ -24,3 +24,4 @@ CREATE TABLE [dbo].[Orders] (
 	)'
 
 
+	SELECT * FROM Employeers

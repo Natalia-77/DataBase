@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bogus;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,16 @@ namespace Products
     {
         static void Main(string[] args)
         {
-            //Create c = new Create();
-            //c.Connect();
+            Console.OutputEncoding = Encoding.Unicode;
+            Console.InputEncoding = Encoding.Unicode;
+
+            Create c = new Create();
+            Fake n = new Fake();
+             n.Print();
+            
+
+
+
         }
     }
 }

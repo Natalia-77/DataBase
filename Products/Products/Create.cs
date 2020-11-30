@@ -41,5 +41,24 @@ namespace Products
 
         }
 
+        public void Add(Employeers employ)
+        {
+            string query = "INSERT INTO " +
+                "dbo.Employeers " +
+                "(Name,City) " +
+                $"VALUES(" +
+                        $"N'{employ.Name}', " +
+                        $"N'{employ.City}');";
+            SqlCommand command = new SqlCommand(query, conn);
+            int result = command.ExecuteNonQuery();
+            if (result > 0)
+            {
+                Console.WriteLine("Успішно додано в БД");
+            }
+            else
+            {
+                Console.WriteLine("Виникли проблеми при додаванні");
+            }
+        }
     }
 }

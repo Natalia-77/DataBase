@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Create.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="Fake.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
