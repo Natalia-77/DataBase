@@ -1,0 +1,11 @@
+D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Createtbl.sql
+D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Products.exe.config
+D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Products.exe
+D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Products.pdb
+D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Bogus.dll
+D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Bogus.xml
+D:\Natalia\Project1\DataBase\Products\Products\obj\Debug\Products.csprojAssemblyReference.cache
+D:\Natalia\Project1\DataBase\Products\Products\obj\Debug\Products.csproj.CoreCompileInputs.cache
+D:\Natalia\Project1\DataBase\Products\Products\obj\Debug\Products.csproj.CopyComplete
+D:\Natalia\Project1\DataBase\Products\Products\obj\Debug\Products.exe
+D:\Natalia\Project1\DataBase\Products\Products\obj\Debug\Products.pdb
