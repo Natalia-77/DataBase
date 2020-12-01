@@ -1,4 +1,3 @@
-D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Createtbl.sql
 D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Products.exe.config
 D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Products.exe
 D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Products.pdb

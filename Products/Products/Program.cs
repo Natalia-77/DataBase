@@ -14,9 +14,9 @@ namespace Products
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;
 
-            Create c = new Create();
+           
             Fake n = new Fake();
-             n.Print();
+            n.Print();
             
 
 

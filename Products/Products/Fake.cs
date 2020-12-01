@@ -17,9 +17,9 @@ namespace Products
         public int ProductId;
         public int OrderId;
 
-        List<Employeers> e = new List<Employeers>();
-        List<Products> p = new List<Products>();
-        List<Orders> o = new List<Orders>();
+        List<Employeers> employee = new List<Employeers>();
+        List<Products> product = new List<Products>();
+        List<Orders> order = new List<Orders>();
 
         public Fake()
         {
@@ -45,9 +45,9 @@ namespace Products
 
             for (int i = 0; i < 10; i++)
             {
-                e.Add(empl.Generate());
-                p.Add(prod.Generate());
-                o.Add(ord.Generate());
+                employee.Add(empl.Generate());
+                product.Add(prod.Generate());
+                order.Add(ord.Generate());
             }
 
 
@@ -55,17 +55,17 @@ namespace Products
        
         public void Print()
         {
-            foreach (var item in e)
+            foreach (var item in employee)
             {
                 Console.WriteLine($"{ item.Id} {item.City} {item.Name}");
             }
             Console.WriteLine("--------------------------------\n");
-            foreach (var item in p)
+            foreach (var item in product)
             {
                 Console.WriteLine($"{ item.Id} {item.ProductName} {item.Price}");
             }
             Console.WriteLine("-----------------------------------\n");
-            foreach (var item in o)
+            foreach (var item in order)
             {
                 Console.WriteLine($"{ item.Id} {item.Number} {item.EmployeersId} {item.ProductsId}");
             }
