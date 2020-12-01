@@ -1,4 +1,4 @@
-﻿using Bogus;
+﻿
 using System;
 
 using System.Text;
@@ -18,8 +18,7 @@ namespace Products
             tab.Create();
             tab.AddDataToTable();
 
-            //tab.GetIdList();
-           // tab.Print();
+          
 
         }
     }

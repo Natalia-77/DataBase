@@ -100,17 +100,7 @@ namespace Products
             conn.Close();
 
             return IdListProd;
-        }
-
-        public void Print()
-        {
-            List<int> ID = GetIdList();
-            foreach (var item in ID)
-            {
-                Console.WriteLine(item);
-            }
-        }
-
+        }     
 
         /// <summary>
         /// Add data to tables
@@ -152,57 +142,57 @@ namespace Products
                 order.Add(ord.Generate());
             }
 
-            //foreach (var item in employee)
-            //{
+            foreach (var item in employee)
+            {
 
-            //    string query = "INSERT INTO " +
-            //   "Product.dbo.Employeers " +
-            //   "(Name,City) " +
-            //   $"VALUES(" +
-            //           $"N'{item.Name}', " +
-            //           $"N'{item.City}');";
-            //    SqlCommand command = new SqlCommand(query, _conn);
-            //    int result = command.ExecuteNonQuery();
-            //    if (result > 0)
-            //    {
-            //        check = true;
-            //    }
-            //    else
-            //    {
-            //        check = false;
-            //    }
+                string query = "INSERT INTO " +
+               "Product.dbo.Employeers " +
+               "(Name,City) " +
+               $"VALUES(" +
+                       $"N'{item.Name}', " +
+                       $"N'{item.City}');";
+                SqlCommand command = new SqlCommand(query, _conn);
+                int result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    check = true;
+                }
+                else
+                {
+                    check = false;
+                }
 
-            //}
-            //if (check)
-            //{
-            //    Console.WriteLine("Succesfull added data's to database \"Product\" table Employeers ");
-            //}
+            }
+            if (check)
+            {
+                Console.WriteLine("Succesfull added data's to database \"Product\" table Employeers ");
+            }
 
-            //foreach (var item in product)
-            //{
+            foreach (var item in product)
+            {
 
-            //    string query = "INSERT INTO " +
-            //   "Product.dbo.Products " +
-            //   "(ProductName,Price) " +
-            //   $"VALUES(" +
-            //           $"N'{item.ProductName}', " +
-            //           $"N'{item.Price}');";
-            //    SqlCommand command = new SqlCommand(query, _conn);
-            //    int result = command.ExecuteNonQuery();
-            //    if (result > 0)
-            //    {
-            //        check = true;
-            //    }
-            //    else
-            //    {
-            //        check = false;
-            //    }
+                string query = "INSERT INTO " +
+               "Product.dbo.Products " +
+               "(ProductName,Price) " +
+               $"VALUES(" +
+                       $"N'{item.ProductName}', " +
+                       $"N'{item.Price}');";
+                SqlCommand command = new SqlCommand(query, _conn);
+                int result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    check = true;
+                }
+                else
+                {
+                    check = false;
+                }
 
-            //}
-            //if (check)
-            //{
-            //    Console.WriteLine("Succesfull added data's to database \"Product\" table Products ");
-            //}
+            }
+            if (check)
+            {
+                Console.WriteLine("Succesfull added data's to database \"Product\" table Products ");
+            }
 
             foreach (var item in order)
             {

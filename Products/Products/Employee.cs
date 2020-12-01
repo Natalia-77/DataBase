@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
 
 namespace Products
 {
@@ -14,7 +10,7 @@ namespace Products
         /// </summary>
        // public int Id { get; set; }
         public string Name { get; set; }
-        public string City { get; set; }        
+        public string City { get; set; }
 
 
 
