@@ -204,31 +204,33 @@ namespace Products
             //    Console.WriteLine("Succesfull added data's to database \"Product\" table Products ");
             //}
 
-            //foreach (var item in order)
-            //{
+            foreach (var item in order)
+            {
 
-            //    string query = "INSERT INTO " +
-            //   "Product.dbo.Orders " +
-            //   "(Name,City) " +
-            //   $"VALUES(" +
-            //           $"N'{item.Number}', " +
-            //           $"N'{item.EmployeersId}');";
-            //    SqlCommand command = new SqlCommand(query, _conn);
-            //    int result = command.ExecuteNonQuery();
-            //    if (result > 0)
-            //    {
-            //        check = true;
-            //    }
-            //    else
-            //    {
-            //        check = false;
-            //    }
+                string query = "INSERT INTO " +
+               "Product.dbo.Orders " +
+               "(Number,EmployeersId,ProductsId) " +
+               $"VALUES(" +
+                        $"N'{item.Number}', " +
+                        $"N'{item.EmployeersId}', " +
+                        $"N'{item.ProductsId}');";
+                
+                SqlCommand command = new SqlCommand(query, _conn);
+                int result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    check = true;
+                }
+                else
+                {
+                    check = false;
+                }
 
-            //}
-            //if (check)
-            //{
-            //    Console.WriteLine("Succesfull added data's to database \"Product\" table Orders ");
-            //}
+            }
+            if (check)
+            {
+                Console.WriteLine("Succesfull added data's to database \"Product\" table Orders ");
+            }
 
 
         }
