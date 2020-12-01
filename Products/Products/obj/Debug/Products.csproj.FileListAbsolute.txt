@@ -8,3 +8,4 @@ D:\Natalia\Project1\DataBase\Products\Products\obj\Debug\Products.csproj.CoreCom
 D:\Natalia\Project1\DataBase\Products\Products\obj\Debug\Products.csproj.CopyComplete
 D:\Natalia\Project1\DataBase\Products\Products\obj\Debug\Products.exe
 D:\Natalia\Project1\DataBase\Products\Products\obj\Debug\Products.pdb
+D:\Natalia\Project1\DataBase\Products\Products\bin\Debug\Createtbl.sql

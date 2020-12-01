@@ -1,9 +1,7 @@
 ﻿using Bogus;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Products
 {
@@ -11,15 +9,14 @@ namespace Products
     {
         static void Main(string[] args)
         {
+            //Randomizer.Seed = new Random();
             Console.OutputEncoding = Encoding.Unicode;
-            Console.InputEncoding = Encoding.Unicode;
-
-           
-            Fake n = new Fake();
-            n.Print();
+            Console.InputEncoding = Encoding.Unicode;  
             
+            TableService tab = new TableService();
 
-
+            tab.Create();
+            tab.AddDataToTable();
 
         }
     }

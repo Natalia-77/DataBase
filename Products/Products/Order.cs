@@ -11,7 +11,7 @@ namespace Products
     /// </summary>
     public class Orders
     {
-        public int Id { get; set; }
+       //public int Id { get; set; }
         public int Number { get; set; }
         public int EmployeersId { get; set; }
         public int ProductsId { get; set; }
