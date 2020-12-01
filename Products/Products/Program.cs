@@ -9,7 +9,7 @@ namespace Products
     {
         static void Main(string[] args)
         {
-            //Randomizer.Seed = new Random();
+           
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;  
             
@@ -17,6 +17,9 @@ namespace Products
 
             tab.Create();
             tab.AddDataToTable();
+
+            //tab.GetIdList();
+           // tab.Print();
 
         }
     }
