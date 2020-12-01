@@ -1,0 +1,8 @@
+D:\Natalia\Project1\DataBase\CreateProduct\CreateProduct\bin\Debug\Createtbl.sql
+D:\Natalia\Project1\DataBase\CreateProduct\CreateProduct\bin\Debug\CreateProduct.exe.config
+D:\Natalia\Project1\DataBase\CreateProduct\CreateProduct\bin\Debug\CreateProduct.exe
+D:\Natalia\Project1\DataBase\CreateProduct\CreateProduct\bin\Debug\CreateProduct.pdb
+D:\Natalia\Project1\DataBase\CreateProduct\CreateProduct\obj\Debug\CreateProduct.csprojAssemblyReference.cache
+D:\Natalia\Project1\DataBase\CreateProduct\CreateProduct\obj\Debug\CreateProduct.csproj.CoreCompileInputs.cache
+D:\Natalia\Project1\DataBase\CreateProduct\CreateProduct\obj\Debug\CreateProduct.exe
+D:\Natalia\Project1\DataBase\CreateProduct\CreateProduct\obj\Debug\CreateProduct.pdb
