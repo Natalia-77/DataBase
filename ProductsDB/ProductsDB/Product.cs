@@ -10,11 +10,11 @@ namespace ProductsDB
     {
         public int Id { get; set; }
         public string ProductName { get; set; }
-        public decimal Price { get; set; }
+        public string Price { get; set; }
 
         public override string ToString()
         {
-            return $"{Id}. {ProductName} -> {Price} - ";
+            return $"{Id}. {ProductName} -> {string.Format("{0:#.00}",Convert.ToDecimal(Price)/100)}  ";
         }
     }
 }

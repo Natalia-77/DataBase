@@ -1,0 +1,7 @@
+D:\Natalia\Project1\DataBase\ProductsDB\ProductsDB\bin\Debug\ProductsDB.exe.config
+D:\Natalia\Project1\DataBase\ProductsDB\ProductsDB\bin\Debug\ProductsDB.exe
+D:\Natalia\Project1\DataBase\ProductsDB\ProductsDB\bin\Debug\ProductsDB.pdb
+D:\Natalia\Project1\DataBase\ProductsDB\ProductsDB\obj\Debug\ProductsDB.csprojAssemblyReference.cache
+D:\Natalia\Project1\DataBase\ProductsDB\ProductsDB\obj\Debug\ProductsDB.csproj.CoreCompileInputs.cache
+D:\Natalia\Project1\DataBase\ProductsDB\ProductsDB\obj\Debug\ProductsDB.exe
+D:\Natalia\Project1\DataBase\ProductsDB\ProductsDB\obj\Debug\ProductsDB.pdb

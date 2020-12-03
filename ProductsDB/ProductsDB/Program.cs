@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ProductsDB
 {
@@ -13,6 +11,18 @@ namespace ProductsDB
             Console.InputEncoding = Encoding.Unicode;
             Console.OutputEncoding = Encoding.Unicode;
 
+            TableAction act = new TableAction();
+
+           
+
+            var list=act.Show();
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("---------------------\n");
+
+            act.AddToTable();
 
 
         }
