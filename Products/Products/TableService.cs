@@ -15,7 +15,8 @@ namespace Products
 
         public TableService()
         {
-            strconn = "Data Source = nataliaserver.database.windows.net; Initial Catalog = Product; User ID = natalia; Password = Querty1* ";
+            //strconn = "Data Source = nataliaserver.database.windows.net; Initial Catalog = Product; User ID = natalia; Password = Querty1* ";
+            strconn = "Data Source=serverpu816.database.windows.net;Initial Catalog=test;User ID=pu816;Password=Qwerty1*";
             _conn = new SqlConnection(strconn);          
         }
 
@@ -86,7 +87,7 @@ namespace Products
             SqlConnection conn = new SqlConnection(strconn);
             conn.Open();
 
-            string query = "SELECT Id FROM Products";
+            string query = "SELECT Id FROM Productes";
             SqlCommand cmd = new SqlCommand(query, conn);
 
             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -130,12 +131,12 @@ namespace Products
             var ord = new Faker<Orders>("uk")
                 .RuleFor(x => x.Number, f => f.Random.Number(1, 55))
                 .RuleFor(x => x.EmployeersId, f => ID[rand.Next(0, ID.Count - 1)])
-                .RuleFor(x => x.ProductsId, f => IDProd[rand.Next(0, IDProd.Count - 1)]);
-                //.RuleFor(x => x.EmployeersId, f => f.Random.Number(16, 20))
-                //.RuleFor(x => x.ProductsId, f => f.Random.Number(1, 5));
+                .RuleFor(x => x.ProductesId, f => IDProd[rand.Next(0, IDProd.Count - 1)]);
+            //.RuleFor(x => x.EmployeersId, f => f.Random.Number(16, 20))
+            //.RuleFor(x => x.ProductsId, f => f.Random.Number(1, 5));
 
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
                 employee.Add(empl.Generate());
                 product.Add(prod.Generate());
@@ -146,7 +147,7 @@ namespace Products
             {
 
                 string query = "INSERT INTO " +
-               "Product.dbo.Employeers " +
+               "dbo.Employeers " +
                "(Name,City) " +
                $"VALUES(" +
                        $"N'{item.Name}', " +
@@ -165,14 +166,14 @@ namespace Products
             }
             if (check)
             {
-                Console.WriteLine("Succesfull added data's to database \"Product\" table Employeers ");
+                Console.WriteLine("Succesfull added data's to database \"test\" table Employeers ");
             }
 
             foreach (var item in product)
             {
 
                 string query = "INSERT INTO " +
-               "Product.dbo.Products " +
+               "dbo.Productes " +
                "(ProductName,Price) " +
                $"VALUES(" +
                        $"N'{item.ProductName}', " +
@@ -191,20 +192,20 @@ namespace Products
             }
             if (check)
             {
-                Console.WriteLine("Succesfull added data's to database \"Product\" table Products ");
+                Console.WriteLine("Succesfull added data's to database \"test\" table Productes ");
             }
 
             foreach (var item in order)
             {
 
                 string query = "INSERT INTO " +
-               "Product.dbo.Orders " +
-               "(Number,EmployeersId,ProductsId) " +
+               "dbo.Orders " +
+               "(Number,EmployeersId,ProductesId) " +
                $"VALUES(" +
                         $"N'{item.Number}', " +
                         $"N'{item.EmployeersId}', " +
-                        $"N'{item.ProductsId}');";
-                
+                        $"N'{item.ProductesId}');";
+
                 SqlCommand command = new SqlCommand(query, _conn);
                 int result = command.ExecuteNonQuery();
                 if (result > 0)
@@ -219,7 +220,7 @@ namespace Products
             }
             if (check)
             {
-                Console.WriteLine("Succesfull added data's to database \"Product\" table Orders ");
+                Console.WriteLine("Succesfull added data's to database \"test\" table Orders ");
             }
 
 

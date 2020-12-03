@@ -9,7 +9,7 @@ namespace Products
        //public int Id { get; set; }
         public int Number { get; set; }
         public int EmployeersId { get; set; }
-        public int ProductsId { get; set; }
+        public int ProductesId { get; set; }
 
     }
 }
