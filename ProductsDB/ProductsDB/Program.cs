@@ -12,18 +12,56 @@ namespace ProductsDB
             Console.OutputEncoding = Encoding.Unicode;
 
             TableAction act = new TableAction();
+            int action = 0;
+            do
+            {
+                Console.WriteLine("0. Exit");
+                Console.WriteLine("1. Show");
+                Console.WriteLine("2. Add");
+                Console.WriteLine("3. Delete");
+                Console.WriteLine("4. Update");
+                Console.Write("->_");
+                action = int.Parse(Console.ReadLine());
+                switch (action)
+                {
+                    case 1:
+                        {
+                            var list = act.Show();
+                            foreach (var item in list)
+                            {
+                                Console.WriteLine(item);
+                            }
+                            break;
+                        }
+
+                }
+            } while (action != 0);
+
 
            
+           
 
-            var list=act.Show();
-            foreach (var item in list)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("---------------------\n");
+            //act.AddToTable();
+            Console.WriteLine("----------------------\n");
+            //Console.WriteLine("Enter Id");
+            //int id = int.Parse(Console.ReadLine());
+            //act.Update(id);
 
-            act.AddToTable();
+            //Search search = new Search();
+            //Console.Write("Enter Product name: ");
+            //search.ProductName = Console.ReadLine();
+            ///Console.Write("Enter id: ");
+            ///search.Id = int.Parse(Console.ReadLine());
 
+            //var reslist = act.Found(search);
+            //foreach (var item in reslist)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            Console.WriteLine("Enter Id for delete");
+            int id = int.Parse(Console.ReadLine());
+            act.Delete(id);
 
         }
     }

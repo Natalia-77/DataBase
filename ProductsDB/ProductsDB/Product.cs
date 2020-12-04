@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProductsDB
 {
-    class Product
+     public class Product
     {
         public int Id { get; set; }
         public string ProductName { get; set; }
@@ -16,5 +16,11 @@ namespace ProductsDB
         {
             return $"{Id}. {ProductName} -> {string.Format("{0:#.00}",Convert.ToDecimal(Price)/100)}  ";
         }
+    }
+
+    public class Search
+    {
+        //public int Id { get; set; }
+        public string ProductName { get; set; }
     }
 }
