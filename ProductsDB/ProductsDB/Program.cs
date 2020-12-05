@@ -23,6 +23,7 @@ namespace ProductsDB
                 Console.WriteLine("5. Search");
                 Console.Write("->_");
                 action = int.Parse(Console.ReadLine());
+                Console.Clear();
                 switch (action)
                 {
                     case 1:
@@ -32,14 +33,14 @@ namespace ProductsDB
                             {
                                 Console.WriteLine(item);
                             }
-                            Console.ReadKey();
-                            Console.Clear();
+                          
+                           
                             break;
                         }
                     case 2:
                         {
                             act.AddToTable();
-                            Console.Clear();
+                            //Console.Clear();
                             break;
                         }
                     case 3:
@@ -47,7 +48,7 @@ namespace ProductsDB
                             Console.WriteLine("Enter Id for delete");
                             int id = int.Parse(Console.ReadLine());
                             act.Delete(id);
-                            Console.Clear();
+                            //Console.Clear();
                             break;
                         }
                     case 4:
@@ -55,7 +56,7 @@ namespace ProductsDB
                             Console.WriteLine("Enter Id");
                             int ids = int.Parse(Console.ReadLine());
                             act.Update(ids);
-                            Console.Clear();
+                            //Console.Clear();
                             break;
                         }
                     case 5:
@@ -69,7 +70,7 @@ namespace ProductsDB
                             {
                                 Console.WriteLine(item);
                             }
-                            Console.Clear();
+                            //Console.Clear();
                             break;
                         }
 
