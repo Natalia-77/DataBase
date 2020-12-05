@@ -21,7 +21,8 @@ namespace ProductsDB
                 Console.WriteLine("3. Delete");
                 Console.WriteLine("4. Update");
                 Console.WriteLine("5. Search");
-                Console.Write("->_");
+                Console.Write("--->");
+
                 action = int.Parse(Console.ReadLine());
                 Console.Clear();
                 switch (action)
@@ -40,7 +41,7 @@ namespace ProductsDB
                     case 2:
                         {
                             act.AddToTable();
-                            //Console.Clear();
+
                             break;
                         }
                     case 3:
@@ -48,7 +49,7 @@ namespace ProductsDB
                             Console.WriteLine("Enter Id for delete");
                             int id = int.Parse(Console.ReadLine());
                             act.Delete(id);
-                            //Console.Clear();
+                            
                             break;
                         }
                     case 4:
@@ -56,7 +57,7 @@ namespace ProductsDB
                             Console.WriteLine("Enter Id");
                             int ids = int.Parse(Console.ReadLine());
                             act.Update(ids);
-                            //Console.Clear();
+                           
                             break;
                         }
                     case 5:
@@ -70,7 +71,6 @@ namespace ProductsDB
                             {
                                 Console.WriteLine(item);
                             }
-                            //Console.Clear();
                             break;
                         }
 
@@ -78,31 +78,8 @@ namespace ProductsDB
                 }
             } while (action != 0);
 
-
            
            
-
-            //act.AddToTable();
-            //Console.WriteLine("----------------------\n");
-            //Console.WriteLine("Enter Id");
-            //int id = int.Parse(Console.ReadLine());
-            //act.Update(id);
-
-            //Search search = new Search();
-            //Console.Write("Enter Product name: ");
-            //search.ProductName = Console.ReadLine();
-            ///Console.Write("Enter id: ");
-            ///search.Id = int.Parse(Console.ReadLine());
-
-            //var reslist = act.Found(search);
-            //foreach (var item in reslist)
-            //{
-            //    Console.WriteLine(item);
-            //}
-
-            //Console.WriteLine("Enter Id for delete");
-            //int id = int.Parse(Console.ReadLine());
-            //act.Delete(id);
 
         }
     }
