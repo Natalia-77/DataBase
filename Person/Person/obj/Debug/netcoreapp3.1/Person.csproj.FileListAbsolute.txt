@@ -1,0 +1,13 @@
+D:\Natalia\Project1\DataBase\Person\Person\bin\Debug\netcoreapp3.1\Person.exe
+D:\Natalia\Project1\DataBase\Person\Person\bin\Debug\netcoreapp3.1\Person.deps.json
+D:\Natalia\Project1\DataBase\Person\Person\bin\Debug\netcoreapp3.1\Person.runtimeconfig.json
+D:\Natalia\Project1\DataBase\Person\Person\bin\Debug\netcoreapp3.1\Person.runtimeconfig.dev.json
+D:\Natalia\Project1\DataBase\Person\Person\bin\Debug\netcoreapp3.1\Person.dll
+D:\Natalia\Project1\DataBase\Person\Person\bin\Debug\netcoreapp3.1\Person.pdb
+D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp3.1\Person.csprojAssemblyReference.cache
+D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp3.1\Person.AssemblyInfoInputs.cache
+D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp3.1\Person.AssemblyInfo.cs
+D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp3.1\Person.csproj.CoreCompileInputs.cache
+D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp3.1\Person.dll
+D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp3.1\Person.pdb
+D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp3.1\Person.genruntimeconfig.cache
