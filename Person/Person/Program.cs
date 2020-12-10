@@ -51,13 +51,13 @@ namespace Person
                             break;
                         }
 
-                }//switch
+                }
 
             } while (action != 0);
 
 
-        }//main
+        }
 
-    }//program
+    }
 
-}//namespace
+}
