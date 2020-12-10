@@ -71,7 +71,25 @@ namespace Person
 
                             break;
                         }
+                    case 4:
+                        {
+                            //Console.WriteLine("Enter id:");
+                            //int id = int.Parse(Console.ReadLine());
+                            //Persons d = context.PersonsDetails.SingleOrDefault(x => x.Id == id);
+                            //if (d != null)
+                            //{
+                            //    Console.WriteLine("Enter new name");
+                            //    d.Name = Console.ReadLine();
+                            //}
+                            //else
+                            //{
+                            //    Console.WriteLine($"Sorry,there is no element with-->{id}<-- id");
+                            //}
+                            //context.SaveChanges();
+                            context.Edited();
+                            break;
 
+                        }
 
 
 
