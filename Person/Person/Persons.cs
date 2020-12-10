@@ -34,7 +34,7 @@ namespace Person
         public byte Point { get; set; }
         public override string ToString()
         {
-            return $"{Id}->>{Name} {Surname} Age:{Age}, Weight:{Weight}, Footsize:{Footsize}, Male/Female(1 or 0): {Point}";
+            return $"{Id}-> {Name} {Surname} Age:{Age}, Weight:{Weight}, Footsize:{Footsize}, Male/Female(1 or 0): {Point}";
         }
     }
 }
