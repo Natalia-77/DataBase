@@ -17,7 +17,7 @@ namespace Person
             Persons person = new Persons();
             Console.WriteLine("Enter name :");
             person.Name = Console.ReadLine();
-            Console.WriteLine("Enter name :");
+            Console.WriteLine("Enter surname :");
             person.Surname = Console.ReadLine();
             Console.WriteLine("Enter weight :");
             person.Weight = int.Parse(Console.ReadLine());
