@@ -54,22 +54,27 @@ namespace Person
                         }
                     case 3:
                         {
+                            context.Deleted();
 
-                            Console.WriteLine("Enter id:");
-                            int id = int.Parse(Console.ReadLine());
-                            Persons d = context.PersonsDetails.SingleOrDefault(x => x.Id == id);
-                            if (d != null)
-                            {
-                                context.PersonsDetails.Remove(d);
-                            }
-                            else
-                            {
-                                Console.WriteLine($"Sorry,there is no element with-->{id}<-- id");
-                            }
-                            context.SaveChanges();
+                            //Console.WriteLine("Enter id:");
+                            //int id = int.Parse(Console.ReadLine());
+                            //Persons d = context.PersonsDetails.SingleOrDefault(x => x.Id == id);
+                            //if (d != null)
+                            //{
+                            //    context.PersonsDetails.Remove(d);
+                            //}
+                            //else
+                            //{
+                            //    Console.WriteLine($"Sorry,there is no element with-->{id}<-- id");
+                            //}
+                            //context.SaveChanges();
 
                             break;
                         }
+
+
+
+
 
 
 

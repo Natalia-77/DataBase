@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Person
@@ -29,7 +30,23 @@ namespace Person
             person.Point = byte.Parse(Console.ReadLine());
             PersonsDetails.Add(person);
             SaveChanges();
-            Console.WriteLine("Added");
+            Console.WriteLine(" Succsessfull added into database !");
         }
-     }
+        public void Deleted()
+        {
+            Console.WriteLine("Enter id:");
+            int id = int.Parse(Console.ReadLine());
+            Persons d = PersonsDetails.SingleOrDefault(x => x.Id == id);
+            if (d != null)
+            {
+                PersonsDetails.Remove(d);
+            }
+            else
+            {
+                Console.WriteLine($"Sorry,there is no element with--> {id} <-- id");
+            }
+            SaveChanges();
+
+        }
+    }
 }
