@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+
 
 namespace Person
 {
@@ -26,99 +26,30 @@ namespace Person
                         {
                             foreach (var item in context.PersonsDetails)
                             {
-                                Console.WriteLine($"{ item.Id}. { item.Name} {item.Surname} --> {item.Age}   {item.Weight}   {item.Point}  {item.Footsize}");
+                                Console.WriteLine(item.ToString());
                             }
                             break;
                         }
                     case 2:
                         {
-                            //Persons person = new Persons();
-                            //Console.WriteLine("Enter name :");
-                            //person.Name = Console.ReadLine();
-                            //Console.WriteLine("Enter name :");
-                            //person.Surname = Console.ReadLine();
-                            //Console.WriteLine("Enter weight :");
-                            //person.Weight = int.Parse(Console.ReadLine());
-                            //Console.WriteLine("Enter age :");
-                            //person.Age = int.Parse(Console.ReadLine());
-                            //Console.WriteLine("Enter footsize :");
-                            //person.Footsize = int.Parse(Console.ReadLine());
-                            //Console.WriteLine("Enter point :");
-                            //person.Point = byte.Parse(Console.ReadLine());                          
-                            //context.PersonsDetails.Add(person);
-                            //context.SaveChanges();
-                            //Console.WriteLine("Added");
                             context.Addes();
-
                             break;
                         }
                     case 3:
                         {
                             context.Deleted();
-
-                            //Console.WriteLine("Enter id:");
-                            //int id = int.Parse(Console.ReadLine());
-                            //Persons d = context.PersonsDetails.SingleOrDefault(x => x.Id == id);
-                            //if (d != null)
-                            //{
-                            //    context.PersonsDetails.Remove(d);
-                            //}
-                            //else
-                            //{
-                            //    Console.WriteLine($"Sorry,there is no element with-->{id}<-- id");
-                            //}
-                            //context.SaveChanges();
-
                             break;
                         }
                     case 4:
                         {
-                            //Console.WriteLine("Enter id:");
-                            //int id = int.Parse(Console.ReadLine());
-                            //Persons d = context.PersonsDetails.SingleOrDefault(x => x.Id == id);
-                            //if (d != null)
-                            //{
-                            //    Console.WriteLine("Enter new name");
-                            //    d.Name = Console.ReadLine();
-                            //}
-                            //else
-                            //{
-                            //    Console.WriteLine($"Sorry,there is no element with-->{id}<-- id");
-                            //}
-                            //context.SaveChanges();
                             context.Edited();
                             break;
-
                         }
                     case 5:
                         {
-                            Console.WriteLine("Enter id:");
-                            int ids = int.Parse(Console.ReadLine());
-                            var res = (from Persons in context.PersonsDetails
-                                        where Persons.Id == ids
-                                     // where Persons.Point==1
-                                       select  Persons);
-
-                            if(res!=null)
-                            {
-                                foreach (var item in res)
-                                {
-                                    Console.WriteLine(item.ToString());
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Not found!");
-                            }
-
+                            context.Founded();
                             break;
                         }
-
-
-
-
-
-
 
                 }//switch
 

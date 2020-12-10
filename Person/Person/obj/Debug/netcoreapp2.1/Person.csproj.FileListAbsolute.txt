@@ -7,6 +7,6 @@ D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp2.1\Person.Assemb
 D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp2.1\Person.AssemblyInfo.cs
 D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp2.1\Person.genruntimeconfig.cache
 D:\Natalia\Project1\DataBase\Person\Person\bin\Debug\netcoreapp2.1\Person.pdb
-D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp2.1\Person.csproj.CoreCompileInputs.cache
 D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp2.1\Person.dll
 D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp2.1\Person.pdb
+D:\Natalia\Project1\DataBase\Person\Person\obj\Debug\netcoreapp2.1\Person.csproj.CoreCompileInputs.cache

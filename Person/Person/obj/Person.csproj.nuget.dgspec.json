@@ -50,6 +50,10 @@
               "version": "[2.1.0, )",
               "autoReferenced": true
             },
+            "NEST": {
+              "target": "Package",
+              "version": "[7.10.1, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[2.1.1, )"

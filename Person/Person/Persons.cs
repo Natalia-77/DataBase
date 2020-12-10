@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+
 
 namespace Person
 {
@@ -35,7 +34,7 @@ namespace Person
         public byte Point { get; set; }
         public override string ToString()
         {
-            return $"{Name},{Surname}";
+            return $"{Id}->>{Name} {Surname} Age:{Age}, Weight:{Weight}, Footsize:{Footsize}, Male/Female(1 or 0): {Point}";
         }
     }
 }

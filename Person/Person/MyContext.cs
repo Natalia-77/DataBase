@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+
 
 namespace Person
 {
@@ -112,6 +111,144 @@ namespace Person
                 Console.WriteLine($"Sorry,there is no element with--> {id} <-- id");
             }
             SaveChanges();
+        }
+
+        public void Founded()
+        {
+            Console.WriteLine("1.Found by id");
+            Console.WriteLine("2.Found by name(or couple letters)");
+            Console.WriteLine("3.Found by point(male/female)");
+            Console.WriteLine("4.Found by age");
+            Console.WriteLine("5.Found by weight");
+
+            int pos = int.Parse(Console.ReadLine());
+            switch(pos)
+            {
+                case 1:
+                    {
+                        Console.WriteLine("Enter id:");
+                        int ids = int.Parse(Console.ReadLine());
+                        var res = (from Persons in PersonsDetails                                      
+                                   where Persons.Id == ids                                   
+                                   select Persons);
+
+                        if (res.Count() > 0)
+                        {
+                            foreach (var item in res)
+                            {
+                                Console.WriteLine(item.ToString());
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not found person with these id!");
+                            Console.WriteLine("-----------------");
+                        }
+
+                        break;
+                    }
+                case 2:
+                    {
+                        Console.WriteLine("Enter name:");
+                        string res2 = Console.ReadLine();
+                        var res = (from Persons in PersonsDetails
+                                   where Persons.Name.ToLower().Contains(res2)
+                                   select Persons);
+
+                        if (res.Count() > 0)
+                        {
+                            foreach (var item in res)
+                            {
+                                Console.WriteLine(item.ToString());
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not found person with these parametres!");
+                            Console.WriteLine("-----------------");
+                        }
+
+                        break;
+                    }
+                case 3:
+                    {
+                        Console.WriteLine("Enter 1 for male list or enter 0 for female list");
+                        byte sex = byte.Parse(Console.ReadLine());
+                        var res = (from Persons in PersonsDetails
+                                   where Persons.Point == sex
+                                   select Persons);
+
+                        if (res.Count() > 0)
+                        {
+                            foreach (var item in res)
+                            {
+                                Console.WriteLine(item.ToString());
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not found!");
+                            Console.WriteLine("-----------------");
+                        }
+
+                        break;
+                    }
+                case 4:
+                    {
+                        Console.WriteLine("Enter age:");
+                        int age = int.Parse(Console.ReadLine());
+                        var res = (from Persons in PersonsDetails
+                                   where Persons.Age == age
+                                   select Persons);
+
+                        if (res.Count() > 0)
+                        {
+                            foreach (var item in res)
+                            {
+                                Console.WriteLine(item.ToString());
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not found person with these age !");
+                            Console.WriteLine("-----------------");
+                        }
+
+                        break;
+                    }
+
+                case 5:
+                    {
+                        Console.WriteLine("Enter weight:");
+                        int weight = int.Parse(Console.ReadLine());
+                        var res = (from Persons in PersonsDetails
+                                   where Persons.Weight== weight
+                                   select Persons);
+
+                        if (res.Count() > 0)
+                        {
+                            foreach (var item in res)
+                            {
+                                Console.WriteLine(item.ToString());
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not found person with these weight!");
+                            Console.WriteLine("-----------------");
+                        }
+
+                        break;
+                    }
+
+            }
+
+
+
         }
     }
 }
