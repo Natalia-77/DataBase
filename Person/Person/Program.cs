@@ -90,6 +90,29 @@ namespace Person
                             break;
 
                         }
+                    case 5:
+                        {
+                            Console.WriteLine("Enter id:");
+                            int ids = int.Parse(Console.ReadLine());
+                            var res = (from Persons in context.PersonsDetails
+                                        where Persons.Id == ids
+                                     // where Persons.Point==1
+                                       select  Persons);
+
+                            if(res!=null)
+                            {
+                                foreach (var item in res)
+                                {
+                                    Console.WriteLine(item.ToString());
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Not found!");
+                            }
+
+                            break;
+                        }
 
 
 

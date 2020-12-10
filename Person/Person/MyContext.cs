@@ -54,6 +54,7 @@ namespace Person
             Console.WriteLine("Enter id:");
             int id = int.Parse(Console.ReadLine());
             Persons p = PersonsDetails.SingleOrDefault(x => x.Id == id);
+
             if (p != null)
             {
                 int choice = 0;
