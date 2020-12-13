@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Natalia\\Project1\\DataBase\\Person\\Person\\Person.csproj": {}
+    "D:\\Natalia\\Project1\\DataBase\\Posts\\Posts\\Posts.csproj": {}
   },
   "projects": {
-    "D:\\Natalia\\Project1\\DataBase\\Person\\Person\\Person.csproj": {
+    "D:\\Natalia\\Project1\\DataBase\\Posts\\Posts\\Posts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Natalia\\Project1\\DataBase\\Person\\Person\\Person.csproj",
-        "projectName": "Person",
-        "projectPath": "D:\\Natalia\\Project1\\DataBase\\Person\\Person\\Person.csproj",
+        "projectUniqueName": "D:\\Natalia\\Project1\\DataBase\\Posts\\Posts\\Posts.csproj",
+        "projectName": "Posts",
+        "projectPath": "D:\\Natalia\\Project1\\DataBase\\Posts\\Posts\\Posts.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Natalia\\Project1\\DataBase\\Person\\Person\\obj\\",
+        "outputPath": "D:\\Natalia\\Project1\\DataBase\\Posts\\Posts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -41,8 +41,6 @@
           "targetAlias": "netcoreapp2.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.1, )"
             },
@@ -51,10 +49,6 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
-            },
-            "NEST": {
-              "target": "Package",
-              "version": "[7.10.1, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
