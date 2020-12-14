@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Posts
 {
@@ -6,7 +7,12 @@ namespace Posts
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
+            
+            MyContext context = new MyContext();
+            foreach (var item in context.Posts.Include(x=>x.Category))
+            {
+                Console.WriteLine($"{item.Title}");
+            }
         }
     }
 }
