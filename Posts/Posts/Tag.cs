@@ -19,7 +19,7 @@ namespace Posts
         [Required, StringLength(150)]
         public string Description { get; set; }
 
-
+        public virtual ICollection<PostTag> PostTags { get; set; }
 
     }
 }
