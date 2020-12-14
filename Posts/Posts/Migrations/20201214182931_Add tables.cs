@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Posts.Migrations
 {
-    public partial class Createtbl : Migration
+    public partial class Addtables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,20 @@ namespace Posts.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tblCategory", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "tblTag",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    Description = table.Column<string>(maxLength: 150, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tblTag", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -48,24 +62,27 @@ namespace Posts.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "tblTag",
+                name: "tblPostTag",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    Name = table.Column<string>(maxLength: 100, nullable: false),
-                    Description = table.Column<string>(maxLength: 150, nullable: false),
-                    PostId = table.Column<int>(nullable: true)
+                    PostId = table.Column<int>(nullable: false),
+                    TagId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tblTag", x => x.Id);
+                    table.PrimaryKey("PK_tblPostTag", x => new { x.PostId, x.TagId });
                     table.ForeignKey(
-                        name: "FK_tblTag_tblPost_PostId",
+                        name: "FK_tblPostTag_tblPost_PostId",
                         column: x => x.PostId,
                         principalTable: "tblPost",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_tblPostTag_tblTag_TagId",
+                        column: x => x.TagId,
+                        principalTable: "tblTag",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -74,18 +91,21 @@ namespace Posts.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_tblTag_PostId",
-                table: "tblTag",
-                column: "PostId");
+                name: "IX_tblPostTag_TagId",
+                table: "tblPostTag",
+                column: "TagId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "tblTag");
+                name: "tblPostTag");
 
             migrationBuilder.DropTable(
                 name: "tblPost");
+
+            migrationBuilder.DropTable(
+                name: "tblTag");
 
             migrationBuilder.DropTable(
                 name: "tblCategory");

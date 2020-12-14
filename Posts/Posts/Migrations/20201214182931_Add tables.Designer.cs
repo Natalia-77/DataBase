@@ -10,8 +10,8 @@ using Posts;
 namespace Posts.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20201214114629_PostTag")]
-    partial class PostTag
+    [Migration("20201214182931_Add tables")]
+    partial class Addtables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,8 +52,6 @@ namespace Posts.Migrations
 
                     b.Property<DateTime>("Modified");
 
-                    b.Property<int?>("PostTagId");
-
                     b.Property<DateTime>("PostedOn");
 
                     b.Property<DateTime>("Published");
@@ -70,23 +68,16 @@ namespace Posts.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("PostTagId");
-
                     b.ToTable("tblPost");
                 });
 
             modelBuilder.Entity("Posts.PostTag", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
                     b.Property<int>("PostId");
 
                     b.Property<int>("TagId");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("PostId");
+                    b.HasKey("PostId", "TagId");
 
                     b.HasIndex("TagId");
 
@@ -106,11 +97,7 @@ namespace Posts.Migrations
                         .IsRequired()
                         .HasMaxLength(100);
 
-                    b.Property<int?>("PostTagId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("PostTagId");
 
                     b.ToTable("tblTag");
                 });
@@ -121,30 +108,19 @@ namespace Posts.Migrations
                         .WithMany("Posts")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Posts.PostTag")
-                        .WithMany("Posts")
-                        .HasForeignKey("PostTagId");
                 });
 
             modelBuilder.Entity("Posts.PostTag", b =>
                 {
                     b.HasOne("Posts.Post", "Post")
-                        .WithMany()
+                        .WithMany("PostTags")
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Posts.Tag", "Tag")
-                        .WithMany()
+                        .WithMany("PostTags")
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Posts.Tag", b =>
-                {
-                    b.HasOne("Posts.PostTag")
-                        .WithMany("Tags")
-                        .HasForeignKey("PostTagId");
                 });
 #pragma warning restore 612, 618
         }
