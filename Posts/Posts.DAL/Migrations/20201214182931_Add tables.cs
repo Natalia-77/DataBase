@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Posts.Migrations
+namespace Posts.DAL.Migrations
 {
     public partial class Addtables : Migration
     {

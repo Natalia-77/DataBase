@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Posts
+namespace Posts.DAL
 {
     public class MyContext: DbContext
     {

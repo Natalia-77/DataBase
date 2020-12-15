@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Posts.DAL;
 using System;
 
 namespace Posts
