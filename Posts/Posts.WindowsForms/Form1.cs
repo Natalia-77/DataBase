@@ -24,9 +24,12 @@ namespace Posts.WindowsForms
             MyContext context = new MyContext();
             foreach (var item in context.Categories.Include(x => x.Posts))
             {
-                string str=$"{item.Name}--> {item.Description}";
-                object[] row = { str };
-                dataGridView1.Rows.Add(str);
+                //string str = $"{item.Name} {item.Description}";
+                object[] row = {
+                    $"{item.Name}",
+                    $"{item.Description}"
+                };
+                dataGridView1.Rows.Add(row);
             }
         }
     }
