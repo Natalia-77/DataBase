@@ -24,7 +24,7 @@ namespace Posts.WindowsForms
             MyContext context = new MyContext();
             foreach (var item in context.Categories.Include(x => x.Posts))
             {
-                //string str = $"{item.Name} {item.Description}";
+               
                 object[] row = {
                     $"{item.Name}",
                     $"{item.Description}"
