@@ -24,7 +24,7 @@ namespace Posts
                         {
                             foreach (var item in context.Categories.Include(x => x.Posts))
                             {
-                                Console.WriteLine($"{item.Name}--> {item.Description} ");
+                                Console.WriteLine($"{item.Name}--> {item.Description}");
                             }
                             break;
                         }
@@ -32,7 +32,7 @@ namespace Posts
                         {
                             foreach (var item in context.Posts.Include(x => x.Category))
                             {
-                                Console.WriteLine($"{item.Title}--> {item.ShortDescription}- {item.PostedOn} ");
+                                Console.WriteLine($"{item.Title}--> {item.ShortDescription}- {item.PostedOn} {item.Category.Name}");
                             }
                             break;
                         }
