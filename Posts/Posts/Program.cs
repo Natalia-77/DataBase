@@ -19,6 +19,8 @@ namespace Posts
                 Console.WriteLine("5.Exit");
                 choice = int.Parse(Console.ReadLine());
 
+
+
                 switch (choice)
                 {
                     case 1:
