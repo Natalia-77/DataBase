@@ -20,7 +20,6 @@ namespace Person
                 Console.WriteLine("5-Found");
                 action = int.Parse(Console.ReadLine());
                 
-
                 switch (action)
                 {
                     case 1:
