@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Hospital
+
+namespace Hospital.DAL
 {
     public class MyContext:DbContext
     {

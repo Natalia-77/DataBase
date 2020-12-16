@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hospital.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -90,16 +91,7 @@ namespace Hospital
                             {
                                 Console.WriteLine(item);
                             }
-                            //bool has = context.Departments.Any(x => x.Id == ids);
-                            //if (has)
-                            //{
-                            //    Console.WriteLine($"{}");
-                               
-                            //}
-                            //else
-                            //{
-                            //    Console.WriteLine("Sorry,sorry...");
-                            //}
+                            
                             break;
                         }
 
