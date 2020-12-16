@@ -19,6 +19,7 @@ namespace Person
                 Console.WriteLine("4-Edit");
                 Console.WriteLine("5-Found");
                 action = int.Parse(Console.ReadLine());
+                
 
                 switch (action)
                 {
