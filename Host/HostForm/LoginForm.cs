@@ -22,9 +22,11 @@ namespace HostForm
 
             if (login == "nata" && pass == "123")
             {
-                MainForm form = new MainForm();
-                form.ShowDialog();
-                //MessageBox.Show($"Wellcome, {login}");
+                //MainForm form = new MainForm();
+                //form.ShowDialog();
+
+                // MessageBox.Show($"Wellcome, {login}");
+                DialogResult = DialogResult.OK;
             }
             else
             {

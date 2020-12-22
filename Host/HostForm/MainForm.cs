@@ -14,32 +14,41 @@ namespace HostForm
 {
     public partial class MainForm : Form
     {
+        bool isPass = false;
+
         public MainForm()
         {
+            LoginForm log = new LoginForm();
+            if(log.ShowDialog()==DialogResult.OK)
+            {
+                isPass = true;                
+            }
+           // log.ShowDialog();
             InitializeComponent();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            MyContext context = new MyContext();
-
-            foreach (var item in context.Doctors.Include(x => x.Department))
+            if (!isPass)
             {
-               
-                object[] obj =
+                Application.Exit();
+            }
+            else
+            {
+                MyContext context = new MyContext();
+                foreach (var item in context.Doctors.Include(x => x.Department))
                 {
+                    object[] obj =
+                    {
                     $"{item.LastName}",
                     $"{item.Department.NumberCabinet}",
                     $"{item.Stage}",
                     $"{item.Department.Name}"
                     };
+                    dataGridView1.Rows.Add(obj);
 
-                dataGridView1.Rows.Add(obj);
-
+                }
             }
-
-        }
-
-       
+        }       
     }
 }
