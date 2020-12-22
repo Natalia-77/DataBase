@@ -15,6 +15,21 @@ namespace HostForm
             InitializeComponent();
         }
 
-        
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            string login = textBox1.Text;
+            string pass = textBox2.Text;
+
+            if (login == "nata" && pass == "123")
+            {
+               // MainForm form = new MainForm();
+                //form.ShowDialog();
+                MessageBox.Show($"Wellcome, {login}");
+            }
+            else
+            {
+                MessageBox.Show("Noname");
+            }
+        }
     }
 }
