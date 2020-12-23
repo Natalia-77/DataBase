@@ -32,14 +32,10 @@ namespace HostForm
                 if (Codify.Verify(pass, passwordHash))
                     this.DialogResult = DialogResult.OK;
                 else
-                    MessageBox.Show("Думайте...");
+                    MessageBox.Show("НО...");
             }
             else
-                MessageBox.Show("Думайте...");
-
-
-
-
+                MessageBox.Show("Но-но...");
 
             //if (login == "nata" && pass == "123")
             //{
