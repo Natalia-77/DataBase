@@ -64,7 +64,7 @@ namespace Host
                             FirstName = "Robertos",
                             Login = "roro",
                             Password = Codify.HashPassword("147"),
-                            //Image                            
+                            Image="1.jpg" ,                    
                             Department = context.Departments
                             .FirstOrDefault(x => x.Name == "Stomatology"),
                             Stage = 20
@@ -78,7 +78,7 @@ namespace Host
                             FirstName = "Garsia",
                             Login = "hoho",
                             Password = Codify.HashPassword("852"),
-                            //Image
+                            Image="2.jpg",
                             Department = context.Departments
                             .FirstOrDefault(x => x.Name == "Psychiatry"),
                             Stage = 8
@@ -93,7 +93,7 @@ namespace Host
                             FirstName = "Hary",
                             Login = "mata",
                             Password = Codify.HashPassword("985"),
-                            //Image
+                            Image="3.jpg",
                             Department = context.Departments
                             .FirstOrDefault(x => x.Name == "Cardiology"),
                             Stage = 12
@@ -107,7 +107,7 @@ namespace Host
                             FirstName = "Ulianov",
                             Login = "lele",
                             Password = Codify.HashPassword("554"),
-                            //Image
+                            Image="mars.jpg",
                             Department = context.Departments
                             .FirstOrDefault(x => x.Name == "Death-Note"),
                             Stage = 8

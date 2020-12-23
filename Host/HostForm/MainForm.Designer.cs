@@ -34,7 +34,9 @@ namespace HostForm
             this.ColCabinet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -45,7 +47,7 @@ namespace HostForm
             this.ColCabinet,
             this.ColStage,
             this.ColDepartment});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 241);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
@@ -80,17 +82,29 @@ namespace HostForm
             this.ColDepartment.MinimumWidth = 6;
             this.ColDepartment.Name = "ColDepartment";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.Location = new System.Drawing.Point(65, 38);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(135, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,6 +117,7 @@ namespace HostForm
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCabinet;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStage;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDepartment;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

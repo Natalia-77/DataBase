@@ -18,4 +18,23 @@
   <ItemGroup>
     <ProjectReference Include="..\Host\Host.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Pictures\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="Pictures\1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Pictures\2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Pictures\3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Pictures\mars.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using static System.Net.Mime.MediaTypeNames;
 
 namespace HostForm
 {
@@ -45,10 +46,13 @@ namespace HostForm
                     $"{item.Stage}",
                     $"{item.Department.Name}"
                     };
-                    dataGridView1.Rows.Add(obj);
-                    
 
+                    dataGridView1.Rows.Add(obj);
                 }
+                pictureBox1.Image = Image.FromFile("Pictures/1.jpg");
+
+
+
             }
         }       
     }
