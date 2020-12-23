@@ -46,6 +46,7 @@ namespace HostForm
                     $"{item.Department.Name}"
                     };
                     dataGridView1.Rows.Add(obj);
+                    
 
                 }
             }
