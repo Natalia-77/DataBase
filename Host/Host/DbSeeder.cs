@@ -15,14 +15,14 @@ namespace Host
 
         private static void SeedDepatrment(MyContext context)
         {
-            if (context.Departments.Count() > 0)
+            if (context.Departments.Count() == 0)
             {
                 context.Departments
                     .Add(
                     new Department
                     {
                         Name = "Stomatology",
-                        NumberCabinet = 161
+                        NumberCabinet = 160
                     });
 
                 context.Departments
@@ -30,8 +30,24 @@ namespace Host
                     new Department
                     {
                         Name = "Death-Note",
-                        NumberCabinet = 162
+                        NumberCabinet = 161
                     });
+
+                context.Departments
+                   .Add(
+                   new Department
+                   {
+                       Name = "Cardiology",
+                       NumberCabinet = 162
+                   });
+
+                context.Departments
+                   .Add(
+                   new Department
+                   {
+                       Name = "Psychiatry",
+                       NumberCabinet = 163
+                   });
                 context.SaveChanges();
             }
         }
@@ -48,9 +64,10 @@ namespace Host
                             FirstName = "Robertos",
                             Login = "roro",
                             Password = Codify.HashPassword("147"),
-                            Stage = 20,
+                            //Image                            
                             Department = context.Departments
-                            .FirstOrDefault(x => x.Name == "Stomatology")
+                            .FirstOrDefault(x => x.Name == "Stomatology"),
+                            Stage = 20
                         });
 
                     context.Doctors
@@ -62,13 +79,44 @@ namespace Host
                             Login = "hoho",
                             Password = Codify.HashPassword("852"),
                             //Image
-                            Stage = 8,
                             Department = context.Departments
-                            .FirstOrDefault(x => x.Name == "Death-Note")
+                            .FirstOrDefault(x => x.Name == "Psychiatry"),
+                            Stage = 8
                         });
 
 
-                    context.SaveChanges();
+                       context.Doctors
+                        .Add(
+                        new Doctor
+                        {
+                            LastName = "Mata",
+                            FirstName = "Hary",
+                            Login = "mata",
+                            Password = Codify.HashPassword("985"),
+                            //Image
+                            Department = context.Departments
+                            .FirstOrDefault(x => x.Name == "Cardiology"),
+                            Stage = 12
+                        });
+
+                          context.Doctors
+                        .Add(
+                        new Doctor
+                        {
+                            LastName = "Lenin",
+                            FirstName = "Ulianov",
+                            Login = "lele",
+                            Password = Codify.HashPassword("554"),
+                            //Image
+                            Department = context.Departments
+                            .FirstOrDefault(x => x.Name == "Death-Note"),
+                            Stage = 8
+                        });
+
+
+
+
+                context.SaveChanges();
                 }
             }
 
