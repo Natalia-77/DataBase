@@ -16,12 +16,17 @@ namespace HostForm
     public partial class MainForm : Form
     {
         bool isPass = false;
+        
+        public Doctor LogInstance { get; set; }
+        public Department LogDep { get; set; }
 
         public MainForm()
         {
             LoginForm log = new LoginForm();
             if(log.ShowDialog()==DialogResult.OK)
             {
+                LogInstance = log.EnteredInstance;
+                LogDep = log.EnterDep;
                 isPass = true;                
             }
            // log.ShowDialog();
@@ -37,23 +42,20 @@ namespace HostForm
             else
             {
                 MyContext context = new MyContext();
-                foreach (var item in context.Doctors.Include(x => x.Department))
-                {
-                    object[] obj =
-                    {
-                    $"{item.LastName}",
-                    $"{item.Department.NumberCabinet}",
-                    $"{item.Stage}",
-                    $"{item.Department.Name}"
-                    };
 
-                    dataGridView1.Rows.Add(obj);
-                }
-                pictureBox1.Image = Image.FromFile("Pictures/1.jpg");
-
-
+                pictureBox1.Image = Image.FromFile($"Pictures/{LogInstance.Image}");
+                dataGridView1.Rows.Add($"{LogInstance.LastName}",
+                    $"{LogDep.NumberCabinet}",
+                    $"{LogInstance.Stage}",
+                    $"{LogDep.Name}");
 
             }
-        }       
+        }
+
+
+
+       
+
+        
     }
 }

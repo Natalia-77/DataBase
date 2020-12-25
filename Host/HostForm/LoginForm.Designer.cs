@@ -86,7 +86,7 @@ namespace HostForm
             // 
             this.btnEnter.BackColor = System.Drawing.Color.Yellow;
             this.btnEnter.ForeColor = System.Drawing.Color.Green;
-            this.btnEnter.Location = new System.Drawing.Point(235, 194);
+            this.btnEnter.Location = new System.Drawing.Point(230, 195);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(94, 29);
             this.btnEnter.TabIndex = 5;

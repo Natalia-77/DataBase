@@ -13,6 +13,8 @@ namespace HostForm
     public partial class LoginForm : Form
     {
         private readonly MyContext context;
+        public Doctor EnteredInstance { get; set; }
+        public Department EnterDep { get; set; }
         public LoginForm()
         {
             context = new MyContext();
@@ -26,13 +28,18 @@ namespace HostForm
             string pass = textBox2.Text;
 
             var doctor = context.Doctors.FirstOrDefault(x => x.Login == login);
+            var depart = context.Departments.FirstOrDefault(y => y.Id == doctor.DepartmentId);
             if (doctor != null)
             {
                 var passwordHash = doctor.Password;
                 if (Codify.Verify(pass, passwordHash))
+                {
+                    EnteredInstance = doctor;
+                    EnterDep = depart;
                     this.DialogResult = DialogResult.OK;
+                }
                 else
-                    MessageBox.Show("НО...");
+                    MessageBox.Show("There is no doctor with this name...");
             }
             else
                 MessageBox.Show("Но-но...");
