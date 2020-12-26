@@ -15,6 +15,7 @@ namespace HostForm
         private readonly MyContext context;
         public Doctor EnteredInstance { get; set; }
         public Department EnterDep { get; set; }
+
         public LoginForm()
         {
             context = new MyContext();

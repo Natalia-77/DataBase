@@ -29,98 +29,90 @@ namespace HostForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCabinet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColStage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.butBack = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.lblHello = new System.Windows.Forms.Label();
+            this.butSeeall = new System.Windows.Forms.Button();
+            this.butProfile = new System.Windows.Forms.Button();
+            this.butAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // lblHello
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColName,
-            this.ColCabinet,
-            this.ColStage,
-            this.ColDepartment});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 179);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(739, 197);
-            this.dataGridView1.TabIndex = 0;
+            this.lblHello.AutoSize = true;
+            this.lblHello.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lblHello.Font = new System.Drawing.Font("Arial", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblHello.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblHello.Location = new System.Drawing.Point(65, 77);
+            this.lblHello.Name = "lblHello";
+            this.lblHello.Size = new System.Drawing.Size(574, 31);
+            this.lblHello.TabIndex = 0;
+            this.lblHello.Text = "Вітаємо вас! Ви успішно авторизувались!";
             // 
-            // ColName
+            // butSeeall
             // 
-            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColName.HeaderText = "DataName";
-            this.ColName.MinimumWidth = 6;
-            this.ColName.Name = "ColName";
+            this.butSeeall.BackColor = System.Drawing.Color.Gainsboro;
+            this.butSeeall.Cursor = System.Windows.Forms.Cursors.No;
+            this.butSeeall.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.butSeeall.ForeColor = System.Drawing.Color.Indigo;
+            this.butSeeall.Location = new System.Drawing.Point(54, 233);
+            this.butSeeall.Name = "butSeeall";
+            this.butSeeall.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.butSeeall.Size = new System.Drawing.Size(177, 68);
+            this.butSeeall.TabIndex = 1;
+            this.butSeeall.Text = "Список всіх лікарів";
+            this.butSeeall.UseVisualStyleBackColor = false;
+            this.butSeeall.Click += new System.EventHandler(this.butSeeall_Click);
             // 
-            // ColCabinet
+            // butProfile
             // 
-            this.ColCabinet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColCabinet.HeaderText = "DataCabinet";
-            this.ColCabinet.MinimumWidth = 6;
-            this.ColCabinet.Name = "ColCabinet";
+            this.butProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.butProfile.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.butProfile.ForeColor = System.Drawing.Color.Indigo;
+            this.butProfile.Location = new System.Drawing.Point(312, 233);
+            this.butProfile.Name = "butProfile";
+            this.butProfile.Size = new System.Drawing.Size(176, 68);
+            this.butProfile.TabIndex = 2;
+            this.butProfile.Text = "Ваш профіль";
+            this.butProfile.UseVisualStyleBackColor = false;
+            this.butProfile.Click += new System.EventHandler(this.butProfile_Click);
             // 
-            // ColStage
+            // butAdd
             // 
-            this.ColStage.HeaderText = "DataStage";
-            this.ColStage.MinimumWidth = 6;
-            this.ColStage.Name = "ColStage";
-            this.ColStage.Width = 125;
-            // 
-            // ColDepartment
-            // 
-            this.ColDepartment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColDepartment.HeaderText = "DataDepartment";
-            this.ColDepartment.MinimumWidth = 6;
-            this.ColDepartment.Name = "ColDepartment";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox1.Location = new System.Drawing.Point(280, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 135);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;           
+            this.butAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.butAdd.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.butAdd.ForeColor = System.Drawing.Color.Indigo;
+            this.butAdd.Location = new System.Drawing.Point(566, 233);
+            this.butAdd.Name = "butAdd";
+            this.butAdd.Size = new System.Drawing.Size(153, 68);
+            this.butAdd.TabIndex = 3;
+            this.butAdd.Text = "Додати новий запис";
+            this.butAdd.UseVisualStyleBackColor = false;
+            this.butAdd.Click += new System.EventHandler(this.butAdd_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 512);
-            this.Controls.Add(this.butBack);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(751, 383);
+            this.Controls.Add(this.butAdd);
+            this.Controls.Add(this.butProfile);
+            this.Controls.Add(this.butSeeall);
+            this.Controls.Add(this.lblHello);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MainForm";
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
-        #endregion
+        private System.Windows.Forms.Label lblHello;
+        private System.Windows.Forms.Button butSeeall;
+        private System.Windows.Forms.Button butProfile;
+        private System.Windows.Forms.Button butAdd;
 
-        //private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCabinet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColStage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDepartment;
-        public System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button butBack;
+        #endregion
+        //private System.Windows.Forms.Button butBack;
     }
 }
 
