@@ -14,10 +14,12 @@ namespace HostForm
             InitializeComponent();
             //checkBox2_CheckedChanged += checkBox2_CheckedChanged;
         }
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBox2.Image = Image.FromFile("{C:\\Pictures/rr.jpg}");
-        }
+
+        //private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    checkBox2.Image = Image.FromFile("{D:\\Pictures/rr.jpg}");
+        //}
+
         private void button1_Click(object sender, EventArgs e)
         {
             context.Doctors
