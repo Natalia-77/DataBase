@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Doctors.Migrations
+namespace Doctor.Migrations
 {
-    public partial class Addtable : Migration
+    public partial class Add : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

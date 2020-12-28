@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Doctors.Migrations
+namespace Doctor.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20201227194229_Add table")]
-    partial class Addtable
+    [Migration("20201228195932_Add")]
+    partial class Add
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
