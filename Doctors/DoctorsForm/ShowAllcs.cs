@@ -27,7 +27,8 @@ namespace DoctorsForm
                     $"{item.LastName}",
                     $"{item.FirstName}",
                     $"{item.Stage}",
-                    $"{item.Department.NumberCabinet}"
+                    $"{item.Department.NumberCabinet}",
+                    $"{item.Department.Name}"
 
                 };
 

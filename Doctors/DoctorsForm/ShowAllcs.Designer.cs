@@ -33,6 +33,7 @@ namespace DoctorsForm
             this.ColSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNameDoctor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNameDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -44,12 +45,13 @@ namespace DoctorsForm
             this.ColSurname,
             this.ColNameDoctor,
             this.ColStage,
+            this.ColNameDep,
             this.ColDepartment});
             this.dataGridView1.Location = new System.Drawing.Point(12, 64);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 294);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColSurname
@@ -73,10 +75,17 @@ namespace DoctorsForm
             this.ColStage.Name = "ColStage";
             this.ColStage.Width = 125;
             // 
+            // ColNameDep
+            // 
+            this.ColNameDep.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColNameDep.HeaderText = "Department";
+            this.ColNameDep.MinimumWidth = 6;
+            this.ColNameDep.Name = "ColNameDep";
+            // 
             // ColDepartment
             // 
             this.ColDepartment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColDepartment.HeaderText = "Department";
+            this.ColDepartment.HeaderText = "Number cabinet";
             this.ColDepartment.MinimumWidth = 6;
             this.ColDepartment.Name = "ColDepartment";
             // 
@@ -100,6 +109,7 @@ namespace DoctorsForm
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSurname;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNameDoctor;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNameDep;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDepartment;
     }
 }

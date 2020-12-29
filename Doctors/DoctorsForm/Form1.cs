@@ -22,6 +22,7 @@ namespace DoctorsForm
         {
             ShowAllcs form2 = new ShowAllcs();
             form2.ShowDialog();
+            
         }
     }
 }
