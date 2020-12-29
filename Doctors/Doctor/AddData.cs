@@ -46,7 +46,6 @@ namespace Doctors
             {                  
                 dep.Add(department.Generate());
                 doc.Add(doctor.Generate());
-
             }
             
 

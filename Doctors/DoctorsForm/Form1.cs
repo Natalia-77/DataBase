@@ -17,5 +17,11 @@ namespace DoctorsForm
             MyContext context = new MyContext();
             AddData.AddDepartment(context);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ShowAllcs form2 = new ShowAllcs();
+            form2.ShowDialog();
+        }
     }
 }
