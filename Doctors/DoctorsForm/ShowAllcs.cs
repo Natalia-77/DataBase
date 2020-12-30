@@ -12,28 +12,34 @@ namespace DoctorsForm
 {
     public partial class ShowAllcs : Form
     {
+        //bool run = false;
+
         public ShowAllcs()
-        {
+        {            
+           
             InitializeComponent();
         }
 
-        private void ShowAll_Load(object sender, EventArgs e)
+        public void ShowAll_Load(object sender, EventArgs e)
         {
+           
             MyContext context = new MyContext();
 
-            foreach (var item in context.Doctors.Include(x => x.Department))
-            {
-                object[] row = {
-                    $"{item.LastName}",
-                    $"{item.FirstName}",
-                    $"{item.Stage}",
-                    $"{item.Department.NumberCabinet}",
-                    $"{item.Department.Name}"
+                foreach (var item in context.Doctors.Include(x => x.Department))
+                 {
+                    object[] row = {
+                        $"{item.LastName}",
+                        $"{item.FirstName}",
+                        $"{item.Stage}",
+                        $"{item.Department.NumberCabinet}",
+                        $"{item.Department.Name}"
 
-                };
+                    };
 
-                dataGridView1.Rows.Add(row);
-            }
+                   dataGridView1.Rows.Add(row);
+                
+
+}
         }
     }
 }

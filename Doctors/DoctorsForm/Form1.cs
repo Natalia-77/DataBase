@@ -21,8 +21,15 @@ namespace DoctorsForm
         private void button2_Click(object sender, EventArgs e)
         {
             ShowAllcs form2 = new ShowAllcs();
-            form2.ShowDialog();
-            
+            form2.Show();
+            Hide();
+            //form2.ShowDialog();
+            //Application.Exit();
+           
+           
+           
+
+
         }
     }
 }
