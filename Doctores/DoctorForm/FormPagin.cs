@@ -16,7 +16,7 @@ namespace DoctorForm
         public int counts { get; set; }
         public FormPagin()
         {
-            this.counts = 0;
+            this.counts = 1;
             
             InitializeComponent();
         }
@@ -28,6 +28,7 @@ namespace DoctorForm
         public void Pagination_Load(object sender, EventArgs e)
         {
             //_ = counts;
+           // Button btn = sender as Button;
             int pagecount = 3;
             MyContext context = new MyContext();
             List<Doctor> res = new List<Doctor>();
@@ -39,10 +40,10 @@ namespace DoctorForm
                
             }
 
-            //if (counts >= 1 && counts <= 5)
-            //{
-                //int index = (counts - 1) * pagecount;
-                var result = departm.Skip(0).Take(pagecount);
+            if (counts >= 1 && counts <= 5)
+            {
+                int index = (counts - 1) * pagecount;
+                var result = departm.Skip(index).Take(pagecount);
 
                 foreach (var item in result)
                 {
@@ -59,7 +60,7 @@ namespace DoctorForm
                 }             
 
                 
-            //}
+            }
            
         }
     }
