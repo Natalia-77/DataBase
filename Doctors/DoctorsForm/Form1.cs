@@ -22,7 +22,8 @@ namespace DoctorsForm
         {
             ShowAllcs form2 = new ShowAllcs();
             form2.Show();
-            Hide();
+           // Hide();           
+
             //form2.ShowDialog();
             //Application.Exit();
            

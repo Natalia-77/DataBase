@@ -1,4 +1,4 @@
-﻿using Doctors;
+﻿using Doctores;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,25 +8,40 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DoctorsForm
+namespace DoctorForm
 {
-    public partial class ShowAllcs : Form
+    public partial class ShowAll : Form
     {
-        //bool run = false;
+        bool flag = false;
+       
+        public ShowAll()
+        {
+            Form1 frm = new Form1();
 
-        public ShowAllcs()
-        {            
-           
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                flag = true;
+            }
             InitializeComponent();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+           
         }
 
         public void ShowAll_Load(object sender, EventArgs e)
         {
-           
-            MyContext context = new MyContext();
+            if (!flag )
+            {
+                Application.Exit();
+            }
+            else
+            {
+                MyContext context = new MyContext();
 
                 foreach (var item in context.Doctors.Include(x => x.Department))
-                 {
+                {
                     object[] row = {
                         $"{item.LastName}",
                         $"{item.FirstName}",
@@ -36,16 +51,13 @@ namespace DoctorsForm
 
                     };
 
-                   dataGridView1.Rows.Add(row);
-                
+                    dataGridView1.Rows.Add(row);
 
-}
+
+                }
+            }
         }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    Form1 form = new Form1();
-        //    form.ShowDialog();
-        //}
+        
     }
 }

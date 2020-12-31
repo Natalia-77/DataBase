@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doctores", "Doctores\Doctores.csproj", "{B90F5D9C-4825-4FEF-9063-86497610B47D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorForm", "DoctorForm\DoctorForm.csproj", "{D3DFF5F3-6A45-418D-A9ED-5C133A682974}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B90F5D9C-4825-4FEF-9063-86497610B47D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90F5D9C-4825-4FEF-9063-86497610B47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90F5D9C-4825-4FEF-9063-86497610B47D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90F5D9C-4825-4FEF-9063-86497610B47D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3DFF5F3-6A45-418D-A9ED-5C133A682974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3DFF5F3-6A45-418D-A9ED-5C133A682974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3DFF5F3-6A45-418D-A9ED-5C133A682974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3DFF5F3-6A45-418D-A9ED-5C133A682974}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3ECD2E1-660D-4221-814D-5842E7980FAE}
+	EndGlobalSection
+EndGlobal
