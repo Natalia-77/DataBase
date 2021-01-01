@@ -14,7 +14,7 @@ namespace DoctorForm
     {
         bool flag = false;
        
-        public ShowAll()
+        public ShowAll() 
         {
             Form1 frm = new Form1();
 
