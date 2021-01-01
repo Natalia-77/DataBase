@@ -13,10 +13,12 @@ namespace DoctorForm
 {
     public partial class FormPagin : Form
     {
-        public int counts { get; set; }
+        
+        static int counts=0;
+        public bool action = false;
+       
         public FormPagin()
-        {
-            this.counts = 1;
+        {         
             
             InitializeComponent();
         }
@@ -24,44 +26,45 @@ namespace DoctorForm
         private void button1_Click(object sender, EventArgs e)
         {
             counts++;
+            action =true;
+                      
         }
         public void Pagination_Load(object sender, EventArgs e)
-        {
-            //_ = counts;
-           // Button btn = sender as Button;
-            int pagecount = 3;
-            MyContext context = new MyContext();
-            List<Doctor> res = new List<Doctor>();
-            //var departm = context.Doctors.Select(c => c.Id);
-            var departm = context.Doctors.Include(x => x.Department);
-            foreach (var item in departm)
+        {                  
+           
+                int pagecount = 20;
+                MyContext context = new MyContext();
+                List<Doctor> res = new List<Doctor>();          
+            //var departm = context.Doctors.Include(x => x.Department);
+                       
+            do
             {
-                //res.Add(item);
-               
-            }
-
-            if (counts >= 1 && counts <= 5)
-            {
-                int index = (counts - 1) * pagecount;
-                var result = departm.Skip(index).Take(pagecount);
-
-                foreach (var item in result)
+                if (counts >= 0)
                 {
-                    object[] row = {
+                    dataGridView1.Rows.Clear();
+                    counts++;
+                    int index = (counts - 1) * pagecount;
+                    var departm = context.Doctors.Include(x => x.Department);
+                    var result = departm.Skip(index).Take(pagecount);
+
+                    foreach (var item in result)
+                    {
+                        object[] row = {
                         $"{item.LastName}",
                         $"{item.FirstName}",
                         $"{item.Stage}",
                         $"{item.Department.NumberCabinet}",
                         $"{item.Department.Name}"
 
-                    };
-                    dataGridView1.Rows.Add(row);
+                        };
+                        dataGridView1.Rows.Add(row);         
 
-                }             
+                    }                   
 
-                
-            }
-           
+                }
+               
+            } while (action);
+            
         }
     }
 }
