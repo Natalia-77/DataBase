@@ -26,13 +26,13 @@ namespace DoctorForm
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
 
 
-            // DialogResult = DialogResult.OK;
-           // Close();
-            //new Form1().ShowDialog();
-           
+            DialogResult = DialogResult.OK;
+            
+            new Form1().ShowDialog();
+            this.Close();
         }
 
         public void ShowAll_Load(object sender, EventArgs e)

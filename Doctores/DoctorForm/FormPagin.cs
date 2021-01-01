@@ -35,7 +35,7 @@ namespace DoctorForm
                 int pagecount = 20;
                 MyContext context = new MyContext();
                 List<Doctor> res = new List<Doctor>();          
-            //var departm = context.Doctors.Include(x => x.Department);
+               //var departm = context.Doctors.Include(x => x.Department);
                        
             do
             {
@@ -44,7 +44,8 @@ namespace DoctorForm
                     dataGridView1.Rows.Clear();
                     counts++;
                     int index = (counts - 1) * pagecount;
-                    var departm = context.Doctors.Include(x => x.Department);
+                    //var departm = context.Doctors.Include(x => x.Department);
+                    var departm = context.Doctors.Include("Department").ToList();
                     var result = departm.Skip(index).Take(pagecount);
 
                     foreach (var item in result)
