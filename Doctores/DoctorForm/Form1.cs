@@ -13,11 +13,11 @@ namespace DoctorForm
 {
     public partial class Form1 : Form
     {
+       
       
         public Form1()
-        {           
-
-            InitializeComponent();
+        {        
+              InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,8 +33,7 @@ namespace DoctorForm
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {
-            //DialogResult = DialogResult.Yes;
+        {            
             new FormPagin().ShowDialog();
         }
     }

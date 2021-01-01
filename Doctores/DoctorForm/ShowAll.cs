@@ -24,14 +24,11 @@ namespace DoctorForm
             }
             InitializeComponent();
         }
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            //Application.Exit();
-
-
-            DialogResult = DialogResult.OK;
-            
-            new Form1().ShowDialog();
+            //Application.Exit();            
+            new Form1().Show();
             this.Close();
         }
 
