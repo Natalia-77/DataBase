@@ -85,7 +85,7 @@ namespace DoctorForm
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 226);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 208);
             this.dataGridView1.TabIndex = 3;
             // 
             // ColName
@@ -134,7 +134,6 @@ namespace DoctorForm
             this.button1.Text = "Next list";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Search_Load);
-            //this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -146,8 +145,6 @@ namespace DoctorForm
             this.button2.TabIndex = 5;
             this.button2.Text = "Go!";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            //this.button2.Click += new System.EventHandler(this.Search_Load);
             // 
             // FormSearch
             // 

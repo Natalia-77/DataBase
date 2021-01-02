@@ -27,25 +27,25 @@ namespace DoctorForm
             count++;
             act = true;
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-           //depname=this.textBox1.Text;
-           
-        }
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+
+        //    depname = this.textBox1.Text;
+
+        //}
         public void Search_Load(object sender, EventArgs e)
         {          
            
                 depname = this.textBox1.Text;            
-                int pagecount = 1;
+                int pagecount = 10;
                 MyContext context = new MyContext();
                
                 do
                 {
-                    if (count >= 0)
+                if (count >= 0 && count <= 10)
                     {
                     dataGridView1.Rows.Clear();
-                    count++;
+                    //count++;
                     int index = (count - 1) * pagecount;
                     List<Doctor> departm = context.Doctors.Include("Department").Where(c => c.Department.Name == depname).ToList();
                     IEnumerable<Doctor> result = departm.Skip(index).Take(pagecount);
