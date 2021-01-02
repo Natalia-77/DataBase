@@ -13,7 +13,7 @@ namespace DoctorForm
 {
     public partial class FormSearch : Form
     {
-        public string Depname { get; set; }
+        public string depname { get; set; }
         static int count = 0;
         public bool act = false;
        
@@ -29,24 +29,26 @@ namespace DoctorForm
         }
         private void button2_Click(object sender, EventArgs e)
         {
-           Depname=this.textBox1.Text;
+            
+           //depname=this.textBox1.Text;
+           
         }
         public void Search_Load(object sender, EventArgs e)
         {          
-                int pagecount = 5;
+           
+                depname = this.textBox1.Text;            
+                int pagecount = 1;
                 MyContext context = new MyContext();
                
                 do
                 {
                     if (count >= 0)
                     {
-                       // dataGridView1.Rows.Clear();
-                        count++;
-                        int index = (count - 1) * pagecount;
-                        //var departm = context.Doctors.Include(x => x.Department);
-                        //var departm = context.Doctors.Where(c => c.Department.Name == textBox1.Text).Select(x => x.Department).FirstOrDefault();//.ToList();
-                        var departm = context.Doctors.Include("Department").Where(c => c.Department.Name == Depname).ToList();
-                        var result = departm.Skip(index).Take(pagecount);
+                    dataGridView1.Rows.Clear();
+                    count++;
+                    int index = (count - 1) * pagecount;
+                    List<Doctor> departm = context.Doctors.Include("Department").Where(c => c.Department.Name == depname).ToList();
+                    IEnumerable<Doctor> result = departm.Skip(index).Take(pagecount);
 
                         foreach (var item in result)
                         {
