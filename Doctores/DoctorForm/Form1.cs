@@ -13,11 +13,13 @@ namespace DoctorForm
 {
     public partial class Form1 : Form
     {
-       
-      
+        //bool flag1 = false;
+        //bool flag2 = false;
+            
         public Form1()
-        {        
-              InitializeComponent();
+        {
+            InitializeComponent();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,12 +31,21 @@ namespace DoctorForm
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-                    
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {            
-            new FormPagin().ShowDialog();
+        {           
+            new FormPagin().ShowDialog();            
         }
+
+        //public void Form1_Load(object sender, EventArgs e)
+        //{
+
+        //    //if (flag1)
+        //    //{
+        //    //    ShowDialog();
+        //    //}           
+
+        //}
     }
 }

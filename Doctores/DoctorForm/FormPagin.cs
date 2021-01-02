@@ -16,13 +16,13 @@ namespace DoctorForm
         
         static int counts=0;
         public bool action = false;
+
        
         public FormPagin()
-        {         
-            
-            InitializeComponent();
+        {            
+            InitializeComponent();           
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             counts++;
@@ -30,27 +30,27 @@ namespace DoctorForm
                       
         }
         public void Pagination_Load(object sender, EventArgs e)
-        {                  
-           
+        {
+            
                 int pagecount = 20;
                 MyContext context = new MyContext();
-                List<Doctor> res = new List<Doctor>();          
-               //var departm = context.Doctors.Include(x => x.Department);
-                       
-            do
-            {
-                if (counts >= 0)
-                {
-                    dataGridView1.Rows.Clear();
-                    counts++;
-                    int index = (counts - 1) * pagecount;
-                    //var departm = context.Doctors.Include(x => x.Department);
-                    var departm = context.Doctors.Include("Department").ToList();
-                    var result = departm.Skip(index).Take(pagecount);
+                List<Doctor> res = new List<Doctor>();
+                //var departm = context.Doctors.Include(x => x.Department);
 
-                    foreach (var item in result)
+                do
+                {
+                    if (counts >= 0)
                     {
-                        object[] row = {
+                        dataGridView1.Rows.Clear();
+                        counts++;
+                        int index = (counts - 1) * pagecount;
+                        //var departm = context.Doctors.Include(x => x.Department);
+                        var departm = context.Doctors.Include("Department").ToList();
+                        var result = departm.Skip(index).Take(pagecount);
+
+                        foreach (var item in result)
+                        {
+                            object[] row = {
                         $"{item.LastName}",
                         $"{item.FirstName}",
                         $"{item.Stage}",
@@ -58,14 +58,21 @@ namespace DoctorForm
                         $"{item.Department.Name}"
 
                         };
-                        dataGridView1.Rows.Add(row);         
+                            dataGridView1.Rows.Add(row);
 
-                    }                   
+                        }
 
-                }
-               
-            } while (action);
+                    }
+
+                } while (action);
+
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }
