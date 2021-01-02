@@ -120,7 +120,7 @@ namespace DoctorForm
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormPagin";
-            this.Text = "FormPagin";
+            this.Text = "Pagination list";
             this.Load += new System.EventHandler(this.Pagination_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
