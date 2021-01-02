@@ -13,8 +13,6 @@ namespace DoctorForm
 {
     public partial class Form1 : Form
     {
-        //bool flag1 = false;
-        //bool flag2 = false;
             
         public Form1()
         {
@@ -38,14 +36,6 @@ namespace DoctorForm
             new FormPagin().ShowDialog();            
         }
 
-        //public void Form1_Load(object sender, EventArgs e)
-        //{
-
-        //    //if (flag1)
-        //    //{
-        //    //    ShowDialog();
-        //    //}           
-
-        //}
+        
     }
 }
