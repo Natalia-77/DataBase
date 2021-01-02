@@ -37,16 +37,16 @@ namespace DoctorForm
         {          
            
                 depname = this.textBox1.Text;            
-                int pagecount = 10;
+                int pagecount = 5;
                 MyContext context = new MyContext();
                
                 do
                 {
-                if (count >= 0 && count <= 10)
+                if (count >= 0 )
                     {
                     dataGridView1.Rows.Clear();
                     //count++;
-                    int index = (count - 1) * pagecount;
+                    int index = (count-1 ) * pagecount;
                     List<Doctor> departm = context.Doctors.Include("Department").Where(c => c.Department.Name == depname).ToList();
                     IEnumerable<Doctor> result = departm.Skip(index).Take(pagecount);
 
