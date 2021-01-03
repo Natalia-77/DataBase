@@ -13,7 +13,7 @@ namespace DoctorForm
 {
     public partial class FormPagin : Form
     {
-        
+        MyContext context = new MyContext();
         static int counts=0;
         public bool action = false;
 
@@ -33,8 +33,8 @@ namespace DoctorForm
         {
             
                 int pagecount = 20;
-                MyContext context = new MyContext();
-                List<Doctor> res = new List<Doctor>();
+               // MyContext context = new MyContext();
+                //List<Doctor> res = new List<Doctor>();
                 //var departm = context.Doctors.Include(x => x.Department);
 
                 do
