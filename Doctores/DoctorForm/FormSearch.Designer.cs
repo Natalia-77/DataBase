@@ -81,11 +81,11 @@ namespace DoctorForm
             this.ColStage,
             this.ColNumCab,
             this.ColDep});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 154);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 136);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 208);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 244);
             this.dataGridView1.TabIndex = 3;
             // 
             // ColName
@@ -134,17 +134,7 @@ namespace DoctorForm
             this.button1.Text = "Next list";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Search_Load);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.HotPink;
-            this.button2.ForeColor = System.Drawing.Color.Navy;
-            this.button2.Location = new System.Drawing.Point(635, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Go!";
-            this.button2.UseVisualStyleBackColor = false;
+            
             // 
             // FormSearch
             // 
