@@ -37,7 +37,8 @@ namespace DoctorForm
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(32, 177);
+            this.button1.ForeColor = System.Drawing.Color.Navy;
+            this.button1.Location = new System.Drawing.Point(12, 177);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 59);
             this.button1.TabIndex = 0;
@@ -47,7 +48,8 @@ namespace DoctorForm
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(262, 177);
+            this.button2.ForeColor = System.Drawing.Color.Purple;
+            this.button2.Location = new System.Drawing.Point(192, 177);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 59);
             this.button2.TabIndex = 1;
@@ -57,7 +59,8 @@ namespace DoctorForm
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(489, 177);
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button3.Location = new System.Drawing.Point(394, 177);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(138, 59);
             this.button3.TabIndex = 2;
@@ -67,9 +70,10 @@ namespace DoctorForm
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(273, 298);
+            this.button4.ForeColor = System.Drawing.Color.Maroon;
+            this.button4.Location = new System.Drawing.Point(578, 177);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 50);
+            this.button4.Size = new System.Drawing.Size(154, 59);
             this.button4.TabIndex = 3;
             this.button4.Text = "Search ";
             this.button4.UseVisualStyleBackColor = true;
