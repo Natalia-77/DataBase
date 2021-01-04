@@ -14,6 +14,7 @@ namespace DoctorForm
     public partial class FormPagin : Form
     {
         MyContext context = new MyContext();
+        static int pagecount = 20;
         static int counts=0;
         bool action = false;
         bool act2 = false;
@@ -25,37 +26,32 @@ namespace DoctorForm
         }
         
         private void button1_Click(object sender, EventArgs e)
-        {
-            //this.DialogResult = DialogResult.OK;
-           // counts++;
-            action =true;
-                      
+        {           
+            action =true;                      
         }
         private void button3_Click(object sender, EventArgs e)
-        {
-           // this.DialogResult = DialogResult.Yes;
+        {          
             act2 = true;
         }
 
 
 
 
-        public void Pagination_Load(object sender, EventArgs e)
+        public void Up_Load(object sender, EventArgs e)
         {            
-                int pagecount = 20;
-            do
-            {
+                
+             do
+             {
+                
            
                     if (counts >= 0)
                     {
-                        dataGridView1.Rows.Clear();             
+                        dataGridView1.Rows.Clear();     
                         counts++;
-                        int index = (counts - 1) * pagecount;
-                        //var departm = context.Doctors.Include(x => x.Department);
+                        int index = (counts - 1) * pagecount;                       
                         var departm = context.Doctors.Include("Department").ToList();
                         var result = departm.Skip(index).Take(pagecount);
-                        double total = departm.Count() / pagecount;
-                    
+                        double total = departm.Count() / pagecount;                    
 
                         foreach (var item in result)
                         {
@@ -74,17 +70,16 @@ namespace DoctorForm
                         {
                             counts = 0;
                         }
-                    }
-               
+                    }               
 
-                } while (action);
+               } while (action);
 
             
         }
 
-        public void Pagi_Load(object sender, EventArgs e)
+        public void Down_Load(object sender, EventArgs e)
         {
-            int pagecount = 20;
+           
             do
             {
 

@@ -30,12 +30,13 @@ namespace DoctorForm
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDeptName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,16 +55,6 @@ namespace DoctorForm
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(755, 250);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(53, 361);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 36);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ColName
             // 
@@ -100,11 +91,36 @@ namespace DoctorForm
             this.ColDeptName.MinimumWidth = 6;
             this.ColDeptName.Name = "ColDeptName";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.PaleGreen;
+            this.button1.ForeColor = System.Drawing.Color.Purple;
+            this.button1.Location = new System.Drawing.Point(53, 361);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 36);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.button2.ForeColor = System.Drawing.Color.Navy;
+            this.button2.Location = new System.Drawing.Point(425, 361);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(124, 36);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Back";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ShowAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ShowAll";
@@ -124,5 +140,6 @@ namespace DoctorForm
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStage;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDep;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDeptName;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -16,6 +16,10 @@ namespace DoctorForm
             
         public Form1()
         {
+            //if(new ShowAll().DialogResult==DialogResult.OK)
+            //{
+
+            //}
             InitializeComponent();
             
         }

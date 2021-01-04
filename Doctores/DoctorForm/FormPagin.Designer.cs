@@ -98,9 +98,9 @@ namespace DoctorForm
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 39);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Next list";
+            this.button1.Text = "Next page";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Pagination_Load);
+            this.button1.Click += new System.EventHandler(this.Up_Load);
             // 
             // button2
             // 
@@ -118,9 +118,9 @@ namespace DoctorForm
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 40);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Prev list";
+            this.button3.Text = "Prev page";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Pagi_Load);
+            this.button3.Click += new System.EventHandler(this.Down_Load);
             // 
             // FormPagin
             // 
@@ -133,7 +133,7 @@ namespace DoctorForm
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormPagin";
             this.Text = "Pagination list";
-            this.Load += new System.EventHandler(this.Pagination_Load);
+            this.Load += new System.EventHandler(this.Up_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

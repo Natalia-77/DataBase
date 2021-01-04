@@ -39,6 +39,7 @@ namespace DoctorForm
             this.ColNumCab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,15 +131,28 @@ namespace DoctorForm
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 42);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Next list";
+            this.button1.Text = "Next page";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Search_Load);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DeepPink;
+            this.button2.ForeColor = System.Drawing.Color.Navy;
+            this.button2.Location = new System.Drawing.Point(610, 386);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 42);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Back";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
@@ -165,5 +179,6 @@ namespace DoctorForm
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNumCab;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDep;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

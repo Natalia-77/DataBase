@@ -13,7 +13,7 @@ namespace DoctorForm
         MyContext context = new MyContext();
         public string depname { get; set; }
         static int count = 0;
-        public bool act = false;
+        bool act = false;
        
         public FormSearch()
         {
@@ -40,7 +40,8 @@ namespace DoctorForm
                     int index = (count-1 ) * pagecount;
                     List<Doctor> departm = context.Doctors.Include("Department").Where(c => c.Department.Name == depname).ToList();
                     IEnumerable<Doctor> result = departm.Skip(index).Take(pagecount);
-                    
+                    int sizelist = departm.Count();
+                    double total = sizelist / pagecount;
 
                         foreach (var item in result)
                         {
@@ -53,13 +54,21 @@ namespace DoctorForm
 
                         };
                             dataGridView1.Rows.Add(row);
-                        }                  
-
+                        }
+                    if (count > total)
+                    {
+                        count = 0;
                     }
+                }
 
                 } while (act);           
 
         }
-        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
     }
 }
