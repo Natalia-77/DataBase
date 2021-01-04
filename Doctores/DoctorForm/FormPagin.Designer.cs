@@ -94,7 +94,7 @@ namespace DoctorForm
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(67, 389);
+            this.button1.Location = new System.Drawing.Point(206, 389);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 39);
             this.button1.TabIndex = 1;
@@ -104,7 +104,7 @@ namespace DoctorForm
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(517, 389);
+            this.button2.Location = new System.Drawing.Point(674, 388);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 40);
             this.button2.TabIndex = 2;
@@ -114,7 +114,7 @@ namespace DoctorForm
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(240, 389);
+            this.button3.Location = new System.Drawing.Point(47, 388);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 40);
             this.button3.TabIndex = 3;

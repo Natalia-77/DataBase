@@ -11,18 +11,10 @@ using System.Windows.Forms;
 namespace DoctorForm
 {
     public partial class ShowAll : Form
-    {
-        bool flag = false;        
+    {        
        
-        public ShowAll() 
-        {           
-
-            if (new Form1().ShowDialog() == DialogResult.OK)
-            {
-                flag = true;
-            }  
-            
-            
+        public ShowAll()
+        {
             InitializeComponent();
         }
         
@@ -33,12 +25,6 @@ namespace DoctorForm
 
         public void ShowAll_Load(object sender, EventArgs e)
         {
-            if (!flag)
-            {
-                Application.Exit();
-            }
-            else
-            {
                 MyContext context = new MyContext();
                 foreach (var item in context.Doctors.Include(x => x.Department))
                 {
@@ -55,15 +41,10 @@ namespace DoctorForm
 
 
                 }
-            }
+            
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {           
-            new Form1().ShowDialog();
-            this.Close();
-            
-        }
+        
     }
 }

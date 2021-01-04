@@ -16,10 +16,7 @@ namespace DoctorForm
             
         public Form1()
         {
-            //if(new ShowAll().DialogResult==DialogResult.OK)
-            //{
 
-            //}
             InitializeComponent();
             
         }
@@ -32,7 +29,10 @@ namespace DoctorForm
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            //DialogResult = DialogResult.OK;
+            //Close();
+            new ShowAll().ShowDialog();
+           
         }
 
         private void button3_Click(object sender, EventArgs e)

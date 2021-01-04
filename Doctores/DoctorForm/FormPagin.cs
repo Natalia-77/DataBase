@@ -1,12 +1,7 @@
 ﻿using Doctores;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace DoctorForm
@@ -34,15 +29,11 @@ namespace DoctorForm
             act2 = true;
         }
 
-
-
-
         public void Up_Load(object sender, EventArgs e)
         {            
                 
              do
-             {
-                
+             {                
            
                     if (counts >= 0)
                     {
