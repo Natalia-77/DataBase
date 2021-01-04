@@ -12,6 +12,7 @@ namespace DoctorForm
     {
         MyContext context = new MyContext();
         public string depname { get; set; }
+        static int pagecount = 5;
         static int count = 0;
         bool act = false;
        
@@ -29,8 +30,8 @@ namespace DoctorForm
         {          
            
                 depname = this.textBox1.Text;            
-                int pagecount = 5;               
-               
+                //int pagecount = 5;             
+              
                 do
                 {
                     if (count >= 0 )
@@ -66,9 +67,8 @@ namespace DoctorForm
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+        {           
+            Close();
         }
     }
 }
