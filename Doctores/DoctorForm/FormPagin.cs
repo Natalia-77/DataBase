@@ -35,7 +35,7 @@ namespace DoctorForm
              do
              {                
            
-                    if (counts >= 0)
+                    if (counts >= 0 )
                     {
                         dataGridView1.Rows.Clear();     
                         counts++;
@@ -78,8 +78,7 @@ namespace DoctorForm
                 {
                     dataGridView1.Rows.Clear();
                     counts--;
-                    int index = (counts - 1) * pagecount;
-                    //var departm = context.Doctors.Include(x => x.Department);
+                    int index = (counts - 1) * pagecount;                    
                     var departm = context.Doctors.Include("Department").ToList();
                     var result = departm.Skip(index).Take(pagecount);
                     double total = departm.Count() / pagecount;
@@ -113,7 +112,6 @@ namespace DoctorForm
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
             Close();
         }
 

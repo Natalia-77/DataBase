@@ -1,12 +1,5 @@
 ﻿using Doctores;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DoctorForm
@@ -16,9 +9,7 @@ namespace DoctorForm
             
         public Form1()
         {
-
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,17 +19,13 @@ namespace DoctorForm
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            //DialogResult = DialogResult.OK;
-            //Close();
-            new ShowAll().ShowDialog();
-           
+        {           
+            new ShowAll().ShowDialog();           
         }
 
         private void button3_Click(object sender, EventArgs e)
         {           
-            new FormPagin().ShowDialog();
-            
+            new FormPagin().ShowDialog();            
         }
 
         private void button4_Click(object sender, EventArgs e)
