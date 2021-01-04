@@ -10,7 +10,7 @@ namespace DoctorForm
     {
         MyContext context = new MyContext();
         static int pagecount = 20;
-        static int counts=0;
+        int counts=0;
         bool action = false;
         bool act2 = false;
 
