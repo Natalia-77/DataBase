@@ -13,7 +13,7 @@ namespace DoctorForm
         MyContext context = new MyContext();
         public string depname { get; set; }
         static int pagecount = 5;
-        static int count = 0;       
+        static int count = 0;        
        
         public FormSearch()
         {
