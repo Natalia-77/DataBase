@@ -17,13 +17,21 @@ namespace TelBookForms
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Заповнення бази даних.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             MyContext context = new MyContext();
             AddDataPerson.AddPerson(context);
         }
-
+        /// <summary>
+        /// Перехід в форму для здійснення дій(пошук,відображення в певній послідовності і кількості).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             new ShowAll().ShowDialog();

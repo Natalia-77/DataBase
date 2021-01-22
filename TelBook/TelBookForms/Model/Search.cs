@@ -8,12 +8,19 @@ namespace TelBookForms
     {
        
         /// <summary>
-        /// Field for search.
+        /// Поля для пошуку.
         /// </summary>       
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Telephone { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int Page { get; set; }
+        /// <summary>
+        /// Кількість відображення позицій при натисканні кнопки.
+        /// </summary>
         public int CountPage { get; set; } = 7;
        
 
