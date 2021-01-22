@@ -6,16 +6,16 @@ namespace TelBookForms
 {
     public class Search
     {
-        //public int PersonId { get; set; }
-        //public string Gen { get; set; }
+       
         /// <summary>
         /// Field for search.
-        /// </summary>
-       
+        /// </summary>       
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Telephone { get; set; }
-        //public string Gender { get; set; }
+        public int Page { get; set; }
+        public int CountPage { get; set; } = 7;
+       
 
     }
 }

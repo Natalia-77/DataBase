@@ -28,7 +28,7 @@ namespace TelBook
                 .RuleFor(x => x.Surname, f=> f.Name.LastName(f.Person.Gender))
                 .RuleFor(x => x.Number, f => f.Phone.PhoneNumber());
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 person.Add(p.Generate());
             }

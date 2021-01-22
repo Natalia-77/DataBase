@@ -9,8 +9,12 @@ namespace TelBookForms.PersonRead
 {
     public class PersonService
     {
-        public static List<PersonItemView> Search(MyContext context,Search search)
+        public static PersonItemModel Search(MyContext context,Search search)
         {
+
+            PersonItemModel personmod = new PersonItemModel();
+            int showitems = 7;
+            //int _page = 1;
             var query = context.Persons.AsQueryable();
             if(!string.IsNullOrEmpty(search.Name))
             {
@@ -20,9 +24,17 @@ namespace TelBookForms.PersonRead
             {
                 query = query.Where(x => x.Surname.Contains(search.Surname));
             }
-
-            var list = query.Select(x => new PersonItemView
-            //context.Persons.Select(x => new PersonItemView
+            if (!string.IsNullOrEmpty(search.Telephone))
+            {
+                query = query.Where(x => x.Surname.Contains(search.Telephone));
+            }
+            int page = search.Page - 1;
+            personmod.CountRows = query.Count();
+            personmod.Persons = query
+                .OrderBy(x=>x.Id)
+                .Skip(page*showitems)
+                .Take(showitems)
+                .Select(x => new PersonItemView           
             {
                 //PersonId=x.Id,
                 Surname=x.Surname,
@@ -32,7 +44,7 @@ namespace TelBookForms.PersonRead
 
             }).ToList();
 
-            return list;
+            return personmod;
         }
 
     }
