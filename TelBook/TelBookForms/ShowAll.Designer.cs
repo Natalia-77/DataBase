@@ -179,7 +179,7 @@ namespace TelBookForms
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(547, 390);
+            this.button2.Location = new System.Drawing.Point(583, 390);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 15;
@@ -189,7 +189,7 @@ namespace TelBookForms
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(647, 390);
+            this.button3.Location = new System.Drawing.Point(683, 390);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 29);
             this.button3.TabIndex = 16;
@@ -224,7 +224,6 @@ namespace TelBookForms
             this.groupBox1.Size = new System.Drawing.Size(765, 74);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // ShowAll
             // 

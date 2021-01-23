@@ -65,10 +65,34 @@ namespace TelBookForms
             int start = (page - 1) * sea.CountPage + 1;
             
             ///Відображення проміжку,в якому відбувається виведення даних.
-            label6.Text = $"Display result from {start} to {sea.CountPage -1}";
+            label6.Text = $"Display result from {start} to {start+(sea.CountPage -1)}";
 
             ///Відображення загальної кількості позицій і списку.
             label4.Text ="Total:"+ res.CountRows.ToString();
+
+            //Визначаємо кількість кнопок-(Ділимо загальну отриману кількість позицій на номер сторінки).
+            int totalPage = (int)Math.Ceiling((double)res.CountRows / sea.CountPage);
+                        
+            //Позиція,з якої почнеться відображення створених кнопок.
+            int pos = 15;
+            int dx = 50;
+
+            groupBox1.Controls.Clear();
+            for (int i = 1; i <= totalPage; i++)
+            {
+                Button btn = new Button();
+                btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+                btn.Location = new System.Drawing.Point(pos, 15);
+                btn.Name = $"btnPage{i}";
+                btn.Size = new System.Drawing.Size(50, 45);
+                btn.Text = $"{i}";
+                btn.UseVisualStyleBackColor = true;
+
+               // btn.Click += new System.EventHandler(this.btnPage_Click);
+                groupBox1.Controls.Add(btn);
+                pos += dx;
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
