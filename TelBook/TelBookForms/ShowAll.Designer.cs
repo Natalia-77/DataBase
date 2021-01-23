@@ -171,11 +171,11 @@ namespace TelBookForms
             this.label4.BackColor = System.Drawing.Color.Gainsboro;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label4.Location = new System.Drawing.Point(189, 391);
+            this.label4.Location = new System.Drawing.Point(177, 391);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 28);
+            this.label4.Size = new System.Drawing.Size(66, 28);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Total count:";
+            this.label4.Text = "Total :";
             // 
             // button2
             // 
@@ -203,11 +203,11 @@ namespace TelBookForms
             this.label6.BackColor = System.Drawing.Color.Gainsboro;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label6.Location = new System.Drawing.Point(335, 391);
+            this.label6.Location = new System.Drawing.Point(296, 391);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 28);
+            this.label6.Size = new System.Drawing.Size(115, 28);
             this.label6.TabIndex = 17;
-            this.label6.Text = "Display result:";
+            this.label6.Text = "Display res:";
             // 
             // comboBox1
             // 

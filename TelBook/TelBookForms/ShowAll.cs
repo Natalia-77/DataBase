@@ -1,11 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using TelBook;
 using TelBookForms.Model;
@@ -42,6 +37,16 @@ namespace TelBookForms
             comboBox1.SelectedIndex = 0;
         }
 
+        private void btnLoad(object sender, EventArgs e)
+        {
+            string s = (sender as Button).Text;
+            //Номер кнопки,яку натисне користувач.
+            page = int.Parse(s);     
+            //Передамо натиснутий номер кнопки в SearchPerson.Відповідно відобразиться потрібна сторінка з даними.
+            SearchPerson(GetData());
+
+        }
+
         private void SearchPerson(Search sea=null)
         {   /// Очищаємо грід перед кожним виводом наступної сторінки.
             dataGridView1.Rows.Clear();
@@ -70,25 +75,29 @@ namespace TelBookForms
             ///Відображення загальної кількості позицій і списку.
             label4.Text ="Total:"+ res.CountRows.ToString();
 
-            //Визначаємо кількість кнопок-(Ділимо загальну отриману кількість позицій на номер сторінки).
+            //Визначаємо кількість кнопок-(Ділимо загальну отриману кількість позицій на кількість записів на одній сторінці).
             int totalPage = (int)Math.Ceiling((double)res.CountRows / sea.CountPage);
                         
             //Позиція,з якої почнеться відображення створених кнопок.
-            int pos = 15;
-            int dx = 50;
+            int pos = 5;
+            int dx = 60;
 
             groupBox1.Controls.Clear();
-            for (int i = 1; i <= totalPage; i++)
+
+            for (int i = page; i <= totalPage; i++)
             {
                 Button btn = new Button();
                 btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-                btn.Location = new System.Drawing.Point(pos, 15);
-                btn.Name = $"btnPage{i}";
-                btn.Size = new System.Drawing.Size(50, 45);
+                btn.Location = new System.Drawing.Point(pos, 5);
+                //Колір фона кнопки.
+                btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+                btn.Size = new System.Drawing.Size(55, 50);
+
+                //Виведення на форму порядкового номера кнопки.
                 btn.Text = $"{i}";
                 btn.UseVisualStyleBackColor = true;
-
-               // btn.Click += new System.EventHandler(this.btnPage_Click);
+                //Обробник події,в ньому буде інформація,про номер натиснутої кнопки.
+                btn.Click += new System.EventHandler(btnLoad);
                 groupBox1.Controls.Add(btn);
                 pos += dx;
             }
