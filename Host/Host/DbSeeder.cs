@@ -54,70 +54,70 @@ namespace Host
 
             private static void SeedDoctor(MyContext context)
             {
-                if (context.Doctors.Count() == 0)
-                {
+               // if (context.Doctors.Count() > 0)
+               // {
                     context.Doctors
                         .Add(
                         new Doctor
                         {
-                            LastName = "Roberto",
-                            FirstName = "Robertos",
-                            Login = "roro",
+                            LastName = "Rama",
+                            FirstName = "Robe",
+                            Login = "ra",
                             Password = Codify.HashPassword("147"),
-                            Image="1.jpg" ,                    
+                            Image="5.jpg" ,                    
                             Department = context.Departments
                             .FirstOrDefault(x => x.Name == "Stomatology"),
                             Stage = 20
                         });
 
-                    context.Doctors
-                        .Add(
-                        new Doctor
-                        {
-                            LastName = "Hose",
-                            FirstName = "Garsia",
-                            Login = "hoho",
-                            Password = Codify.HashPassword("852"),
-                            Image="2.jpg",
-                            Department = context.Departments
-                            .FirstOrDefault(x => x.Name == "Psychiatry"),
-                            Stage = 8
-                        });
+                    //context.Doctors
+                    //    .Add(
+                    //    new Doctor
+                    //    {
+                    //        LastName = "Hose",
+                    //        FirstName = "Garsia",
+                    //        Login = "hoho",
+                    //        Password = Codify.HashPassword("852"),
+                    //        Image="5.jpg",
+                    //        Department = context.Departments
+                    //        .FirstOrDefault(x => x.Name == "Psychiatry"),
+                    //        Stage = 8
+                    //    });
 
 
-                       context.Doctors
-                        .Add(
-                        new Doctor
-                        {
-                            LastName = "Mata",
-                            FirstName = "Hary",
-                            Login = "mata",
-                            Password = Codify.HashPassword("985"),
-                            Image="3.jpg",
-                            Department = context.Departments
-                            .FirstOrDefault(x => x.Name == "Cardiology"),
-                            Stage = 12
-                        });
+                    //   context.Doctors
+                    //    .Add(
+                    //    new Doctor
+                    //    {
+                    //        LastName = "Mata",
+                    //        FirstName = "Hary",
+                    //        Login = "mata",
+                    //        Password = Codify.HashPassword("985"),
+                    //        Image="3.jpg",
+                    //        Department = context.Departments
+                    //        .FirstOrDefault(x => x.Name == "Cardiology"),
+                    //        Stage = 12
+                    //    });
 
-                          context.Doctors
-                        .Add(
-                        new Doctor
-                        {
-                            LastName = "Lenin",
-                            FirstName = "Ulianov",
-                            Login = "lele",
-                            Password = Codify.HashPassword("554"),
-                            Image="mars.jpg",
-                            Department = context.Departments
-                            .FirstOrDefault(x => x.Name == "Death-Note"),
-                            Stage = 8
-                        });
+                    //      context.Doctors
+                    //    .Add(
+                    //    new Doctor
+                    //    {
+                    //        LastName = "Lenin",
+                    //        FirstName = "Ulianov",
+                    //        Login = "lele",
+                    //        Password = Codify.HashPassword("554"),
+                    //        Image="mars.jpg",
+                    //        Department = context.Departments
+                    //        .FirstOrDefault(x => x.Name == "Death-Note"),
+                    //        Stage = 8
+                    //    });
 
 
 
 
                 context.SaveChanges();
-                }
+               // }
             }
 
 
