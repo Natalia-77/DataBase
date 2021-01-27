@@ -28,12 +28,14 @@ namespace QuizForm
         /// Масив булевих значень відповідей.
         /// </summary>
         private bool[] result;
+        private int q;
 
         public int positive
         {
             get
             {
-                return int.Parse(label3.Text);
+                //return int.Parse(label3.Text);
+                return q;
             }
             set
             {
@@ -81,22 +83,21 @@ namespace QuizForm
             groupBox1.Controls.Clear();
             for (int i = 0; i < answers.Count; i++)
             {
-                RadioButton gbOneItem;
-                gbOneItem = new System.Windows.Forms.RadioButton();
-                gbOneItem.AutoSize = true;
-                gbOneItem.Location = new System.Drawing.Point(25, startPosition);
-                gbOneItem.Name = $"gbItem{i}";
-                gbOneItem.Tag = answers[i];
-                gbOneItem.Size = new System.Drawing.Size(67, 19);
-                gbOneItem.TabIndex = 1;
-                gbOneItem.TabStop = true;
-                gbOneItem.Text = answers[i].Text;
-                gbOneItem.UseVisualStyleBackColor = true;
-                groupBox1.Controls.Add(gbOneItem);
+                RadioButton gb;
+                gb = new System.Windows.Forms.RadioButton();
+                gb.AutoSize = true;
+                gb.Location = new System.Drawing.Point(25, startPosition);
+                gb.Name = $"gbItem{i}";
+                gb.Tag = answers[i];
+                gb.Size = new System.Drawing.Size(67, 19);
+                gb.TabIndex = 1;
+                gb.TabStop = true;
+                gb.Text = answers[i].Text;
+                gb.UseVisualStyleBackColor = true;
+                groupBox1.Controls.Add(gb);
                 startPosition += dy;
                 label4.Text = $"Індекс питання:{indexQuestion + 1}";
             }
-
 
 
         }
@@ -110,7 +111,7 @@ namespace QuizForm
         {
             
             //Кількість правильних відповідей.
-            int q = 0;
+             q = 0;
            
             var radioButtons = groupBox1.Controls.OfType<RadioButton>();
             foreach (RadioButton rb in radioButtons)
@@ -129,12 +130,9 @@ namespace QuizForm
                     q++;
                 }
 
-            }
-
-            label3.Text = $"Кількість правильних відповідей {q}";// q.ToString();            
-            MessageBox.Show("Ви відповіли ", result[indexQuestion].ToString());
-            indexQuestion++;
-
+            }                    
+           
+            indexQuestion++;            
             if (_listQuestions.Count() == indexQuestion)
             {
                 Close();

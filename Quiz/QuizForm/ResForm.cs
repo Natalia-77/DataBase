@@ -13,8 +13,8 @@ namespace QuizForm
             public ResForm(QuizForm form)
             {
                 InitializeComponent();
-                label1.Text = $"Кількість правильних відповідей: {f.positive}";
-                label2.Text = $"Кількість неправильних відповідей: { f.negative - f.positive}";
+                label1.Text = $"Кількість правильних відповідей: {form.positive}";
+                label2.Text = $"Кількість неправильних відповідей: { form.negative - form.positive}";
                 InitializeComponent();
 
              }
