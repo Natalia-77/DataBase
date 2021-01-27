@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Quiz.Migrations
+namespace Quiz.DAL.Migrations
 {
     public partial class AddQuiz : Migration
     {

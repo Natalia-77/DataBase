@@ -1,4 +1,5 @@
 ﻿using Quiz;
+using Quiz.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,7 @@ namespace QuizForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new QuizForm().ShowDialog();
+            new QuizForm(_context).ShowDialog();
         }
     }
 }

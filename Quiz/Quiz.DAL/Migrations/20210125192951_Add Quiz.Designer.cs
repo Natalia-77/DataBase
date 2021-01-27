@@ -5,8 +5,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Quiz;
+using Quiz.DAL;
 
-namespace Quiz.Migrations
+namespace Quiz.DAL.Migrations
 {
     [DbContext(typeof(MyContext))]
     [Migration("20210125192951_Add Quiz")]
