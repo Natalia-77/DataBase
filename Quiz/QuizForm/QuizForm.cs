@@ -29,6 +29,10 @@ namespace QuizForm
         /// </summary>
         private bool[] result;
         private int q;
+
+        /// <summary>
+        /// Для таймера інтервал секунд.
+        /// </summary>
         private int _tick;
 
         public int positive
@@ -148,15 +152,14 @@ namespace QuizForm
         private void timer1_Tick(object sender, EventArgs e)
         {
             _tick++;
-            this.Text = _tick.ToString();
+            textBox1.Text = _tick.ToString();           
             if(_tick==12)
             {
-                this.Text = "Закінчився час для тесту!";
+                Close();
                 timer1.Stop();
-                this.Close();
-                MessageBox.Show("Ваш час вичерпано..."+
-                             "Наступного разу відповідайте швидше.");
-            }
+                textBox1.Text = "0";
+            }            
+
         }
     }
 }

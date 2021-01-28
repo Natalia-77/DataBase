@@ -15,6 +15,7 @@ namespace QuizForm
                 InitializeComponent();
                 label1.Text = $"Кількість правильних відповідей: {form.positive}";
                 label2.Text = $"Кількість неправильних відповідей: { form.negative - form.positive}";
+                label3.Text = $"Відсоток правильних відповідей: {(form.positive*100)/form.negative}";
                 InitializeComponent();
 
              }
