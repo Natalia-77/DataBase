@@ -29,12 +29,12 @@ namespace QuizForm
         /// </summary>
         private bool[] result;
         private int q;
+        private int _tick;
 
         public int positive
         {
             get
-            {
-                //return int.Parse(label3.Text);
+            {                
                 return q;
             }
             set
@@ -56,8 +56,7 @@ namespace QuizForm
         }
         public QuizForm(MyContext context)
         {
-
-           // _listQuestions = new List<QuizModel>();
+           
            _listQuestions= context.Questions.Select(x => new QuizModel
             {
                 Text = x.Text,
@@ -70,6 +69,7 @@ namespace QuizForm
             }).ToList();
 
             InitializeComponent();
+            timer1.Start();
             cou = context.Questions.Count();
             label2.Text = $"Загальна кількість питань:{cou}";
             result = new bool[_listQuestions.Count];
@@ -143,9 +143,20 @@ namespace QuizForm
                 LoadQuestion();
             }
 
+        }
 
-
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            _tick++;
+            this.Text = _tick.ToString();
+            if(_tick==12)
+            {
+                this.Text = "Закінчився час для тесту!";
+                timer1.Stop();
+                this.Close();
+                MessageBox.Show("Ваш час вичерпано..."+
+                             "Наступного разу відповідайте швидше.");
+            }
         }
     }
 }
