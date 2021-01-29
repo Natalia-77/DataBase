@@ -39,8 +39,8 @@ namespace Static
             //2.При наведенні курсора мишки,зображення плавно втікає від неї.Тобто не скаче.
             //Задаю "крок",на який буде стрибати наше зображення.
 
-            int x_new = pictureBox1.Width / 10;
-            int y_new = pictureBox1.Height / 10;
+             int x_new = pictureBox1.Width / 10;
+             int y_new = pictureBox1.Height / 10;
             
 
             //Перевірки,згідно яких будуть задані нові координати для зображення.
@@ -54,10 +54,8 @@ namespace Static
                 pictureBox1.Location = new Point(pictureBox1.Location.X+x_new,pictureBox1.Location.Y);
             }
 
-            if(((pictureBox1.Left > x_new) && e.X>pictureBox1.Width/3))
-            //if ((pictureBox1.Left > x_new))
-            {
-                //втікає вліво по горизонталі.
+            if(((pictureBox1.Left > x_new) && e.X>pictureBox1.Width/3))            
+            {                //втікає вліво по горизонталі.
                 pictureBox1.Location = new Point(pictureBox1.Location.X-x_new,pictureBox1.Location.Y);
             }
 
