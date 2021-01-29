@@ -41,19 +41,20 @@ namespace Static
 
             int x_new = pictureBox1.Width / 10;
             int y_new = pictureBox1.Height / 10;
+            
 
             //Перевірки,згідно яких будуть задані нові координати для зображення.
             //Відповідно до ширини "кроку",який прописаний вище.
 
             //Рух по горизонталі.
             //Якщо курсор мишки підходить зліва,то картінка втікає справо.
-            if(((pictureBox1.Left+pictureBox1.Width+x_new)<(ClientSize.Width))&&e.X<pictureBox1.Width/2)
+            if(((pictureBox1.Left+pictureBox1.Width+x_new)<(ClientSize.Width))&&e.X<pictureBox1.Width/3)
             {
                 //втікає вправо по горизонталі.
                 pictureBox1.Location = new Point(pictureBox1.Location.X+x_new,pictureBox1.Location.Y);
             }
 
-            if(((pictureBox1.Left > x_new) && e.X>pictureBox1.Width/2))
+            if(((pictureBox1.Left > x_new) && e.X>pictureBox1.Width/3))
             //if ((pictureBox1.Left > x_new))
             {
                 //втікає вліво по горизонталі.
@@ -61,12 +62,12 @@ namespace Static
             }
 
             //Рух по вертикалі.
-            if (((pictureBox1.Top + pictureBox1.Height + y_new) < (ClientSize.Height)) && e.Y < pictureBox1.Height /2)
+            if (((pictureBox1.Top + pictureBox1.Height + y_new) < (ClientSize.Height)) && e.Y < pictureBox1.Height /3)
             {               
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y+y_new);
             }
 
-            if (((pictureBox1.Top > y_new) && e.Y > pictureBox1.Height / 2))
+            if (((pictureBox1.Top > y_new) && e.Y > pictureBox1.Height / 3))
             {                
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y-y_new);
             }
