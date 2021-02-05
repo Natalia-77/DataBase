@@ -87,9 +87,40 @@ namespace Quiz.DAL
 
             }
 
+            if (context.Users.Count() == 0)
+            {
+                var user = new User
+                {
+                    Name = "Петро",
+                    Surname = "Гончарук",
+                    Login = "petro",
+                    Password = "123"
+                };
+
+                context.Users.Add(user);
+                context.SaveChanges();
+
+                var session = new List<Session>
+                {
+                    new Session{UserId=user.Id,Begin=DateTime.Now,End=DateTime.Now.AddMinutes(12),Marks=72M}
+
+                };
+                context.Sessions.AddRange(session);
+                context.SaveChanges();
+
+                var res = new List<Result>
+                {
+                    new Result{SessionId=1,AnswerId=4},
+                    new Result{SessionId=1,AnswerId=5},
+                    new Result{SessionId=1,AnswerId=9},
+                    new Result{SessionId=1,AnswerId=13}                   
+                };
+                context.Results.AddRange(res);
+                context.SaveChanges();
+
+            }
+
         }
-
-
 
     }
 }
