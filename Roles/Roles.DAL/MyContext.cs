@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 
-namespace Roles
+namespace Roles.DAL
 {
     public class MyContext:DbContext
     {

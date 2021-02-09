@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace Roles
+namespace Roles.DAL
 {
     [Table("tblUsersRoles")]
     public class UserRoles

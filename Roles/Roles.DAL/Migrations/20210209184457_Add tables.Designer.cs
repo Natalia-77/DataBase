@@ -5,8 +5,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Roles;
+using Roles.DAL;
 
-namespace Roles.Migrations
+namespace Roles.DAL.Migrations
 {
     [DbContext(typeof(MyContext))]
     [Migration("20210209184457_Add tables")]

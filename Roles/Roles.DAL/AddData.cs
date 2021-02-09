@@ -1,10 +1,10 @@
-﻿using Roles.Service;
+﻿using Roles.DAL.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Roles
+namespace Roles.DAL
 {
     public class AddData
     {

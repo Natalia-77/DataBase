@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Roles.Service
+namespace Roles.DAL.Service
 {
     public class PassHash
     {
