@@ -9,8 +9,8 @@ using Roles;
 namespace Roles.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210209182245_Add tbl")]
-    partial class Addtbl
+    [Migration("20210209184457_Add tables")]
+    partial class Addtables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
