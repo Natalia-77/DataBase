@@ -12,7 +12,7 @@ namespace Roles.DAL
         {
             AddUser(context);
             AddRoles(context);
-            //AddUserRoles(context);
+            AddUserRoles(context);
         }
 
         private static void AddUser(MyContext context)
@@ -60,13 +60,13 @@ namespace Roles.DAL
             if (context.Roles.Count() == 0)
             {
                 context.Roles
-                    .Add(new Role 
+                    .Add(new Role
                     {
                         Name = "Системний адміністратор"
                     });
                 context.Roles
                     .Add(new Role
-                    { 
+                    {
                         Name = ".Net Developer"
                     });
                 context.Roles
@@ -76,12 +76,56 @@ namespace Roles.DAL
                     });
                 context.Roles
                     .Add(new Role
-                    { 
-                        Name = "Junior Python Developer" 
+                    {
+                        Name = "Junior Python Developer"
                     });
                 context.SaveChanges();
             }
         }
+        private static void AddUserRoles(MyContext context)
+        {
+            if (context.UserRoles.Count() == 0)
+            {
+                context.UserRoles
+                    .Add(new UserRoles
+                    {
+                        UserId = 1,
+                        RoleId = 2,
+                    });
+                context.UserRoles
+                    .Add(new UserRoles
+                    {
+                        UserId = 2,
+                        RoleId = 3,
+                    });
+                context.UserRoles
+                    .Add(new UserRoles
+                    {
+                        UserId = 3,
+                        RoleId = 2,
+                    });
+                context.UserRoles
+                    .Add(new UserRoles
+                    {
+                        UserId = 4,
+                        RoleId = 1,
+                    });
+                context.UserRoles
+                   .Add(new UserRoles
+                   {
+                       UserId = 3,
+                       RoleId = 1,
+                   });
+                context.UserRoles
+                   .Add(new UserRoles
+                   {
+                       UserId = 2,
+                       RoleId = 1,
+                   });
 
+                context.SaveChanges();
+            }
+
+        }
     }
 }
