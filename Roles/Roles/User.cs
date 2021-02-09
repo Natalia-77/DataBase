@@ -23,6 +23,6 @@ namespace Roles
         [Required, StringLength(120)]
         public string Password { get; set; }
 
-        public virtual ICollection<UserRoles> UserRoles { get; set; }
+        public virtual ICollection<UserRoles> UserRoless { get; set; }
     }
 }
