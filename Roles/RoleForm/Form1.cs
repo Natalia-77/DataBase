@@ -1,4 +1,5 @@
-﻿using Roles.DAL;
+﻿using FormRoles;
+using Roles.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,12 @@ namespace RoleForm
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            new ShowAll().ShowDialog();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
