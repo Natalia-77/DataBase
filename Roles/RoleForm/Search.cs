@@ -26,14 +26,14 @@ namespace FormRoles
 
         private void SearchUserGrid(SearchUser sea = null)
         {
-            /// Очищаємо грід перед кожним виводом наступної сторінки.
+            // Очищаємо грід перед кожним виводом наступної сторінки.
             dataGridView1.Rows.Clear();
 
             // Якщо SearchUser sea==null,то створю новий об"єкт класу.Якщо не null,то використ вже наявний екземпляр.
             sea ??= new SearchUser();
             sea.Page = page;
 
-            //Отримуємо дані,згенеровані відповідно до запитів у PersonService.
+            //Отримуємо дані,згенеровані відповідно до запитів у UserSearchService.
             var res = UserSearchService.SearchUser(_context, sea);
             foreach (var item in res.Users)
             {
@@ -55,13 +55,7 @@ namespace FormRoles
             //Введені користувачем дані для пошуку передаємо в SearchUser.
             search.Name = textBox1.Text;
             search.Surname = textBox2.Text;
-            search.Position = textBox3.Text;
-
-            //Обрана в комбобокс кількість об"єктів для відображення.
-            //var countSelect = comboBox1.SelectedItem as ComboBoxPerson;
-
-            //Приводимо до інта ім"я,що містило значення  кількості елементів до показу.
-            //search.CountPage = int.Parse(countSelect.Name);
+            search.Position = textBox3.Text;           
 
             return search;
         }
@@ -77,6 +71,15 @@ namespace FormRoles
             page += 1;
             SearchUserGrid(GetData());
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (page > 1)
+            {
+                page -= 1;
+                SearchUserGrid(GetData());
+            }
         }
     }
 }
