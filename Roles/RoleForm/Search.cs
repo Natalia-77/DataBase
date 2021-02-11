@@ -25,8 +25,11 @@ namespace FormRoles
 
 
         private void SearchUserGrid(SearchUser sea = null)
-        {   /// Очищаємо грід перед кожним виводом наступної сторінки.
+        {
+            /// Очищаємо грід перед кожним виводом наступної сторінки.
             dataGridView1.Rows.Clear();
+
+            // Якщо SearchUser sea==null,то створю новий об"єкт класу.Якщо не null,то використ вже наявний екземпляр.
             sea ??= new SearchUser();
             sea.Page = page;
 
@@ -67,6 +70,13 @@ namespace FormRoles
         {
             page = 1;
             SearchUserGrid(GetData());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            page += 1;
+            SearchUserGrid(GetData());
+
         }
     }
 }
