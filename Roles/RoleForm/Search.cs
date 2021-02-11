@@ -13,7 +13,7 @@ namespace FormRoles
     public partial class Search : Form
     {
         private int page = 1;
-        private readonly MyContext _context = new MyContext();
+        private  MyContext _context = new MyContext();
         public Search()
         {
             InitializeComponent();
