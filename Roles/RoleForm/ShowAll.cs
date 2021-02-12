@@ -9,6 +9,7 @@ namespace FormRoles
 {
     public partial class ShowAll : Form
     {
+        private MyContext _context = new MyContext();
         public ShowAll()
         {
             InitializeComponent();
@@ -16,8 +17,9 @@ namespace FormRoles
 
         public void Data_Load(object sender, EventArgs e)
         {
-            MyContext context = new MyContext();            
+            MyContext context = new MyContext();
 
+            label2.Text = "Введіть прізвище користувача,якого потрібно видалити:";
             var info = context.UserRoles.Include(u => u.User).Include(rol=>rol.Role).AsQueryable();
 
             var list = info.Select(r => new 
@@ -41,6 +43,18 @@ namespace FormRoles
                     };
 
                 dataGridView1.Rows.Add(row);
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string surname = textBox1.Text;
+            User d = _context.Users.SingleOrDefault(x => x.Surname == surname);
+            if (d != null)
+            {
+                _context.Users.Remove(d);
+                _context.SaveChanges();
 
             }
         }

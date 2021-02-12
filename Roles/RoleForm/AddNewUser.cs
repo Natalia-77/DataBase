@@ -2,12 +2,7 @@
 using Roles.DAL;
 using Roles.DAL.Service;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FormRoles
@@ -51,15 +46,16 @@ namespace FormRoles
             if (item != null)
             {
                 var rol = comboBox1.SelectedItem as RoleComboBoxItem;
-
+                
                 context.UserRoles
                    .Add(new UserRoles
                    {
                        UserId = infoid,
-                       RoleId =rol.Id
+                       RoleId = rol.Id
                    }); 
                 context.SaveChanges();
             }
+            
            
         }
     }

@@ -40,12 +40,12 @@ namespace RoleForm
 
         private void button4_Click(object sender, EventArgs e)
         {
-            new DeleteForm().ShowDialog();
+            //new DeleteForm().ShowDialog();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            new EditForm().ShowDialog();
+            //new EditForm().ShowDialog();
         }
     }
 }

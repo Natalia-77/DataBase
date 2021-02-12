@@ -35,6 +35,9 @@ namespace FormRoles
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +47,7 @@ namespace FormRoles
             this.label1.BackColor = System.Drawing.Color.LightBlue;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(193, 84);
+            this.label1.Location = new System.Drawing.Point(196, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(328, 25);
             this.label1.TabIndex = 0;
@@ -58,11 +61,11 @@ namespace FormRoles
             this.ColName,
             this.ColSur,
             this.ColRole});
-            this.dataGridView1.Location = new System.Drawing.Point(39, 177);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 65);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(728, 241);
+            this.dataGridView1.Size = new System.Drawing.Size(728, 201);
             this.dataGridView1.TabIndex = 1;
             // 
             // ColId
@@ -93,11 +96,41 @@ namespace FormRoles
             this.ColRole.MinimumWidth = 6;
             this.ColRole.Name = "ColRole";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 311);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "label2";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button1.Location = new System.Drawing.Point(630, 299);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 44);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Delete";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(453, 311);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(125, 27);
+            this.textBox1.TabIndex = 4;
+            // 
             // ShowAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "ShowAll";
@@ -117,5 +150,8 @@ namespace FormRoles
         private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSur;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRole;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
