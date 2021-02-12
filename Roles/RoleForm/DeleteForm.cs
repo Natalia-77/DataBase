@@ -32,6 +32,7 @@ namespace FormRoles
             {
                 _context.Users.Remove(d);
                 _context.SaveChanges();
+
             }
             else
             {
