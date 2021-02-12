@@ -37,5 +37,10 @@ namespace RoleForm
         {
             new AddNewUser().ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new DeleteForm().ShowDialog();
+        }
     }
 }
