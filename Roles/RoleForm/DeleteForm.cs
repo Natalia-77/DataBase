@@ -34,10 +34,7 @@ namespace FormRoles
                 _context.SaveChanges();
 
             }
-            else
-            {
-                MessageBox.Show("No");
-            }
+            
             
         }
     }

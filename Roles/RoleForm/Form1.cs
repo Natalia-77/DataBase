@@ -42,5 +42,10 @@ namespace RoleForm
         {
             new DeleteForm().ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new EditForm().ShowDialog();
+        }
     }
 }
