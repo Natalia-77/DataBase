@@ -1,12 +1,7 @@
 ﻿using FormRoles.Service;
 using Roles.DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FormRoles
@@ -25,24 +20,19 @@ namespace FormRoles
             label7.Text = "Станьте курсором в гріді на строчці(на самому тексті) потрібного користувача";
             label5.Text = "Тут буде вказано дані користувача,на яких буде стояти курсор в гріді";
             label6.Text = "Введіть нове відкориговане прізвище:";
-            SearchUserGrid();
-            //dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
+            SearchUserGrid();          
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
 
-        }
-        //void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        //{
-        //    dataGridView1.ReadOnly = true;
-        //}
+        }        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string str = dataGridView1.CurrentCell.Value.ToString();
             label5.Text = str;
-            string_value=str;            
-        }
+            string_value = str;
+            }
 
-        private void EditUserData()
+            private void EditUserData()
         {            
             User us = _context.Users.SingleOrDefault(x => x.Surname == string_value);
             if (us != null)
@@ -111,15 +101,11 @@ namespace FormRoles
             }
         }
 
-        //private void button4_Click(object sender, EventArgs e)
-        //{
-        //    dataGridView1.ReadOnly = false;
-        //    dataGridView1.BeginEdit(true);
-        //}
-
         private void button4_Click_1(object sender, EventArgs e)
         {
-            EditUserData();
+            EditUserData();     
+          
+
         }
     }
 }

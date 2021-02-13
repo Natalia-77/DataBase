@@ -9,7 +9,7 @@ namespace FormRoles
 {
     public partial class ShowAll : Form
     {
-        public string valuerow { get; set; }
+       // public string valuerow { get; set; }
         private MyContext _context = new MyContext();
         public ShowAll()
         {
@@ -52,7 +52,7 @@ namespace FormRoles
         {
             string stroka =dataGridView1.CurrentCell.Value.ToString();            
            // label5.Text = str;
-            valuerow = stroka;
+           // valuerow = stroka;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,17 +68,7 @@ namespace FormRoles
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            //int delet = dataGridView1.SelectedCells[0].RowIndex;
-            //dataGridView1.Rows.RemoveAt(delet);
-            //User d = _context.Users.SingleOrDefault(x => x.Surname == valuerow);
-            //if (d != null)
-            //{
-
-            //    _context.Users.Remove(d);
-            //    _context.SaveChanges();
-
-            //}
+        {          
 
             int id = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
 
