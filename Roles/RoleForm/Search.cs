@@ -27,7 +27,6 @@ namespace FormRoles
             label6.Text = "Введіть нове відкориговане прізвище:";
             SearchUserGrid();
             //dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
-
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
 
         }
@@ -35,6 +34,7 @@ namespace FormRoles
         //{
         //    dataGridView1.ReadOnly = true;
         //}
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string str = dataGridView1.CurrentCell.Value.ToString();
