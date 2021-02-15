@@ -14,5 +14,10 @@ namespace Roles.DAL
         [Required, StringLength(100)]
         public string Name { get; set; }
         public virtual ICollection<UserRoles> UserRoless { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

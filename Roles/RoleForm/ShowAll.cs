@@ -8,64 +8,76 @@ using System.Windows.Forms;
 namespace FormRoles
 {
     public partial class ShowAll : Form
-    {
-       // public string valuerow { get; set; }
-        private MyContext _context = new MyContext();
+    {       
+        private readonly MyContext _context;
         public ShowAll()
         {
             InitializeComponent();
-        }
+            _context = new MyContext();
+            DataLoad();
+        }       
 
-        public void Data_Load(object sender, EventArgs e)
+        private void DataLoad()
         {
-            MyContext context = new MyContext();
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            label2.Text = "Введіть прізвище користувача,якого потрібно видалити:";
-            var info = context.UserRoles.Include(u => u.User).Include(rol=>rol.Role).AsQueryable();
+            label2.Text = "Редагування по курсору в гріді";
+            //var info = _context.UserRoles.Include(u => u.User).Include(rol => rol.Role).AsQueryable();
 
-            var list = info.Select(r => new 
-            {
-                Id = r.User.Id,
-                Name = r.User.Name,
-                Surname = r.User.Surname,                
-                //Roles = r.RoleId,
-                Roles=r.Role.Name
-              
+            //var list = info.Select(r => new
+            //{
+            //    Id = r.Role.Id,
+            //    Name = r.User.Name,
+            //    Surname = r.User.Surname,
+            //    Roles = r.Role.Name
 
-            }).AsQueryable();       
-            
+
+            //}).AsQueryable();
+
+            var query = _context.UserRoles
+              //.Include(x => x.Category)
+              .AsQueryable();
+
+            var list = query.Select(x => new {
+                Id = x.Id,
+                Name = x.User.Name,
+                Surname = x.User.Surname,
+                Roles = x.Role.Name
+            })
+                .AsQueryable().ToList();
+
+
             foreach (var item in list)
             {
                 object[] row =
                        {$"{item.Id}",
                         $"{item.Name}",
-                        $"{item.Surname}",                         
+                        $"{item.Surname}",
                         $"{item.Roles}"
                     };
 
                 dataGridView1.Rows.Add(row);
 
             }
+
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string stroka =dataGridView1.CurrentCell.Value.ToString();            
-           // label5.Text = str;
-           // valuerow = stroka;
-        }
+            //private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            //{
+            //    string stroka =dataGridView1.CurrentCell.Value.ToString();            
+            //   // label5.Text = str;
+            //   // valuerow = stroka;
+            //}
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string surname = textBox1.Text;
-            User d = _context.Users.SingleOrDefault(x => x.Surname == surname);
-            if (d != null)
-            {
-                _context.Users.Remove(d);
-                _context.SaveChanges();
+            //private void button1_Click(object sender, EventArgs e)
+            //{
+            //    string surname = textBox1.Text;
+            //    User d = _context.Users.SingleOrDefault(x => x.Surname == surname);
+            //    if (d != null)
+            //    {
+            //        _context.Users.Remove(d);
+            //        _context.SaveChanges();
 
-            }
-        }
+            //    }
+            //}
 
         private void button2_Click(object sender, EventArgs e)
         {          
@@ -82,11 +94,29 @@ namespace FormRoles
             User d = _context.Users.SingleOrDefault(x => x.Id == id);
             if (d != null)
             {
-
                 _context.Users.Remove(d);
                 _context.SaveChanges();
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Якщо ми обрали потрібну строчку в гріді.
+            if (dataGridView1.CurrentRow != null)
+            {
+                // Id обраної строчки в гріді.
+                int id_select_item = int.Parse(dataGridView1["ColId", dataGridView1.CurrentRow.Index].Value.ToString());
+
+                //натискаю кнопку редагування і викликаю форму для редагування.
+                EditForm dlg = new EditForm(id_select_item);
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    DataLoad();                    
+                }
+            }
+            //Close();
         }
     }
 }

@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Roles.DAL.Migrations
 {
-    public partial class Addtables : Migration
+    public partial class Add : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,12 +40,14 @@ namespace Roles.DAL.Migrations
                 name: "tblUsersRoles",
                 columns: table => new
                 {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<int>(nullable: false),
                     RoleId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tblUsersRoles", x => new { x.UserId, x.RoleId });
+                    table.PrimaryKey("PK_tblUsersRoles", x => x.Id);
                     table.ForeignKey(
                         name: "FK_tblUsersRoles_tblRoles_RoleId",
                         column: x => x.RoleId,
@@ -64,6 +66,11 @@ namespace Roles.DAL.Migrations
                 name: "IX_tblUsersRoles_RoleId",
                 table: "tblUsersRoles",
                 column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tblUsersRoles_UserId",
+                table: "tblUsersRoles",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

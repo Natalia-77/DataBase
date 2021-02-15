@@ -17,30 +17,30 @@ namespace FormRoles
         }
         private void Search_Load(object sender, EventArgs e)
         {
-            label7.Text = "Станьте курсором в гріді на строчці(на самому тексті) потрібного користувача";
-            label5.Text = "Тут буде вказано дані користувача,на яких буде стояти курсор в гріді";
-            label6.Text = "Введіть нове відкориговане прізвище:";
+            //label7.Text = "Станьте курсором в гріді на строчці(на самому тексті) потрібного користувача";
+            //label5.Text = "Тут буде вказано дані користувача,на яких буде стояти курсор в гріді";
+            //label6.Text = "Введіть нове відкориговане прізвище:";
             SearchUserGrid();          
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+           // dataGridView1.CellContentClick += dataGridView1_CellContentClick;
 
-        }        
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string str = dataGridView1.CurrentCell.Value.ToString();
-            label5.Text = str;
-            string_value = str;
-            }
-
-            private void EditUserData()
-        {            
-            User us = _context.Users.SingleOrDefault(x => x.Surname == string_value);
-            if (us != null)
-            {
-                us.Surname = textBox4.Text;
-                _context.SaveChanges();
-            }
         }
+
+        //private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    string str = dataGridView1.CurrentCell.Value.ToString();
+        //    label5.Text = str;
+        //    string_value = str;
+        //}
+
+        //private void EditUserData()
+        //{
+        //    User us = _context.Users.SingleOrDefault(x => x.Surname == string_value);
+        //    if (us != null)
+        //    {
+        //        us.Surname = textBox4.Text;
+        //        _context.SaveChanges();
+        //    }
+        //}
 
 
         private void SearchUserGrid(SearchUser sea = null)
@@ -101,11 +101,12 @@ namespace FormRoles
             }
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            EditUserData();     
-          
+        //private void button4_Click_1(object sender, EventArgs e)
+        //{
+        //    EditUserData();  
 
-        }
+           
+
+        //}
     }
 }

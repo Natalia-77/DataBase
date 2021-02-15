@@ -4,14 +4,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Roles;
 using Roles.DAL;
 
 namespace Roles.DAL.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210209184457_Add tables")]
-    partial class Addtables
+    [Migration("20210215205010_Add")]
+    partial class Add
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +20,7 @@ namespace Roles.DAL.Migrations
                 .HasAnnotation("ProductVersion", "3.1.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("Roles.Role", b =>
+            modelBuilder.Entity("Roles.DAL.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,7 +37,7 @@ namespace Roles.DAL.Migrations
                     b.ToTable("tblRoles");
                 });
 
-            modelBuilder.Entity("Roles.User", b =>
+            modelBuilder.Entity("Roles.DAL.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -70,30 +69,37 @@ namespace Roles.DAL.Migrations
                     b.ToTable("tblUsers");
                 });
 
-            modelBuilder.Entity("Roles.UserRoles", b =>
+            modelBuilder.Entity("Roles.DAL.UserRoles", b =>
                 {
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("RoleId")
                         .HasColumnType("integer");
 
-                    b.HasKey("UserId", "RoleId");
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("tblUsersRoles");
                 });
 
-            modelBuilder.Entity("Roles.UserRoles", b =>
+            modelBuilder.Entity("Roles.DAL.UserRoles", b =>
                 {
-                    b.HasOne("Roles.Role", "Role")
+                    b.HasOne("Roles.DAL.Role", "Role")
                         .WithMany("UserRoless")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Roles.User", "User")
+                    b.HasOne("Roles.DAL.User", "User")
                         .WithMany("UserRoless")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
