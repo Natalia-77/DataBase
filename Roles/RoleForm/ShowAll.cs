@@ -2,6 +2,8 @@
 using Roles.DAL;
 using System;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -37,21 +39,27 @@ namespace FormRoles
               .AsQueryable();
 
             var list = query.Select(x => new {
-                Id = x.Id,
+                Id = x.Id,               
+                Image=x.User.Image,
                 Name = x.User.Name,
                 Surname = x.User.Surname,
                 Roles = x.Role.Name
             })
                 .AsQueryable().ToList();
 
-
+           
             foreach (var item in list)
             {
-                object[] row =
-                       {$"{item.Id}",
-                        $"{item.Name}",
-                        $"{item.Surname}",
-                        $"{item.Roles}"
+                //Шлях до зображення.
+                string path_file = Path.Combine(Directory.GetCurrentDirectory(),"Images");
+
+                  object[] row =
+                    {
+                       item.Id,
+                       item.Image==null ? null:Image.FromFile(Path.Combine(path_file, item.Image)),
+                       item.Name,
+                       item.Surname,
+                       item.Roles
                     };
 
                 dataGridView1.Rows.Add(row);
@@ -116,7 +124,7 @@ namespace FormRoles
                     DataLoad();                    
                 }
             }
-            //Close();
+           
         }
     }
 }

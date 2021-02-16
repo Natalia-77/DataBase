@@ -31,14 +31,15 @@ namespace FormRoles
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColSur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColSur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,18 +57,64 @@ namespace FormRoles
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColId,
+            this.ColImage,
             this.ColName,
             this.ColSur,
             this.ColRole});
             this.dataGridView1.Location = new System.Drawing.Point(12, 65);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(728, 201);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // ColId
+            // 
+            this.ColId.HeaderText = "Id";
+            this.ColId.MinimumWidth = 6;
+            this.ColId.Name = "ColId";
+            this.ColId.ReadOnly = true;
+            this.ColId.Width = 125;
+            // 
+            // ColImage
+            // 
+            this.ColImage.HeaderText = "Photo profile";
+            this.ColImage.MinimumWidth = 6;
+            this.ColImage.Name = "ColImage";
+            this.ColImage.ReadOnly = true;
+            this.ColImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColImage.Width = 125;
+            // 
+            // ColName
+            // 
+            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColName.HeaderText = "Name";
+            this.ColName.MinimumWidth = 6;
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
+            // 
+            // ColSur
+            // 
+            this.ColSur.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColSur.HeaderText = "Surname";
+            this.ColSur.MinimumWidth = 6;
+            this.ColSur.Name = "ColSur";
+            this.ColSur.ReadOnly = true;
+            // 
+            // ColRole
+            // 
+            this.ColRole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColRole.HeaderText = "Role";
+            this.ColRole.MinimumWidth = 6;
+            this.ColRole.Name = "ColRole";
+            this.ColRole.ReadOnly = true;
             // 
             // button2
             // 
@@ -109,34 +156,6 @@ namespace FormRoles
             this.label2.TabIndex = 8;
             this.label2.Text = "label2";
             // 
-            // ColId
-            // 
-            this.ColId.HeaderText = "Id";
-            this.ColId.MinimumWidth = 6;
-            this.ColId.Name = "ColId";
-            this.ColId.Width = 125;
-            // 
-            // ColName
-            // 
-            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColName.HeaderText = "Name";
-            this.ColName.MinimumWidth = 6;
-            this.ColName.Name = "ColName";
-            // 
-            // ColSur
-            // 
-            this.ColSur.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColSur.HeaderText = "Surname";
-            this.ColSur.MinimumWidth = 6;
-            this.ColSur.Name = "ColSur";
-            // 
-            // ColRole
-            // 
-            this.ColRole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColRole.HeaderText = "Role";
-            this.ColRole.MinimumWidth = 6;
-            this.ColRole.Name = "ColRole";
-            // 
             // ShowAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -165,6 +184,7 @@ namespace FormRoles
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
+        private System.Windows.Forms.DataGridViewImageColumn ColImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSur;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRole;

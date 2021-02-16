@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FormRoles.ImageResize;
+using Microsoft.EntityFrameworkCore;
 using Roles.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -47,18 +49,23 @@ namespace FormRoles
                 textBox1.Text = items.Surname;
                 textBox2.Text = items.Name;
             }
-
-            //Назва цільової папки,де зберігатимуться зображення.
-            string imageDir = "Images";
+                     
 
             //Шлях до конкретного зображення.
-            string dirImagePath = Path.Combine(Directory.GetCurrentDirectory(),
-                imageDir);
+            string dirImagePath = Path.Combine(Directory.GetCurrentDirectory(),"Images");
 
             //Якщо такої папки у вказаному шляху не існує,то створюємо її.
             if (!Directory.Exists(dirImagePath))
             {
                 Directory.CreateDirectory(dirImagePath);
+            }
+
+            //Якщо є зображення,то завантажуємо в пікчербокс відповідне зображення по вказаному шляху.
+            if (!string.IsNullOrEmpty(post.User.Image))
+            {
+                var dir = Path.Combine(Directory.GetCurrentDirectory(),
+                    "Images", post.User.Image);
+                pictureBox1.Image = Image.FromFile(dir);
             }
 
         }
@@ -70,7 +77,25 @@ namespace FormRoles
             post.RoleId = (cbRoles.SelectedItem as Role).Id;
             post.User.Surname = textBox1.Text;
             post.User.Name = textBox2.Text;
+
+            if (!string.IsNullOrEmpty(fileSelected))
+            {
+                string ext = Path.GetExtension(fileSelected);
+                string fileName = Path.GetRandomFileName() + ext;
+                string fileSavePath = Path.Combine(Directory.GetCurrentDirectory(),
+                    "images", fileName);
+                var bmp = ResizeImage.ResizeOrigImg(
+                    new Bitmap(Image.FromFile(fileSelected)), 75, 75);
+
+                bmp.Save(fileSavePath, ImageFormat.Jpeg);
+                
+                post.User.Image = fileName;
+            }
             _context.SaveChanges();
+            DialogResult = DialogResult.OK;
+
+
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
