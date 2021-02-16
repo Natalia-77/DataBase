@@ -23,6 +23,9 @@ namespace Roles.DAL
         [Required, StringLength(120)]
         public string Password { get; set; }
 
+        [StringLength(255)]
+        public string Image { get; set; }
+
         public virtual ICollection<UserRoles> UserRoless { get; set; }
     }
 }

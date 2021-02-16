@@ -15,9 +15,6 @@ namespace Roles.DAL
         public virtual User User{ get; set; }
         public virtual Role Role { get; set; }
 
-        //public override string ToString()
-        //{
-        //    return UserId.ToString();
-        //}
+        
     }
 }

@@ -25,44 +25,37 @@ namespace FormRoles
 
         private void DataEdit()
         {
-            label1.Text = "Оберіть посаду:";
-            //var list = _context.Roles.ToArray();
-            //cbRoles.Items.AddRange(list);
-
-            //var post = _context.Users
-            //    .SingleOrDefault(p => p.Id == _id);
-
-            //foreach (var item in _context.Roles)
-            //{
-            //    cbRoles.Items.Add(item);
-            //    if (item.Id == post.Id)
-            //        cbRoles.SelectedItem = item;
-            //}
-
-            //textBox1.Text = post.Surname;
-
-            var post = _context.UserRoles
-                .SingleOrDefault(p => p.Id == _id);
+            label1.Text = "Оберіть посаду:";    
             
+            var post = _context.UserRoles
+                .SingleOrDefault(p => p.Id == _id);           
 
             foreach (var item in _context.Roles)
             {
                 cbRoles.Items.Add(item);
                 if (item.Id == post.RoleId)
                 {
-                    cbRoles.SelectedItem = item;
-                   
-                }
-               
+                    cbRoles.SelectedItem = item;                   
+                }               
                 
-            }
-            //textBox1.Text = post.UserId.ToString();
+            }          
             var res = _context.Users.Where(p => p.Id == post.UserId);
             foreach (var items in res)
             {
                 textBox1.Text = items.Surname;
+                textBox2.Text = items.Name;
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var post = _context.UserRoles
+               .SingleOrDefault(p => p.Id == _id);
+            post.RoleId = (cbRoles.SelectedItem as Role).Id;
+            post.User.Surname = textBox1.Text;
+            post.User.Name = textBox2.Text;
+            _context.SaveChanges();
         }
     }
 }
