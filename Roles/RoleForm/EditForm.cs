@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace FormRoles
     {
         private readonly int _id;
         private readonly MyContext _context;
+        private string fileSelected = string.Empty;
         public EditForm(int id)
         {
             InitializeComponent();
@@ -46,6 +48,19 @@ namespace FormRoles
                 textBox2.Text = items.Name;
             }
 
+            //Назва цільової папки,де зберігатимуться зображення.
+            string imageDir = "Images";
+
+            //Шлях до конкретного зображення.
+            string dirImagePath = Path.Combine(Directory.GetCurrentDirectory(),
+                imageDir);
+
+            //Якщо такої папки у вказаному шляху не існує,то створюємо її.
+            if (!Directory.Exists(dirImagePath))
+            {
+                Directory.CreateDirectory(dirImagePath);
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,6 +71,30 @@ namespace FormRoles
             post.User.Surname = textBox1.Text;
             post.User.Name = textBox2.Text;
             _context.SaveChanges();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Bitmap image;
+            OpenFileDialog dlg = new OpenFileDialog(); 
+
+            dlg.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;" +
+                "*.PNG|All files (*.*)|*.*"; 
+
+            if (dlg.ShowDialog() == DialogResult.OK) 
+            {
+                try
+                {
+                    image = new Bitmap(dlg.FileName);                   
+                   // pictureBox1.Size = image.Size;
+                    pictureBox1.Image = image;
+                    fileSelected = dlg.FileName;                   
+                }
+                catch
+                {
+                    DialogResult rezult = MessageBox.Show("Неможливо відкрити!");
+                }
+            }
         }
     }
 }
