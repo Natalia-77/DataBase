@@ -23,21 +23,8 @@ namespace FormRoles
         private void DataLoad()
         {
             label2.Text = "Редагування по курсору в гріді";
-            //var info = _context.UserRoles.Include(u => u.User).Include(rol => rol.Role).AsQueryable();
-
-            //var list = info.Select(r => new
-            //{
-            //    Id = r.Role.Id,
-            //    Name = r.User.Name,
-            //    Surname = r.User.Surname,
-            //    Roles = r.Role.Name
-
-
-            //}).AsQueryable();
-           
-            var query = _context.UserRoles
-              //.Include(x => x.Category)
-              .AsQueryable();
+                      
+            var query = _context.UserRoles.AsQueryable();
 
             var list = query.Select(x => new {
                 Id = x.Id,               
@@ -52,41 +39,26 @@ namespace FormRoles
             foreach (var item in list)
             {
                 //Шлях до зображення.
-                string path_file = Path.Combine(Directory.GetCurrentDirectory(),"Images");
+                string path_file = Path.Combine(Directory.GetCurrentDirectory(), "Images",item.Image);
 
-                  object[] row =
-                    {
+                using (var imgStream = File.OpenRead(path_file))
+                {                      
+
+                    object[] row =
+                      {
                        item.Id,
-                       item.Image==null ? null:Image.FromFile(Path.Combine(path_file, item.Image)),
+                       item.Image==null ? null:Image.FromStream(imgStream),
                        item.Name,
                        item.Surname,
                        item.Roles
                     };
 
-                dataGridView1.Rows.Add(row);
-                //MessageBox.Show($"{dataGridView1.Height}");
+                    dataGridView1.Rows.Add(row);
+                }
+               
             }
 
         }
-
-            //private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-            //{
-            //    string stroka =dataGridView1.CurrentCell.Value.ToString();            
-            //   // label5.Text = str;
-            //   // valuerow = stroka;
-            //}
-
-            //private void button1_Click(object sender, EventArgs e)
-            //{
-            //    string surname = textBox1.Text;
-            //    User d = _context.Users.SingleOrDefault(x => x.Surname == surname);
-            //    if (d != null)
-            //    {
-            //        _context.Users.Remove(d);
-            //        _context.SaveChanges();
-
-            //    }
-            //}
 
         private void button2_Click(object sender, EventArgs e)
         {          

@@ -19,6 +19,7 @@ namespace FormRoles
         private readonly int _id;
         private readonly MyContext _context;
         private string fileSelected = string.Empty;
+        private string file_old { get; set; }
         public EditForm(int id)
         {
             InitializeComponent();
@@ -64,7 +65,16 @@ namespace FormRoles
             {
                 var dir = Path.Combine(Directory.GetCurrentDirectory(),
                     "Images", post.User.Image);
-                pictureBox1.Image = Image.FromFile(dir);
+
+                var imgStream = File.OpenRead(dir);
+                
+                    pictureBox1.Image = Image.FromStream(imgStream);
+                file_old = dir;
+                imgStream.Close();
+                
+                
+                //pictureBox1.Image = Image.FromFile(dir);
+               
             }
 
         }
@@ -80,6 +90,8 @@ namespace FormRoles
 
             if (!string.IsNullOrEmpty(fileSelected))
             {
+                File.Delete(file_old);
+
                 string extension = Path.GetExtension(fileSelected);
 
                 string fileName = Path.GetRandomFileName() + extension;
@@ -89,16 +101,14 @@ namespace FormRoles
 
                 var bmp = ResizeImage.ResizeOrigImg(
                     new Bitmap(Image.FromFile(fileSelected)), 75, 75);
-
-                bmp.Save(fileSavePath, ImageFormat.Jpeg);
-                
-                post.User.Image = fileName;
+                bmp.Save(fileSavePath, ImageFormat.Jpeg);              
+                post.User.Image = fileName;              
+               
             }
+           
             _context.SaveChanges();
-
+           
             DialogResult = DialogResult.OK;
-
-
 
         }
 
@@ -114,16 +124,22 @@ namespace FormRoles
             {
                 try
                 {
+                   
                     image = new Bitmap(dlg.FileName);                   
                    // pictureBox1.Size = image.Size;
                     pictureBox1.Image = image;
-                    fileSelected = dlg.FileName;                   
+                    fileSelected = dlg.FileName;
+                    
                 }
                 catch
                 {
                     DialogResult rezult = MessageBox.Show("Неможливо відкрити!");
                 }
+
+
             }
         }
     }
 }
+
+
