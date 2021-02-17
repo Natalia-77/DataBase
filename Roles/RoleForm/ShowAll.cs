@@ -17,6 +17,7 @@ namespace FormRoles
             InitializeComponent();
             _context = new MyContext();
             DataLoad();
+            dataGridView1.Height = 350;
         }       
 
         private void DataLoad()
@@ -33,7 +34,7 @@ namespace FormRoles
 
 
             //}).AsQueryable();
-
+           
             var query = _context.UserRoles
               //.Include(x => x.Category)
               .AsQueryable();
@@ -47,7 +48,7 @@ namespace FormRoles
             })
                 .AsQueryable().ToList();
 
-           
+          
             foreach (var item in list)
             {
                 //Шлях до зображення.
@@ -63,7 +64,7 @@ namespace FormRoles
                     };
 
                 dataGridView1.Rows.Add(row);
-
+                //MessageBox.Show($"{dataGridView1.Height}");
             }
 
         }

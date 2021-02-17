@@ -33,7 +33,7 @@ namespace FormRoles.ImageResize
                     //g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     g.DrawImage(image, 0, 0, newWidth, newHeight);
                     return new Bitmap(outBmp);
-                    g.Dispose();
+                    //g.Dispose();
                 }
             }
             

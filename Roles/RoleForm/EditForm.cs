@@ -40,8 +40,7 @@ namespace FormRoles
                 if (item.Id == post.RoleId)
                 {
                     cbRoles.SelectedItem = item;                   
-                }               
-                
+                }              
             }          
             var res = _context.Users.Where(p => p.Id == post.UserId);
             foreach (var items in res)
@@ -74,16 +73,20 @@ namespace FormRoles
         {
             var post = _context.UserRoles
                .SingleOrDefault(p => p.Id == _id);
+
             post.RoleId = (cbRoles.SelectedItem as Role).Id;
             post.User.Surname = textBox1.Text;
             post.User.Name = textBox2.Text;
 
             if (!string.IsNullOrEmpty(fileSelected))
             {
-                string ext = Path.GetExtension(fileSelected);
-                string fileName = Path.GetRandomFileName() + ext;
+                string extension = Path.GetExtension(fileSelected);
+
+                string fileName = Path.GetRandomFileName() + extension;
+
                 string fileSavePath = Path.Combine(Directory.GetCurrentDirectory(),
                     "images", fileName);
+
                 var bmp = ResizeImage.ResizeOrigImg(
                     new Bitmap(Image.FromFile(fileSelected)), 75, 75);
 
@@ -92,6 +95,7 @@ namespace FormRoles
                 post.User.Image = fileName;
             }
             _context.SaveChanges();
+
             DialogResult = DialogResult.OK;
 
 

@@ -57,8 +57,6 @@ namespace FormRoles
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColId,
@@ -68,10 +66,9 @@ namespace FormRoles
             this.ColRole});
             this.dataGridView1.Location = new System.Drawing.Point(12, 65);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(728, 201);
+            this.dataGridView1.Size = new System.Drawing.Size(728, 248);
             this.dataGridView1.TabIndex = 1;
             // 
             // ColId
@@ -79,15 +76,13 @@ namespace FormRoles
             this.ColId.HeaderText = "Id";
             this.ColId.MinimumWidth = 6;
             this.ColId.Name = "ColId";
-            this.ColId.ReadOnly = true;
-            this.ColId.Width = 125;
+            this.ColId.Width = 110;
             // 
             // ColImage
             // 
             this.ColImage.HeaderText = "Photo profile";
             this.ColImage.MinimumWidth = 6;
             this.ColImage.Name = "ColImage";
-            this.ColImage.ReadOnly = true;
             this.ColImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ColImage.Width = 125;
@@ -98,7 +93,6 @@ namespace FormRoles
             this.ColName.HeaderText = "Name";
             this.ColName.MinimumWidth = 6;
             this.ColName.Name = "ColName";
-            this.ColName.ReadOnly = true;
             // 
             // ColSur
             // 
@@ -106,7 +100,6 @@ namespace FormRoles
             this.ColSur.HeaderText = "Surname";
             this.ColSur.MinimumWidth = 6;
             this.ColSur.Name = "ColSur";
-            this.ColSur.ReadOnly = true;
             // 
             // ColRole
             // 
@@ -114,12 +107,11 @@ namespace FormRoles
             this.ColRole.HeaderText = "Role";
             this.ColRole.MinimumWidth = 6;
             this.ColRole.Name = "ColRole";
-            this.ColRole.ReadOnly = true;
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.button2.Location = new System.Drawing.Point(320, 276);
+            this.button2.Location = new System.Drawing.Point(320, 459);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 44);
             this.button2.TabIndex = 5;
@@ -130,7 +122,7 @@ namespace FormRoles
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 288);
+            this.label3.Location = new System.Drawing.Point(33, 471);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 20);
             this.label3.TabIndex = 6;
@@ -139,7 +131,7 @@ namespace FormRoles
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.button1.Location = new System.Drawing.Point(320, 343);
+            this.button1.Location = new System.Drawing.Point(320, 537);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 44);
             this.button1.TabIndex = 7;
@@ -150,7 +142,7 @@ namespace FormRoles
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 355);
+            this.label2.Location = new System.Drawing.Point(33, 549);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 8;
@@ -160,7 +152,7 @@ namespace FormRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(893, 608);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);

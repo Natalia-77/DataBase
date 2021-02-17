@@ -41,6 +41,9 @@ namespace FormRoles
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -121,7 +124,7 @@ namespace FormRoles
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(191, 255);
+            this.label6.Location = new System.Drawing.Point(310, 263);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 20);
             this.label6.TabIndex = 9;
@@ -141,16 +144,37 @@ namespace FormRoles
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(314, 253);
+            this.comboBox1.Location = new System.Drawing.Point(434, 255);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(227, 28);
             this.comboBox1.TabIndex = 12;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(52, 247);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 123);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(50, 214);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 20);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "label7";
             // 
             // AddNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 382);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
@@ -166,6 +190,7 @@ namespace FormRoles
             this.Name = "AddNewUser";
             this.Text = "AddNewUser";
             this.Load += new System.EventHandler(this.AddNewUser_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +210,7 @@ namespace FormRoles
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label7;
     }
 }
