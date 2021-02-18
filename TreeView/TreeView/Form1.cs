@@ -20,6 +20,7 @@ namespace TreeViewForm
             InitializeComponent();
             _context = new MyContext();
             Load_Tree();
+            tvCategory.MouseDoubleClick += treeView1_MouseDoubleClick;
         }
 
         public void Load_Tree()
@@ -79,5 +80,17 @@ namespace TreeViewForm
             node.Tag = model;
             tvCategory.Nodes.Add(node);
         }
+
+        // Обробний подвійного натискання мишки
+        private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // Отримали вузол.
+            TreeNode node = tvCategory.SelectedNode;
+
+            // Вікно
+            MessageBox.Show(string.Format("Ви обрали : {0}", node.Text));
+        }
+
+
     }
 }
