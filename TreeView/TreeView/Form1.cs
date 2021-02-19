@@ -77,7 +77,8 @@ namespace TreeViewForm
         }
 
 
-        // Обробний подвійного натискання мишки
+        /// Обробний подвійного натискання мишки    
+       
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             // Отримали вузол.
@@ -151,6 +152,7 @@ namespace TreeViewForm
 
         private void Before(object sender, TreeViewCancelEventArgs e)
         {
+            //Отримую нове дерево.
             TreeNode node= GetAllNodes(e.Node);
         }
     }
