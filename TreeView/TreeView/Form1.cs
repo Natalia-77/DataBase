@@ -96,6 +96,7 @@ namespace TreeViewForm
         public void AddNodeChild(TreeNode parentroot,string nameNode)
         {
             var model = (ModelTreeView)parentroot.Tag;
+
             Category category = new Category
             {
                 Name = nameNode,
@@ -129,21 +130,18 @@ namespace TreeViewForm
         public TreeNode GetAllNodes(TreeNode parent)
         {
             var model = (ModelTreeView)parent.Tag;
-            var query = from c in _context.Categories
-                        where c.ParentId == model.Id
-                        orderby c.Name
-                        select new ModelTreeView
-                        {
-                            Id = c.Id,
-                            Name = c.Name,
-                            ParentId = c.ParentId
-                        };
+            var res = _context.Categories.OrderBy(d => d.Name).Where(c => c.ParentId == model.Id);
+            var list = res.Select(r => new ModelTreeView
+            {
+                Id = r.Id,
+                Name = r.Name,
+                ParentId = r.ParentId
+            });            
             parent.Nodes.Clear();
-            foreach (var c in query)
+            foreach (var c in list)
             {
                 TreeNode node = new TreeNode();
-                node.Text = c.Name;
-                //node.Name = Guid.NewGuid().ToString();
+                node.Text = c.Name;               
                 node.Tag = c;               
                 node.Nodes.Add("");
                 parent.Nodes.Add(node);
