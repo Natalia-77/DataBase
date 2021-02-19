@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TreeViewForm.Entities;
 using TreeViewForm.ModelTree;
@@ -40,8 +35,8 @@ namespace TreeViewForm
                 foreach (var c in list)
                 {
                     TreeNode node = new TreeNode();
-                    node.Text = c.Name;                 
-                    //node.Name = c.Name;
+                    node.Text = c.Name;   
+                    node.Name = c.Name;
                     node.Tag = c;                   
                     node.Nodes.Add("");
                     tvCategory.Nodes.Add(node);
@@ -74,9 +69,8 @@ namespace TreeViewForm
                 ParentId = category.ParentId
             };
             TreeNode node = new TreeNode();
-            node.Text = tbCategory.Text;
-            node.Name = Guid.NewGuid().ToString();
-            //node.Name = tbCategory.Text;
+            node.Text = tbCategory.Text;          
+            node.Name = tbCategory.Text;
             node.Tag = model;
             tvCategory.Nodes.Add(node);
         }
@@ -90,7 +84,68 @@ namespace TreeViewForm
             // Вікно
             MessageBox.Show(string.Format("Ви обрали : {0}", node.Text));
         }
+        public void AddNodeChild(TreeNode parentroot,string nameNode)
+        {
+            var model = (ModelTreeView)parentroot.Tag;
+            Category category = new Category
+            {
+                Name = nameNode,
+                ParentId = model.Id
+            };
+            _context.Categories.Add(category);
+            _context.SaveChanges();
+            TreeNode node = new TreeNode();
+            node.Text = nameNode;
+            node.Name = Guid.NewGuid().ToString();
+            node.Tag = new ModelTreeView
+            {
+                Id = category.Id,
+                Name = category.Name,
+                ParentId = category.ParentId
+            };
+            parentroot.Nodes.Add(node);
 
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            if (tvCategory.SelectedNode != null)
+            {
+
+                AddNodeChild(tvCategory.SelectedNode, tbCategory.Text);
+            }
+               
+        }
+
+        public TreeNode GetParentSubNodes(TreeNode parent)
+        {
+            var model = (ModelTreeView)parent.Tag;
+            var query = from c in _context.Categories
+                        where c.ParentId == model.Id
+                        orderby c.Name
+                        select new ModelTreeView
+                        {
+                            Id = c.Id,
+                            Name = c.Name,
+                            ParentId = c.ParentId
+                        };
+            parent.Nodes.Clear();
+            foreach (var c in query)
+            {
+                TreeNode node = new TreeNode();
+                node.Text = c.Name;
+                //node.Name = Guid.NewGuid().ToString();
+                node.Tag = c;               
+                node.Nodes.Add("");
+                parent.Nodes.Add(node);
+            }
+            return parent;
+        }
+
+        private void Before(object sender, TreeViewCancelEventArgs e)
+        {
+            TreeNode node= GetParentSubNodes(e.Node);
+        }
     }
 }

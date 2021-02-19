@@ -68,10 +68,9 @@ namespace FormRoles
 
                 var imgStream = File.OpenRead(dir);
                 
-                    pictureBox1.Image = Image.FromStream(imgStream);
+                pictureBox1.Image = Image.FromStream(imgStream);
                 file_old = dir;
-                imgStream.Close();
-                
+                imgStream.Close();                
                 
                 //pictureBox1.Image = Image.FromFile(dir);
                
