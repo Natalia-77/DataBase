@@ -48,8 +48,9 @@ namespace TreeViewForm
                 throw new Exception("Error");
             }
         }
+
         /// <summary>
-        /// Add category
+        /// Додавання category
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -75,6 +76,7 @@ namespace TreeViewForm
             tvCategory.Nodes.Add(node);
         }
 
+
         // Обробний подвійного натискання мишки
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -84,6 +86,13 @@ namespace TreeViewForm
             // Вікно
             MessageBox.Show(string.Format("Ви обрали : {0}", node.Text));
         }
+
+
+        /// <summary>
+        /// Додавання дочірньої ноди.
+        /// </summary>
+        /// <param name="parentroot"></param>
+        /// <param name="nameNode"></param>
         public void AddNodeChild(TreeNode parentroot,string nameNode)
         {
             var model = (ModelTreeView)parentroot.Tag;
@@ -95,8 +104,7 @@ namespace TreeViewForm
             _context.Categories.Add(category);
             _context.SaveChanges();
             TreeNode node = new TreeNode();
-            node.Text = nameNode;
-            node.Name = Guid.NewGuid().ToString();
+            node.Text = nameNode;            
             node.Tag = new ModelTreeView
             {
                 Id = category.Id,
@@ -109,16 +117,16 @@ namespace TreeViewForm
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Чкщо у нас є обраний вузол,куди додається дочірня нода.
 
             if (tvCategory.SelectedNode != null)
             {
-
                 AddNodeChild(tvCategory.SelectedNode, tbCategory.Text);
             }
                
         }
 
-        public TreeNode GetParentSubNodes(TreeNode parent)
+        public TreeNode GetAllNodes(TreeNode parent)
         {
             var model = (ModelTreeView)parent.Tag;
             var query = from c in _context.Categories
@@ -145,7 +153,7 @@ namespace TreeViewForm
 
         private void Before(object sender, TreeViewCancelEventArgs e)
         {
-            TreeNode node= GetParentSubNodes(e.Node);
+            TreeNode node= GetAllNodes(e.Node);
         }
     }
 }
