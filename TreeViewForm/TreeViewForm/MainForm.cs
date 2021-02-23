@@ -120,6 +120,21 @@ namespace TreeViewForm
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Редагування обраного елемента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
+        public void Edit(TreeNode edit, string new_name)
+        {       
+                      
+            var res_cosmetic = _context.Cosmetics.SingleOrDefault(x => x.Name == edit.Text);
+            res_cosmetic.Name = new_name;            
+            _context.SaveChanges();
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tbParent.Text) && !string.IsNullOrEmpty(tbUrl.Text))
@@ -130,7 +145,7 @@ namespace TreeViewForm
             {
                 MessageBox.Show("Заповніть всі обов\"язкові поля");
             }
-           
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -146,10 +161,21 @@ namespace TreeViewForm
                     MessageBox.Show("Заповніть всі обов\"язкові поля");
                 }
             }
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if(tvCategory.SelectedNode!=null)
+            {
+               
+               if(!string.IsNullOrEmpty(tbEdit.Text))
+                {
+                    Edit(tvCategory.SelectedNode, tbEdit.Text);
+                }
+                // var name = tvCategory.SelectedNode.Text;
+                // MessageBox.Show(name);
+            }
 
         }
     }
