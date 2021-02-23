@@ -30,6 +30,9 @@ namespace TreeViewForm
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.tbEdit = new System.Windows.Forms.TextBox();
+            this.lbEdit = new System.Windows.Forms.Label();
             this.tbChildurl = new System.Windows.Forms.TextBox();
             this.lbchildUrl = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -41,14 +44,15 @@ namespace TreeViewForm
             this.tbParent = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tvCategory = new System.Windows.Forms.TreeView();
-            this.lbEdit = new System.Windows.Forms.Label();
-            this.tbEdit = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.lbDelete = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbDelete);
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.tbEdit);
             this.groupBox1.Controls.Add(this.lbEdit);
@@ -70,9 +74,36 @@ namespace TreeViewForm
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Категорії товарів";
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.MistyRose;
+            this.button3.Location = new System.Drawing.Point(527, 408);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(173, 49);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Змінити";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // tbEdit
+            // 
+            this.tbEdit.Location = new System.Drawing.Point(527, 375);
+            this.tbEdit.Name = "tbEdit";
+            this.tbEdit.Size = new System.Drawing.Size(173, 27);
+            this.tbEdit.TabIndex = 12;
+            // 
+            // lbEdit
+            // 
+            this.lbEdit.AutoSize = true;
+            this.lbEdit.Location = new System.Drawing.Point(286, 382);
+            this.lbEdit.Name = "lbEdit";
+            this.lbEdit.Size = new System.Drawing.Size(118, 20);
+            this.lbEdit.TabIndex = 11;
+            this.lbEdit.Text = "Нове значення:";
+            // 
             // tbChildurl
             // 
-            this.tbChildurl.Location = new System.Drawing.Point(527, 312);
+            this.tbChildurl.Location = new System.Drawing.Point(527, 263);
             this.tbChildurl.Name = "tbChildurl";
             this.tbChildurl.Size = new System.Drawing.Size(173, 27);
             this.tbChildurl.TabIndex = 10;
@@ -80,7 +111,7 @@ namespace TreeViewForm
             // lbchildUrl
             // 
             this.lbchildUrl.AutoSize = true;
-            this.lbchildUrl.Location = new System.Drawing.Point(286, 306);
+            this.lbchildUrl.Location = new System.Drawing.Point(287, 263);
             this.lbchildUrl.Name = "lbchildUrl";
             this.lbchildUrl.Size = new System.Drawing.Size(163, 20);
             this.lbchildUrl.TabIndex = 9;
@@ -89,7 +120,7 @@ namespace TreeViewForm
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.MistyRose;
-            this.button2.Location = new System.Drawing.Point(527, 357);
+            this.button2.Location = new System.Drawing.Point(527, 296);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(173, 55);
             this.button2.TabIndex = 8;
@@ -99,7 +130,7 @@ namespace TreeViewForm
             // 
             // tbChild
             // 
-            this.tbChild.Location = new System.Drawing.Point(527, 268);
+            this.tbChild.Location = new System.Drawing.Point(527, 228);
             this.tbChild.Name = "tbChild";
             this.tbChild.Size = new System.Drawing.Size(173, 27);
             this.tbChild.TabIndex = 7;
@@ -107,7 +138,7 @@ namespace TreeViewForm
             // lbChild
             // 
             this.lbChild.AutoSize = true;
-            this.lbChild.Location = new System.Drawing.Point(286, 268);
+            this.lbChild.Location = new System.Drawing.Point(287, 228);
             this.lbChild.Name = "lbChild";
             this.lbChild.Size = new System.Drawing.Size(207, 20);
             this.lbChild.TabIndex = 6;
@@ -115,7 +146,7 @@ namespace TreeViewForm
             // 
             // tbUrl
             // 
-            this.tbUrl.Location = new System.Drawing.Point(522, 120);
+            this.tbUrl.Location = new System.Drawing.Point(522, 99);
             this.tbUrl.Name = "tbUrl";
             this.tbUrl.Size = new System.Drawing.Size(178, 27);
             this.tbUrl.TabIndex = 5;
@@ -123,7 +154,7 @@ namespace TreeViewForm
             // lbUrl
             // 
             this.lbUrl.AutoSize = true;
-            this.lbUrl.Location = new System.Drawing.Point(286, 133);
+            this.lbUrl.Location = new System.Drawing.Point(286, 99);
             this.lbUrl.Name = "lbUrl";
             this.lbUrl.Size = new System.Drawing.Size(163, 20);
             this.lbUrl.TabIndex = 4;
@@ -132,7 +163,7 @@ namespace TreeViewForm
             // lbCategory
             // 
             this.lbCategory.AutoSize = true;
-            this.lbCategory.Location = new System.Drawing.Point(286, 90);
+            this.lbCategory.Location = new System.Drawing.Point(286, 65);
             this.lbCategory.Name = "lbCategory";
             this.lbCategory.Size = new System.Drawing.Size(119, 20);
             this.lbCategory.TabIndex = 3;
@@ -140,7 +171,7 @@ namespace TreeViewForm
             // 
             // tbParent
             // 
-            this.tbParent.Location = new System.Drawing.Point(522, 87);
+            this.tbParent.Location = new System.Drawing.Point(522, 65);
             this.tbParent.Name = "tbParent";
             this.tbParent.Size = new System.Drawing.Size(178, 27);
             this.tbParent.TabIndex = 2;
@@ -148,7 +179,7 @@ namespace TreeViewForm
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.MistyRose;
-            this.button1.Location = new System.Drawing.Point(522, 163);
+            this.button1.Location = new System.Drawing.Point(522, 132);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(178, 59);
             this.button1.TabIndex = 1;
@@ -160,36 +191,30 @@ namespace TreeViewForm
             // 
             this.tvCategory.Location = new System.Drawing.Point(6, 65);
             this.tvCategory.Name = "tvCategory";
-            this.tvCategory.Size = new System.Drawing.Size(274, 372);
+            this.tvCategory.Size = new System.Drawing.Size(274, 384);
             this.tvCategory.TabIndex = 0;
             this.tvCategory.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvCategory_BeforeExpand);
             // 
-            // lbEdit
+            // button4
             // 
-            this.lbEdit.AutoSize = true;
-            this.lbEdit.Location = new System.Drawing.Point(287, 447);
-            this.lbEdit.Name = "lbEdit";
-            this.lbEdit.Size = new System.Drawing.Size(118, 20);
-            this.lbEdit.TabIndex = 11;
-            this.lbEdit.Text = "Нове значення:";
+            this.button4.BackColor = System.Drawing.Color.Red;
+            this.button4.Location = new System.Drawing.Point(522, 490);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(173, 55);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Видалити";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // tbEdit
+            // lbDelete
             // 
-            this.tbEdit.Location = new System.Drawing.Point(527, 444);
-            this.tbEdit.Name = "tbEdit";
-            this.tbEdit.Size = new System.Drawing.Size(173, 27);
-            this.tbEdit.TabIndex = 12;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.MistyRose;
-            this.button3.Location = new System.Drawing.Point(527, 487);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(173, 49);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Змінити";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.lbDelete.AutoSize = true;
+            this.lbDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbDelete.Location = new System.Drawing.Point(202, 505);
+            this.lbDelete.Name = "lbDelete";
+            this.lbDelete.Size = new System.Drawing.Size(292, 23);
+            this.lbDelete.TabIndex = 15;
+            this.lbDelete.Text = "Станьте на елемент для видалення";
             // 
             // MainForm
             // 
@@ -223,6 +248,8 @@ namespace TreeViewForm
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox tbEdit;
         private System.Windows.Forms.Label lbEdit;
+        private System.Windows.Forms.Label lbDelete;
+        private System.Windows.Forms.Button button4;
     }
 }
 

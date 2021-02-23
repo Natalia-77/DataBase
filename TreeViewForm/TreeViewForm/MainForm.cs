@@ -129,11 +129,51 @@ namespace TreeViewForm
         public void Edit(TreeNode edit, string new_name)
         {       
                       
-            var res_cosmetic = _context.Cosmetics.SingleOrDefault(x => x.Name == edit.Text);
-            res_cosmetic.Name = new_name;            
+            var res = _context.Cosmetics.SingleOrDefault(x => x.Name == edit.Text);
+            res.Name = new_name;            
             _context.SaveChanges();
 
         }
+
+        /// <summary>
+        /// Видалення елемента.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
+
+        public void DeleteNode(TreeNode node)
+        {
+            //var model = (CosmeticVM)selectednode.Tag;           
+
+            // _context.Cosmetics.Remove(new Cosmetic
+            //{
+            //  Id = model.Id
+            // }) ;
+
+            //  _context.SaveChanges();
+
+            var model = (CosmeticVM)node.Tag;
+            var category = _context.Cosmetics
+                .SingleOrDefault(c => c.Id == model.Id);
+            
+            if (category != null)
+            {
+               
+                    //якщо кількість дочірніх вузлів ==0
+                    if (node.Nodes.Count == 0)
+                {
+                    _context.Cosmetics.Remove(category);
+                    
+                }
+
+                
+            }
+            _context.SaveChanges();
+        }
+
+
+                
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -181,6 +221,17 @@ namespace TreeViewForm
                 // MessageBox.Show(name);
             }
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // tvCategory.SelectedNode.Nodes.Remove(tvCategory.SelectedNode);
+           // if (tvCategory.SelectedNode != null)
+            //{
+                DeleteNode(tvCategory.SelectedNode);
+            //}
+
+           
         }
     }
 }
