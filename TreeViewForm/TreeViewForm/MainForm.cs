@@ -137,8 +137,20 @@ namespace TreeViewForm
         {
             if(tvCategory.SelectedNode!=null)
             {
-                AddChildNode(tvCategory.SelectedNode,tbChild.Text,tbChildurl.Text);
+                if (!string.IsNullOrEmpty(tbChild.Text) && !string.IsNullOrEmpty(tbChildurl.Text))
+                {
+                    AddChildNode(tvCategory.SelectedNode, tbChild.Text, tbChildurl.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Заповніть всі обов\"язкові поля");
+                }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
