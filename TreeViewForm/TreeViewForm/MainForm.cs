@@ -170,8 +170,12 @@ namespace TreeViewForm
             {
                
                if(!string.IsNullOrEmpty(tbEdit.Text))
-                {
+               {
                     Edit(tvCategory.SelectedNode, tbEdit.Text);
+               }
+                else
+                {
+                    MessageBox.Show("Заповніть всі обов\"язкові поля");
                 }
                 // var name = tvCategory.SelectedNode.Text;
                 // MessageBox.Show(name);
