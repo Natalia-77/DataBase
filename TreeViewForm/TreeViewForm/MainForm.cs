@@ -102,6 +102,24 @@ namespace TreeViewForm
 
         }
 
+        /// <summary>
+        /// Додавання через форму дочірнього елемента.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AddChildNode(TreeNode parent, string namechild,string url_name)
+        {
+            var model = (CosmeticVM)parent.Tag;
+            Cosmetic cosmet = new Cosmetic
+            {
+                Name = namechild,
+                ParentId = model.Id,
+                UrlSlug = url_name
+            };
+            _context.Cosmetics.Add(cosmet);
+            _context.SaveChanges();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tbParent.Text) && !string.IsNullOrEmpty(tbUrl.Text))
@@ -113,6 +131,14 @@ namespace TreeViewForm
                 MessageBox.Show("Заповніть всі обов\"язкові поля");
             }
            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(tvCategory.SelectedNode!=null)
+            {
+                AddChildNode(tvCategory.SelectedNode,tbChild.Text,tbChildurl.Text);
+            }
         }
     }
 }
