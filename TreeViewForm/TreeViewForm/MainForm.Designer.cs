@@ -30,6 +30,8 @@ namespace TreeViewForm
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbDelete = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.tbEdit = new System.Windows.Forms.TextBox();
             this.lbEdit = new System.Windows.Forms.Label();
@@ -44,13 +46,13 @@ namespace TreeViewForm
             this.tbParent = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tvCategory = new System.Windows.Forms.TreeView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.lbDelete = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.lbDelete);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
@@ -73,6 +75,27 @@ namespace TreeViewForm
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Категорії товарів";
+            // 
+            // lbDelete
+            // 
+            this.lbDelete.AutoSize = true;
+            this.lbDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbDelete.Location = new System.Drawing.Point(215, 488);
+            this.lbDelete.Name = "lbDelete";
+            this.lbDelete.Size = new System.Drawing.Size(292, 23);
+            this.lbDelete.TabIndex = 15;
+            this.lbDelete.Text = "Станьте на елемент для видалення";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Red;
+            this.button4.Location = new System.Drawing.Point(527, 473);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(173, 55);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Видалити";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -195,26 +218,16 @@ namespace TreeViewForm
             this.tvCategory.TabIndex = 0;
             this.tvCategory.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvCategory_BeforeExpand);
             // 
-            // button4
+            // button5
             // 
-            this.button4.BackColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(522, 490);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(173, 55);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Видалити";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // lbDelete
-            // 
-            this.lbDelete.AutoSize = true;
-            this.lbDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbDelete.Location = new System.Drawing.Point(202, 505);
-            this.lbDelete.Name = "lbDelete";
-            this.lbDelete.Size = new System.Drawing.Size(292, 23);
-            this.lbDelete.TabIndex = 15;
-            this.lbDelete.Text = "Станьте на елемент для видалення";
+            this.button5.BackColor = System.Drawing.Color.MistyRose;
+            this.button5.Location = new System.Drawing.Point(527, 534);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(173, 49);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Обновити";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // MainForm
             // 
@@ -250,6 +263,7 @@ namespace TreeViewForm
         private System.Windows.Forms.Label lbEdit;
         private System.Windows.Forms.Label lbDelete;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 

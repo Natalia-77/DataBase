@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using TreeViewForm.Helpers;
 using TreeViewForm.Entities;
 using TreeViewForm.Models;
+using System.Collections.Generic;
 
 namespace TreeViewForm
 {
@@ -144,36 +145,70 @@ namespace TreeViewForm
 
         public void DeleteNode(TreeNode node)
         {
-            //var model = (CosmeticVM)selectednode.Tag;           
+            //==================================
 
-            // _context.Cosmetics.Remove(new Cosmetic
-            //{
-            //  Id = model.Id
-            // }) ;
+            //var model = (CosmeticVM)node.Tag;
+            //var category = _context.Cosmetics
+            //    .SingleOrDefault(c => c.Id == model.Id);
 
-            //  _context.SaveChanges();
+            //if (category != null)
+            //{               
+            //        //якщо кількість дочірніх вузлів==0
+            //        if (node.Nodes.Count == 0)
+            //        {
+            //        _context.Cosmetics.Remove(category);
 
+            //        }
+
+
+            //}
+            //_context.SaveChanges();
+            //========================================
+            var node_for_del = new List<Cosmetic>();
             var model = (CosmeticVM)node.Tag;
             var category = _context.Cosmetics
                 .SingleOrDefault(c => c.Id == model.Id);
-            
+
             if (category != null)
             {
-               
-                    //якщо кількість дочірніх вузлів ==0
-                    if (node.Nodes.Count == 0)
+                //якщо кількість дочірніх вузлів==0
+                //if (node.Nodes.Count == 0)
+                //{
+                    //_context.Cosmetics.Remove(category);
+                    node_for_del.Add(category);
+                var child = _context.Cosmetics.Where(c => c.ParentId == category.Id).ToList();
+                if(child.Count!=0)
                 {
-                    _context.Cosmetics.Remove(category);
-                    
+                    var tree = new Queue<IList<Cosmetic>>();
+                    tree.Enqueue(child);
+                    while(tree.Count!=0)
+                    {
+                        IList<Cosmetic> c = tree.Dequeue();
+                        node_for_del.AddRange(c);
+                    }
                 }
 
-                
+                //}
+               // else
+                //{
+                    //_context.Cosmetics.Remove(category);
+
+                    //var child = _context.Cosmetics.Where(c => c.ParentId == category.Id).ToList();
+
+                    if (child.Count != 0)
+                    {
+                        foreach (var item in child)
+                        {
+                            //_context.Cosmetics.Remove(item);
+                        }
+
+
+                    }
+                //}
             }
             _context.SaveChanges();
         }
 
-
-                
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -226,12 +261,17 @@ namespace TreeViewForm
         private void button4_Click(object sender, EventArgs e)
         {
             // tvCategory.SelectedNode.Nodes.Remove(tvCategory.SelectedNode);
-           // if (tvCategory.SelectedNode != null)
-            //{
-                DeleteNode(tvCategory.SelectedNode);
-            //}
 
-           
+            if (tvCategory.SelectedNode != null)
+            {
+                DeleteNode(tvCategory.SelectedNode);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tvCategory.Nodes.Clear();
+            MainForm_Load(sender,e);
         }
     }
 }
