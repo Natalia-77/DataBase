@@ -145,7 +145,7 @@ namespace TreeViewForm
 
         public void DeleteNode(TreeNode node)
         {
-            //==================================
+            //======НЕ РОБОЧИЙ ВАРІАНТ=======================
 
             //var model = (CosmeticVM)node.Tag;
             //var category = _context.Cosmetics
@@ -159,52 +159,64 @@ namespace TreeViewForm
             //        _context.Cosmetics.Remove(category);
 
             //        }
-
-
             //}
             //_context.SaveChanges();
             //========================================
+
+
+            //Оголосила ліст,де буде зберігатись елементи дерева на видалення.
             var node_for_del = new List<Cosmetic>();
+
             var model = (CosmeticVM)node.Tag;
             var category = _context.Cosmetics
                 .SingleOrDefault(c => c.Id == model.Id);
-
+            
             if (category != null)
             {
-                //якщо кількість дочірніх вузлів==0
-                //if (node.Nodes.Count == 0)
-                //{
-                    //_context.Cosmetics.Remove(category);
-                    node_for_del.Add(category);
+               
+                //Записую в оголошений ліст видалення батька.
+                node_for_del.Add(category);
+
+                //шукаю дітей відповідного батька по ParentId.
                 var child = _context.Cosmetics.Where(c => c.ParentId == category.Id).ToList();
+
+                //якщо у батька є діти.
                 if(child.Count!=0)
                 {
+                    //створила екземпляр класа Queue<T>
                     var tree = new Queue<IList<Cosmetic>>();
+
+                    //помістила в чергу знайдених дітей.
                     tree.Enqueue(child);
+
+                    //все,що буде відповідати умові,буде поміщено в чергу.Потім при додаванні в Ліст елементів 
+                    //призначеного для видалення,буду знімати з черги.
                     while(tree.Count!=0)
                     {
+                        //В IList потрапить елемент,який знімаю з черги.
                         IList<Cosmetic> c = tree.Dequeue();
+
+                        //Додала в Ліст для видалення елементи.
                         node_for_del.AddRange(c);
+
+                        //Вглиб пошук підкатегорій,для який батьками є вище знайдені діти.
+                        foreach ( Cosmetic chi in c)
+                        {
+                            child = _context.Cosmetics.Where(t => t.ParentId == chi.Id).ToList();
+                            if(child.Count!=0)
+                            {
+                                //записую в чергу,якщо відповідає умові.
+                                tree.Enqueue(child);
+                            }
+                        }
                     }
                 }
 
-                //}
-               // else
-                //{
-                    //_context.Cosmetics.Remove(category);
-
-                    //var child = _context.Cosmetics.Where(c => c.ParentId == category.Id).ToList();
-
-                    if (child.Count != 0)
-                    {
-                        foreach (var item in child)
-                        {
-                            //_context.Cosmetics.Remove(item);
-                        }
-
-
-                    }
-                //}
+                foreach (Cosmetic item in node_for_del)
+                {
+                    _context.Cosmetics.Remove(item);
+                }
+                
             }
             _context.SaveChanges();
         }
