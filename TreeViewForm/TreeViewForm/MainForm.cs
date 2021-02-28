@@ -6,6 +6,8 @@ using TreeViewForm.Helpers;
 using TreeViewForm.Entities;
 using TreeViewForm.Models;
 using System.Collections.Generic;
+using System.Collections;
+using System.Drawing;
 
 namespace TreeViewForm
 {
@@ -241,6 +243,23 @@ namespace TreeViewForm
 
         }
 
+        private TreeNode SearchTreeView(string str, TreeNodeCollection p_Nodes)
+        {
+            foreach (TreeNode node in p_Nodes)
+            {
+                if (node.Text.ToLower().Contains(str.ToLower()))
+                    return node;
+
+                if (node.Nodes.Count > 0)
+                {
+                    TreeNode child = SearchTreeView(str, node.Nodes);
+                    if (child != null) return child;
+                }
+            }
+
+            return null;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tbParent.Text) && !string.IsNullOrEmpty(tbUrl.Text))
@@ -307,17 +326,13 @@ namespace TreeViewForm
 
         private void button6_Click(object sender, EventArgs e)
         {
-            treenew.Clear();
-            Find(tvCategory.Nodes, tbSearch.Text);
-            foreach (TreeNode tree in treenew)
+            
+            TreeNode resultNode = SearchTreeView(tbSearch.Text, tvCategory.Nodes);
+
+            if (resultNode != null)
             {
                 
-                //tvCategory.Focus();
-                tvCategory.SelectedNode = tree;
-                tree.Expand();
-
             }
-
         }
     }
 }
