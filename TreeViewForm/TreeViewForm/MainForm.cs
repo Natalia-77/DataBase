@@ -44,7 +44,7 @@ namespace TreeViewForm
             TreeNode node = new TreeNode();
             node.Text = cosmetic.Name;
             node.Name = cosmetic.Id.ToString();
-            node.Tag = cosmetic;
+            node.Tag = cosmetic;           
             node.Nodes.Add("");
             tvCategory.Nodes.Add(node);
 
@@ -55,8 +55,8 @@ namespace TreeViewForm
             TreeNode node = new TreeNode();
             node.Text = cosmetic.Name;
             node.Name = cosmetic.Id.ToString();
-            node.Tag = cosmetic;
-            node.Nodes.Add("");
+            node.Tag = cosmetic;          
+            node.Nodes.Add("");         
             parent.Nodes.Add(node);
 
         }
@@ -221,6 +221,25 @@ namespace TreeViewForm
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Search in TreeView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
+        List<TreeNode> treenew = new List<TreeNode>();
+        void Find(TreeNodeCollection Nodes, string str)
+        {
+
+            foreach (TreeNode node in Nodes)
+            {
+                if (node.Text.ToLower().Contains(str.ToLower()) && node.Nodes.Count != 0)
+                    treenew.Add(node);
+                if (node.Nodes.Count > 0)
+                    Find(node.Nodes, str);
+            }
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -284,6 +303,21 @@ namespace TreeViewForm
         {
             tvCategory.Nodes.Clear();
             MainForm_Load(sender,e);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            treenew.Clear();
+            Find(tvCategory.Nodes, tbSearch.Text);
+            foreach (TreeNode tree in treenew)
+            {
+                
+                //tvCategory.Focus();
+                tvCategory.SelectedNode = tree;
+                tree.Expand();
+
+            }
+
         }
     }
 }

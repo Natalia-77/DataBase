@@ -30,6 +30,10 @@ namespace TreeViewForm
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.lbDelete = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -46,12 +50,14 @@ namespace TreeViewForm
             this.tbParent = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tvCategory = new System.Windows.Forms.TreeView();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.tbSearch);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.lbDelete);
             this.groupBox1.Controls.Add(this.button4);
@@ -75,6 +81,44 @@ namespace TreeViewForm
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Категорії товарів";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.LightGreen;
+            this.btnSearch.Location = new System.Drawing.Point(282, 534);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(123, 45);
+            this.btnSearch.TabIndex = 19;
+            this.btnSearch.Text = "Пошук";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(90, 549);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(165, 27);
+            this.tbSearch.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 548);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Пошук:";
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.MistyRose;
+            this.button5.Location = new System.Drawing.Point(527, 534);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(173, 49);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Обновити";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // lbDelete
             // 
@@ -218,22 +262,11 @@ namespace TreeViewForm
             this.tvCategory.TabIndex = 0;
             this.tvCategory.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvCategory_BeforeExpand);
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.MistyRose;
-            this.button5.Location = new System.Drawing.Point(527, 534);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(173, 49);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "Обновити";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 620);
+            this.ClientSize = new System.Drawing.Size(766, 620);
             this.Controls.Add(this.groupBox1);
             this.Name = "MainForm";
             this.Text = "Вітаю:)";
@@ -264,6 +297,9 @@ namespace TreeViewForm
         private System.Windows.Forms.Label lbDelete;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Label label1;
     }
 }
 
