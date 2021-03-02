@@ -149,10 +149,7 @@ namespace FilterShop
             foreach (var item in resul)
             {
                 comboBox2.Items.Add(item);
-
-
             }
-
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -82,9 +82,11 @@ namespace FilterShop
             // lblTitle_first
             // 
             this.lblTitle_first.AutoSize = true;
-            this.lblTitle_first.Location = new System.Drawing.Point(13, 4);
+            this.lblTitle_first.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle_first.ForeColor = System.Drawing.Color.Navy;
+            this.lblTitle_first.Location = new System.Drawing.Point(12, 3);
             this.lblTitle_first.Name = "lblTitle_first";
-            this.lblTitle_first.Size = new System.Drawing.Size(50, 20);
+            this.lblTitle_first.Size = new System.Drawing.Size(53, 23);
             this.lblTitle_first.TabIndex = 4;
             this.lblTitle_first.Text = "label1";
             // 
@@ -149,9 +151,11 @@ namespace FilterShop
             // lblTitle_second
             // 
             this.lblTitle_second.AutoSize = true;
+            this.lblTitle_second.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle_second.ForeColor = System.Drawing.Color.Navy;
             this.lblTitle_second.Location = new System.Drawing.Point(304, 3);
             this.lblTitle_second.Name = "lblTitle_second";
-            this.lblTitle_second.Size = new System.Drawing.Size(50, 20);
+            this.lblTitle_second.Size = new System.Drawing.Size(53, 23);
             this.lblTitle_second.TabIndex = 11;
             this.lblTitle_second.Text = "label1";
             // 
@@ -159,7 +163,7 @@ namespace FilterShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 637);
+            this.ClientSize = new System.Drawing.Size(1034, 461);
             this.Controls.Add(this.lblTitle_second);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.button4);
