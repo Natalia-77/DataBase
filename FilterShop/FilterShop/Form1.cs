@@ -76,33 +76,28 @@ namespace FilterShop
                                        Value = x.FValue
                                    }).OrderBy(l => l.Value).ToList()
                                    
-                         };
-
-            
+                         };            
 
             return result.ToList();
-
-
-
         }
 
         private void DataLoad()
         {
             clb1.Items.Clear();
-
-            var filters = GetListFilters();
-            var res = from c in filters
+            GetListFilters();
+            //var filters = GetListFilters();
+            //var res = from c in filters
                           // where c.Name == "Бренди"
                      // where c.Name == comboBox1.SelectedItem.ToString()
-                      select c.Children;
+                      //select c.Children;
 
-            foreach (var item in res)
-            {
-                foreach (var t in item)
-                {
-                   // clb1.Items.Add(t.Value, false);
-                }
-            }
+            //foreach (var item in res)
+            //{
+            //    foreach (var t in item)
+            //    {
+            //       // clb1.Items.Add(t.Value, false);
+            //    }
+            //}
 
             foreach (var item in filter)
             {
@@ -112,8 +107,7 @@ namespace FilterShop
         }
 
         /// <summary>
-        /// Get checked elements in other list
-        /// 
+        /// Get checked elements in other list        
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -133,9 +127,12 @@ namespace FilterShop
             {
                 listBox1.Items.Add(item);
             }
-
         }
-
+        /// <summary>
+        /// Check caterory name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             var filters = GetListFilters();
