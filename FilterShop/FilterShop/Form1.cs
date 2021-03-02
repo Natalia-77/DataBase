@@ -28,6 +28,7 @@ namespace FilterShop
         private List<FNameViewModel> GetListFilters()
         {
             lblTitle_first.Text = "Оберіть перший фільтр";
+
             var queryName = from f in _context.FilterNames.AsQueryable()
                             select f;
 
@@ -36,6 +37,7 @@ namespace FilterShop
             //    comboBox1.Items.Add(item.Name);
             //}
             filter = queryName;
+
             var countSelect = comboBox1.SelectedItem as FilterName;
 
 
@@ -85,11 +87,15 @@ namespace FilterShop
         {
             clb1.Items.Clear();
             GetListFilters();
+            foreach (var item in filter)
+            {
+                comboBox1.Items.Add(item.Name);
+            }
             //var filters = GetListFilters();
             //var res = from c in filters
-                          // where c.Name == "Бренди"
-                     // where c.Name == comboBox1.SelectedItem.ToString()
-                      //select c.Children;
+            // where c.Name == "Бренди"
+            // where c.Name == comboBox1.SelectedItem.ToString()
+            //select c.Children;
 
             //foreach (var item in res)
             //{
@@ -99,10 +105,7 @@ namespace FilterShop
             //    }
             //}
 
-            foreach (var item in filter)
-            {
-                comboBox1.Items.Add(item.Name);
-            }
+
 
         }
 
