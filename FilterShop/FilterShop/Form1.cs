@@ -2,12 +2,8 @@
 using FilterShop.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FilterShop
@@ -15,8 +11,8 @@ namespace FilterShop
     public partial class Form1 : Form
     {
         private readonly MyContext _context;
-        public IQueryable<FilterName> filter { get; set; }
-      
+        public IQueryable<FilterName> filter { get; set; }       
+
         public Form1()
         {
             InitializeComponent();
@@ -90,23 +86,20 @@ namespace FilterShop
             foreach (var item in filter)
             {
                 comboBox1.Items.Add(item.Name);
+                
             }
-            //var filters = GetListFilters();
-            //var res = from c in filters
-            // where c.Name == "Бренди"
-            // where c.Name == comboBox1.SelectedItem.ToString()
-            //select c.Children;
-
-            //foreach (var item in res)
+            
+            //var resul = from b in GetListFilters()
+            //            where b.Name !=comboBox1.SelectedItem.ToString()
+            //            select b.Name;
+          
+           
+            //foreach (var item in resul)
             //{
-            //    foreach (var t in item)
-            //    {
-            //       // clb1.Items.Add(t.Value, false);
-            //    }
+            //                comboBox2.Items.Add(item);                
+
+
             //}
-
-
-
         }
 
         /// <summary>
@@ -131,6 +124,8 @@ namespace FilterShop
                 listBox1.Items.Add(item);
             }
         }
+
+
         /// <summary>
         /// Check caterory name.
         /// </summary>
@@ -150,6 +145,22 @@ namespace FilterShop
                     clb1.Items.Add(t.Value, false);
                 }
             }
+
+            var resul = from b in GetListFilters()
+                        where b.Name != comboBox1.SelectedItem.ToString()
+                        select b.Name;
+
+
+            foreach (var item in resul)
+            {
+                comboBox2.Items.Add(item);
+
+
+            }
+
+
         }
+
+       
     }
 }

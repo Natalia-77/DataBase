@@ -35,6 +35,7 @@ namespace FilterShop
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblTitle_first = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // clb1
@@ -72,6 +73,7 @@ namespace FilterShop
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(201, 28);
             this.comboBox1.TabIndex = 3;
+           // this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblTitle_first
             // 
@@ -92,11 +94,20 @@ namespace FilterShop
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(293, 38);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(161, 28);
+            this.comboBox2.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 637);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.lblTitle_first);
             this.Controls.Add(this.comboBox1);
@@ -118,6 +129,7 @@ namespace FilterShop
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblTitle_first;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
 
