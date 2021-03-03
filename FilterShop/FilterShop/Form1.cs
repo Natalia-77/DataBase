@@ -13,20 +13,41 @@ namespace FilterShop
     {
         private readonly MyContext _context;
         public IQueryable<FilterName> filter { get; set; }
+        /// <summary>
+        /// Допоміжні змінні для зміни координат в фільтрі "Бренд"
+        /// </summary>
         public int y { get; set; } = 5;
-
-        public int z { get; set; } = 10;
         public int dy { get; set; } = 30;
 
+        /// <summary>
+        /// Допоміжні змінні для зміни координат в фільтрі "Смаки"
+        /// </summary>
+        public int z { get; set; } = 10;
         public int ty { get; set; } = 30;
         /// <summary>
-        /// Фолс по замовчуівнню,то кнопки не розкриті на початковій формі.
+        /// Фолс по замовчуванню,то кнопка не розкрита на початковій формі фільтру "Бренд".
         /// </summary>
         public bool flag { get; set; } = false;
 
+        /// <summary>
+        /// Фолс по замовчуванню,то кнопка не розкрита на початковій формі фільтру "Смаки".
+        /// </summary>
         public bool flag_taste { get; set; } = false;
 
+        /// <summary>
+        /// Фолс по замовчуванню,то кнопка не розкрита на початковій формі фільтру "Форма випуску".
+        /// </summary>
+        public bool flag_forma { get; set; } = false;
+
+        /// <summary>
+        /// Допоміжні змінні для зміни координат в фільтрі "Форма випуску"
+        /// </summary>
+        /// 
+        public int f { get; set; } = 10;
+        public int fy { get; set; } = 30;
+
         public int count_brand { get; set; }
+        public int count_taste { get; set; }
 
         public Form1()
         {
@@ -96,6 +117,8 @@ namespace FilterShop
             GetListFilters();
             btntaste.Location = new Point(15,btnbrand.Height+dy);
             btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height + dy);
+            btn_forma.Location = new Point(15,btntaste.Height+btnbrand.Height+dy+19);
+            btnexit_forma.Location = new Point(btn_forma.Width+32,btnexit_brand.Height+btnexit_taste.Height+dy+19);
             //foreach (var item in filter)
             //{
             //    comboBox1.Items.Add(item.Name);
@@ -203,12 +226,13 @@ namespace FilterShop
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnbrand_Click(object sender, EventArgs e)
         {            
             flag = true;           
             List<string> brand = new List<string>();
             //panel_first.Height = 5;
-            //panel_first.Controls.Clear();
+           // panel_first.Controls.Clear();
+           // y = 5;
             //panel_second.Controls.Clear();
             var filters = GetListFilters();
             var res = from c in filters
@@ -253,7 +277,7 @@ namespace FilterShop
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void btnexit_Click(object sender, EventArgs e)
         {
             flag = false;
             panel_first.Controls.Clear();
@@ -285,7 +309,7 @@ namespace FilterShop
                     taste.Add(t.Value);
                 }
             }
-            
+            count_taste = taste.Count;
             foreach (var item in taste)
             {
                 panel_second.Height += ty;
@@ -302,14 +326,20 @@ namespace FilterShop
             {               
                 btntaste.Location = new Point(15, btnbrand.Height + dy);
                 btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height + dy);
-                panel_second.Location = new Point(15, btnbrand.Height + btntaste.Height + dy);
+                btn_forma.Location = new Point(15, btnbrand.Height + btntaste.Height * count_taste + dy);
+;                panel_second.Location = new Point(15, btnbrand.Height + btntaste.Height + dy);
                 
             }
             if(flag&&flag_taste)
             {
                 btntaste.Location = new Point(15, btnbrand.Height*count_brand + dy);
                 btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height*count_brand + dy);
+                btn_forma.Location = new Point(15, btnbrand.Height * count_brand + btntaste.Height*count_taste + dy);
                 panel_second.Location = new Point(15, btnbrand.Height*count_brand + btntaste.Height + dy);               
+            }
+            if(flag&&!flag_taste)
+            {
+
             }
         }
 
@@ -336,7 +366,51 @@ namespace FilterShop
 
         private void btn_forma_Click(object sender, EventArgs e)
         {
+            flag_forma = true;
+            List<string> forma = new List<string>();
+            var filters = GetListFilters();
+            var res = from c in filters
+                      where c.Name == btn_forma.Text
+                      select c.Children;
 
+            foreach (var item in res)
+            {
+                foreach (var t in item)
+                {
+                    forma.Add(t.Value);
+                }
+            }
+
+            foreach (var item in forma)
+            {
+                panel_third.Height += fy;
+                CheckBox cb = new CheckBox();
+                cb.Text = item.ToString();
+                cb.Location = new Point(15, f);
+                cb.Size = new System.Drawing.Size(150, 20);
+                cb.UseVisualStyleBackColor = true;
+                panel_third.Controls.Add(cb);
+                f += fy;
+            }
+           // btn_forma.Location = new Point(15, btnbrand.Height * count_brand + btntaste.Height + dy + 5);
+            if ( flag&&!flag_taste)
+            {
+               
+            }
+
+            //if (!flag && flag_taste)
+            //{
+            //    btntaste.Location = new Point(15, btnbrand.Height + dy);
+            //    btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height + dy);
+            //    panel_second.Location = new Point(15, btnbrand.Height + btntaste.Height + dy);
+
+            //}
+           // if (flag&&flag_taste)
+            //{
+               // btn_forma.Location = new Point(15, ((btnbrand.Height * count_brand) + (btntaste.Height * count_taste))+dy);
+                //btnexit_forma.Location = new Point(btntaste.Width + 32, btnexit_brand.Height * count_brand + dy);
+                //panel_second.Location = new Point(15, btnbrand.Height * count_brand + btntaste.Height + dy);
+            //}
         }
 
         private void btnexit_forms_Click(object sender, EventArgs e)

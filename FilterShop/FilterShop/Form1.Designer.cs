@@ -48,7 +48,7 @@ namespace FilterShop
             this.panel_first = new System.Windows.Forms.Panel();
             this.btnexit_taste = new System.Windows.Forms.Button();
             this.panel_second = new System.Windows.Forms.Panel();
-            this.btnexit_forms = new System.Windows.Forms.Button();
+            this.btnexit_forma = new System.Windows.Forms.Button();
             this.panel_third = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -177,7 +177,7 @@ namespace FilterShop
             this.btnbrand.TabIndex = 12;
             this.btnbrand.Text = "Бренди";
             this.btnbrand.UseVisualStyleBackColor = false;
-            this.btnbrand.Click += new System.EventHandler(this.button5_Click);
+            this.btnbrand.Click += new System.EventHandler(this.btnbrand_Click);
             // 
             // btntaste
             // 
@@ -194,7 +194,7 @@ namespace FilterShop
             // btn_forma
             // 
             this.btn_forma.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btn_forma.Location = new System.Drawing.Point(398, 12);
+            this.btn_forma.Location = new System.Drawing.Point(18, 504);
             this.btn_forma.Name = "btn_forma";
             this.btn_forma.Size = new System.Drawing.Size(136, 43);
             this.btn_forma.TabIndex = 14;
@@ -210,7 +210,7 @@ namespace FilterShop
             this.btnexit_brand.TabIndex = 15;
             this.btnexit_brand.Text = "Hide";
             this.btnexit_brand.UseVisualStyleBackColor = true;
-            this.btnexit_brand.Click += new System.EventHandler(this.button8_Click);
+            this.btnexit_brand.Click += new System.EventHandler(this.btnexit_Click);
             // 
             // panel_first
             // 
@@ -236,19 +236,19 @@ namespace FilterShop
             this.panel_second.Size = new System.Drawing.Size(205, 90);
             this.panel_second.TabIndex = 18;
             // 
-            // btnexit_forms
+            // btnexit_forma
             // 
-            this.btnexit_forms.Location = new System.Drawing.Point(551, 12);
-            this.btnexit_forms.Name = "btnexit_forms";
-            this.btnexit_forms.Size = new System.Drawing.Size(69, 43);
-            this.btnexit_forms.TabIndex = 19;
-            this.btnexit_forms.Text = "Hide";
-            this.btnexit_forms.UseVisualStyleBackColor = true;
-            this.btnexit_forms.Click += new System.EventHandler(this.btnexit_forms_Click);
+            this.btnexit_forma.Location = new System.Drawing.Point(169, 504);
+            this.btnexit_forma.Name = "btnexit_forma";
+            this.btnexit_forma.Size = new System.Drawing.Size(69, 43);
+            this.btnexit_forma.TabIndex = 19;
+            this.btnexit_forma.Text = "Hide";
+            this.btnexit_forma.UseVisualStyleBackColor = true;
+            this.btnexit_forma.Click += new System.EventHandler(this.btnexit_forms_Click);
             // 
             // panel_third
             // 
-            this.panel_third.Location = new System.Drawing.Point(398, 83);
+            this.panel_third.Location = new System.Drawing.Point(12, 553);
             this.panel_third.Name = "panel_third";
             this.panel_third.Size = new System.Drawing.Size(205, 74);
             this.panel_third.TabIndex = 20;
@@ -257,9 +257,9 @@ namespace FilterShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1247, 639);
+            this.ClientSize = new System.Drawing.Size(1258, 651);
             this.Controls.Add(this.panel_third);
-            this.Controls.Add(this.btnexit_forms);
+            this.Controls.Add(this.btnexit_forma);
             this.Controls.Add(this.panel_second);
             this.Controls.Add(this.btnexit_taste);
             this.Controls.Add(this.btntaste);
@@ -307,7 +307,7 @@ namespace FilterShop
         private System.Windows.Forms.Panel panel_first;
         private System.Windows.Forms.Button btnexit_taste;
         private System.Windows.Forms.Panel panel_second;
-        private System.Windows.Forms.Button btnexit_forms;
+        private System.Windows.Forms.Button btnexit_forma;
         private System.Windows.Forms.Panel panel_third;
     }
 }
