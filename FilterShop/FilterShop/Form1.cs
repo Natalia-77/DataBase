@@ -3,6 +3,7 @@ using FilterShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -11,16 +12,30 @@ namespace FilterShop
     public partial class Form1 : Form
     {
         private readonly MyContext _context;
-        public IQueryable<FilterName> filter { get; set; }       
+        public IQueryable<FilterName> filter { get; set; }
+        public int y { get; set; } = 5;
+
+        public int z { get; set; } = 10;
+        public int dy { get; set; } = 30;
+
+        public int ty { get; set; } = 30;
+        /// <summary>
+        /// Фолс по замовчуівнню,то кнопки не розкриті на початковій формі.
+        /// </summary>
+        public bool flag { get; set; } = false;
+
+        public bool flag_taste { get; set; } = false;
+
+        public int count_brand { get; set; }
 
         public Form1()
         {
             InitializeComponent();
             _context = new MyContext();
-            DbSeeder.SeedDatabase(_context);
+            DbSeeder.SeedDatabase(_context);            
             DataLoad();
-        }
-
+        }    
+        
         private List<FNameViewModel> GetListFilters()
         {
             lblTitle_first.Text = "Оберіть перший фільтр";
@@ -76,13 +91,16 @@ namespace FilterShop
 
         private void DataLoad()
         {
-            clb1.Items.Clear();
+           // clb1.Items.Clear();
+
             GetListFilters();
-            foreach (var item in filter)
-            {
-                comboBox1.Items.Add(item.Name);
+            btntaste.Location = new Point(15,btnbrand.Height+dy);
+            btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height + dy);
+            //foreach (var item in filter)
+            //{
+            //    comboBox1.Items.Add(item.Name);
                 
-            }
+            //}
             
             //var resul = from b in GetListFilters()
             //            where b.Name !=comboBox1.SelectedItem.ToString()
@@ -183,6 +201,147 @@ namespace FilterShop
             {
                 listBox2.Items.Add(item);
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {            
+            flag = true;           
+            List<string> brand = new List<string>();
+            //panel_first.Height = 5;
+            //panel_first.Controls.Clear();
+            //panel_second.Controls.Clear();
+            var filters = GetListFilters();
+            var res = from c in filters
+                      where c.Name == btnbrand.Text
+                      select c.Children;
+           
+            foreach (var item in res)
+            {
+                foreach (var t in item)
+                {
+                    brand.Add(t.Value);
+                }            
+                      
+            }
+            count_brand = brand.Count;
+          
+            foreach (var item in brand)
+            {
+                
+                panel_first.Height += dy;
+                CheckBox cb = new CheckBox();
+                cb.Text = item.ToString();
+                cb.Location = new Point(15, y);
+                cb.Size = new System.Drawing.Size(150, 22);
+                cb.UseVisualStyleBackColor = true;
+                panel_first.Controls.Add(cb);
+                y += dy;
+            }
+            if (flag&&!flag_taste)
+            {
+                btntaste.Location = new Point(15, btnbrand.Height * brand.Count + dy);
+                btnexit_taste.Location = new Point(btntaste.Width + 32, btnbrand.Height * brand.Count + dy);
+                panel_second.Location = new Point(15,btnbrand.Height+dy+y);
+                panel_second.Controls.Clear();
+                panel_second.Height = 5;
+            }
+            if(flag && flag_taste)
+            {
+                btntaste.Location = new Point(15, btnbrand.Height * count_brand + dy);
+                btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height * count_brand + dy);
+                panel_second.Location = new Point(15, btnbrand.Height * count_brand + btntaste.Height + dy);
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            flag = false;
+            panel_first.Controls.Clear();
+            panel_first.Height = 5;
+            y = 10;
+            btntaste.Location = new Point(15, btnbrand.Height + dy);               
+            btnexit_taste.Location = new Point(btntaste.Width + 32, btnbrand.Height + dy);
+            if (!flag_taste)
+            {                
+                panel_second.Controls.Clear();
+                panel_second.Height = 5;
+            }
+            panel_second.Location = new Point(15, btnbrand.Height + btntaste.Height + dy);
+        }
+
+        private void btntaste_Click(object sender, EventArgs e)
+        {           
+            flag_taste = true;
+            List<string> taste = new List<string>();           
+            var filters = GetListFilters();
+            var res = from c in filters
+                      where c.Name == btntaste.Text
+                      select c.Children;
+
+            foreach (var item in res)
+            {
+                foreach (var t in item)
+                {
+                    taste.Add(t.Value);
+                }
+            }
+            
+            foreach (var item in taste)
+            {
+                panel_second.Height += ty;
+                CheckBox cb = new CheckBox();
+                cb.Text = item.ToString();
+                cb.Location = new Point(15, z);
+                cb.Size = new System.Drawing.Size(150, 22);
+                cb.UseVisualStyleBackColor = true;
+                panel_second.Controls.Add(cb);
+                z += ty;
+            }
+            
+            if (!flag&&flag_taste)
+            {               
+                btntaste.Location = new Point(15, btnbrand.Height + dy);
+                btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height + dy);
+                panel_second.Location = new Point(15, btnbrand.Height + btntaste.Height + dy);
+                
+            }
+            if(flag&&flag_taste)
+            {
+                btntaste.Location = new Point(15, btnbrand.Height*count_brand + dy);
+                btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height*count_brand + dy);
+                panel_second.Location = new Point(15, btnbrand.Height*count_brand + btntaste.Height + dy);               
+            }
+        }
+
+        private void btnexit_taste_Click(object sender, EventArgs e)
+        {
+            flag_taste = false;
+            panel_second.Controls.Clear();
+            panel_second.Height = 5;
+            z = 10;
+
+            if (!flag)
+            {
+                panel_first.Controls.Clear();
+                panel_first.Height = 5;
+            }
+            else
+            {
+                btntaste.Location = new Point(15, btnbrand.Height *count_brand+ dy);
+                btnexit_taste.Location = new Point(btntaste.Width+32,btnexit_brand.Height*count_brand+dy);
+
+            }
+
+        }
+
+        private void btn_forma_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnexit_forms_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
