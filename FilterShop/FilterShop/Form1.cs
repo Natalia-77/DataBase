@@ -327,9 +327,10 @@ namespace FilterShop
                 btntaste.Location = new Point(15, btnbrand.Height + dy);
                 btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height + dy);
                 btn_forma.Location = new Point(15, btnbrand.Height + btntaste.Height * count_taste + dy);
-;                panel_second.Location = new Point(15, btnbrand.Height + btntaste.Height + dy);
+;               panel_second.Location = new Point(15, btnbrand.Height + btntaste.Height + dy);
                 
             }
+            
             if(flag&&flag_taste)
             {
                 btntaste.Location = new Point(15, btnbrand.Height*count_brand + dy);
