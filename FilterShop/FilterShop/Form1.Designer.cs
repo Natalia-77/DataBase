@@ -83,7 +83,7 @@ namespace FilterShop
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(847, 49);
+            this.comboBox1.Location = new System.Drawing.Point(845, 49);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(173, 28);
             this.comboBox1.TabIndex = 3;
@@ -93,7 +93,7 @@ namespace FilterShop
             this.lblTitle_first.AutoSize = true;
             this.lblTitle_first.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle_first.ForeColor = System.Drawing.Color.Navy;
-            this.lblTitle_first.Location = new System.Drawing.Point(847, 12);
+            this.lblTitle_first.Location = new System.Drawing.Point(845, 12);
             this.lblTitle_first.Name = "lblTitle_first";
             this.lblTitle_first.Size = new System.Drawing.Size(53, 23);
             this.lblTitle_first.TabIndex = 4;
@@ -194,9 +194,9 @@ namespace FilterShop
             // btn_forma
             // 
             this.btn_forma.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btn_forma.Location = new System.Drawing.Point(18, 504);
+            this.btn_forma.Location = new System.Drawing.Point(345, 12);
             this.btn_forma.Name = "btn_forma";
-            this.btn_forma.Size = new System.Drawing.Size(136, 43);
+            this.btn_forma.Size = new System.Drawing.Size(136, 41);
             this.btn_forma.TabIndex = 14;
             this.btn_forma.Text = "Форма випуску";
             this.btn_forma.UseVisualStyleBackColor = false;
@@ -238,19 +238,19 @@ namespace FilterShop
             // 
             // btnexit_forma
             // 
-            this.btnexit_forma.Location = new System.Drawing.Point(169, 504);
+            this.btnexit_forma.Location = new System.Drawing.Point(504, 12);
             this.btnexit_forma.Name = "btnexit_forma";
-            this.btnexit_forma.Size = new System.Drawing.Size(69, 43);
+            this.btnexit_forma.Size = new System.Drawing.Size(69, 41);
             this.btnexit_forma.TabIndex = 19;
             this.btnexit_forma.Text = "Hide";
             this.btnexit_forma.UseVisualStyleBackColor = true;
-            this.btnexit_forma.Click += new System.EventHandler(this.btnexit_forms_Click);
+            this.btnexit_forma.Click += new System.EventHandler(this.btnexit_forma_Click);
             // 
             // panel_third
             // 
-            this.panel_third.Location = new System.Drawing.Point(12, 553);
+            this.panel_third.Location = new System.Drawing.Point(345, 59);
             this.panel_third.Name = "panel_third";
-            this.panel_third.Size = new System.Drawing.Size(205, 74);
+            this.panel_third.Size = new System.Drawing.Size(205, 73);
             this.panel_third.TabIndex = 20;
             // 
             // Form1
