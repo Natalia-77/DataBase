@@ -50,6 +50,9 @@ namespace FilterShop
             this.panel_second = new System.Windows.Forms.Panel();
             this.btnexit_forma = new System.Windows.Forms.Button();
             this.panel_third = new System.Windows.Forms.Panel();
+            this.lbox_res = new System.Windows.Forms.ListBox();
+            this.lbl_Title_check = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // clb1
@@ -248,16 +251,49 @@ namespace FilterShop
             // 
             // panel_third
             // 
+            this.panel_third.BackColor = System.Drawing.SystemColors.Control;
             this.panel_third.Location = new System.Drawing.Point(345, 59);
             this.panel_third.Name = "panel_third";
             this.panel_third.Size = new System.Drawing.Size(205, 73);
             this.panel_third.TabIndex = 20;
             // 
+            // lbox_res
+            // 
+            this.lbox_res.FormattingEnabled = true;
+            this.lbox_res.ItemHeight = 20;
+            this.lbox_res.Location = new System.Drawing.Point(528, 270);
+            this.lbox_res.Name = "lbox_res";
+            this.lbox_res.Size = new System.Drawing.Size(231, 144);
+            this.lbox_res.TabIndex = 21;
+            // 
+            // lbl_Title_check
+            // 
+            this.lbl_Title_check.AutoSize = true;
+            this.lbl_Title_check.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Title_check.Location = new System.Drawing.Point(543, 222);
+            this.lbl_Title_check.Name = "lbl_Title_check";
+            this.lbl_Title_check.Size = new System.Drawing.Size(53, 23);
+            this.lbl_Title_check.TabIndex = 22;
+            this.lbl_Title_check.Text = "label1";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(558, 436);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(142, 54);
+            this.button5.TabIndex = 23;
+            this.button5.Text = "Отримати значення";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1258, 651);
+            this.ClientSize = new System.Drawing.Size(1258, 522);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.lbl_Title_check);
+            this.Controls.Add(this.lbox_res);
             this.Controls.Add(this.panel_third);
             this.Controls.Add(this.btnexit_forma);
             this.Controls.Add(this.panel_second);
@@ -309,6 +345,9 @@ namespace FilterShop
         private System.Windows.Forms.Panel panel_second;
         private System.Windows.Forms.Button btnexit_forma;
         private System.Windows.Forms.Panel panel_third;
+        private System.Windows.Forms.ListBox lbox_res;
+        private System.Windows.Forms.Label lbl_Title_check;
+        private System.Windows.Forms.Button button5;
     }
 }
 

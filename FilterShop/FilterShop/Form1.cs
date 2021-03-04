@@ -11,6 +11,7 @@ namespace FilterShop
 {
     public partial class Form1 : Form
     {
+        public List<string> cat_prop { get; set; }
         private readonly MyContext _context;
         public IQueryable<FilterName> filter { get; set; }
         /// <summary>
@@ -33,8 +34,8 @@ namespace FilterShop
         /// Фолс по замовчуванню,то кнопка не розкрита на початковій формі фільтру "Смаки".
         /// </summary>
         public bool flag_taste { get; set; } = false;
-     
-            
+
+        public bool flag_forma { get; set; } = false;
         /// <summary>
         /// Допоміжні змінні для зміни координат в фільтрі "Форма випуску"
         /// </summary>
@@ -118,6 +119,7 @@ namespace FilterShop
             btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height + dy);
             btn_forma.Location = new Point(15,btntaste.Height+btnbrand.Height+dy+19);
             btnexit_forma.Location = new Point(btn_forma.Width+32,btnexit_brand.Height+btnexit_taste.Height+dy+19);
+            lbl_Title_check.Text = "Перелік обраних фільтрів:";
             //foreach (var item in filter)
             //{
             //    comboBox1.Items.Add(item.Name);
@@ -271,10 +273,7 @@ namespace FilterShop
 
                 btn_forma.Location = new Point(15,(btnbrand.Height*count_brand)+btntaste.Height+dy+y);
                 btnexit_forma.Location = new Point(btn_forma.Width+dy,btnbrand.Height+(btnbrand.Height*count_brand)+btntaste.Height);
-                //btnexit_forma.Location = new Point(btnbrand.Width + btnexit_brand.Width + btn_forma.Width + s_pos, t_pos);
-
-
-                // panel_third.Location = new Point(15,(btnbrand.Height*count_brand)+btntaste.Height+btn_forma.Height+dy+y);
+                
             }
             if (flag && flag_taste)
             {
@@ -284,16 +283,8 @@ namespace FilterShop
 
                 btn_forma.Location = new Point(btnbrand.Width+btnexit_brand.Width+(y*5),t_pos);
                 btnexit_forma.Location = new Point(btnbrand.Width + btnexit_brand.Width + btn_forma.Width + s_pos, t_pos);
-
-                //btnexit_forma.Location = new Point(btnbrand.Width + btnexit_brand.Width +btn_forma.Width+ (y * 5),12);
-                //panel_third.Location = new Point(15, btnbrand.Height + btntaste.Height + (btnbrand.Height * count_brand) + (btntaste.Height * count_taste));
-            }
-            //if (flag_taste && flag_forma)
-            //{
-            //    btn_forma.Location = new Point(15, btnbrand.Height +450);
-            //    panel_third.Location = new Point(15, btntaste.Height+480 
-            //         );
-            //}
+                                
+            }            
 
         }
 
@@ -311,17 +302,9 @@ namespace FilterShop
                 panel_second.Height = 5;
                 btn_forma.Location = new Point(15,btnbrand.Height+btntaste.Height+dy+y);
                 btnexit_forma.Location = new Point(btn_forma.Width+dy  ,btnbrand.Height+btntaste.Height+btn_forma.Height);
-                //panel_third.Location = new Point(15, btnbrand.Height + btntaste.Height + btn_forma.Height + dy+y);
-                
+                              
             }
            
-
-
-            //else
-            //{
-            //    btn_forma.Location = new Point(15, btnbrand.Height+btntaste.Height+(btntaste.Height*count_taste)+ dy);
-            //    panel_third.Location = new Point(15, btnbrand.Height + btntaste.Height+(btntaste.Height*count_taste) + btn_forma.Height + dy);
-            //}
             panel_second.Location = new Point(15, btnbrand.Height + btntaste.Height + dy);
         }
 
@@ -361,10 +344,8 @@ namespace FilterShop
                 btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height + ty);
                 btn_forma.Location = new Point(15, (btntaste.Height * count_taste) + btnbrand.Height + ty);
                 btnexit_forma.Location = new Point(btntaste.Width+ty,btnexit_brand.Height+btnexit_taste.Height+(btnexit_taste.Height*count_taste)-z);
-                // btn_forma.Location = new Point(15, btnbrand.Height + btntaste.Height * count_taste + ty);
                 panel_second.Location = new Point(15, btnbrand.Height + btntaste.Height + ty);
-                //panel_third.Location = new Point(15,btnbrand.Height+btntaste.Height+(btntaste.Height*count_taste)+btn_forma.Height);
-
+                
             }
 
             if (flag && flag_taste)
@@ -373,11 +354,14 @@ namespace FilterShop
                 btnexit_forma.Location = new Point(btnbrand.Width + btnexit_brand.Width + btn_forma.Width +s_pos, t_pos);
                 btntaste.Location = new Point(15, btnbrand.Height * count_brand + ty);
                 btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height * count_brand + ty);
-                //btn_forma.Location = new Point(15, btnbrand.Height * count_brand + btntaste.Height * count_taste + ty);
                 panel_second.Location = new Point(15, btnbrand.Height * count_brand + btntaste.Height + ty);
-                //panel_third.Location = new Point(15,btnexit_brand.Height+(btnbrand.Height*count_brand)+btntaste.Height+(btntaste.Height*count_taste)+btn_forma.Height);
+                
             }
-
+            if(flag_forma)
+            {
+                btn_forma.Location = new Point(btnbrand.Width + btnexit_brand.Width + 50, t_pos);
+                btnexit_forma.Location = new Point(btnbrand.Width + btnexit_brand.Width + btn_forma.Width + s_pos, t_pos);
+            }
             
         }
 
@@ -394,27 +378,24 @@ namespace FilterShop
                 panel_first.Height = 5;
                 btn_forma.Location = new Point(15, btnbrand.Height + btntaste.Height + ty+z);
                 btnexit_forma.Location = new Point(btntaste.Width+ty , btnbrand.Height + btntaste.Height + z+ty);
-                //btn_forma.Location = new Point(15, btnbrand.Height + btntaste.Height+btn_forma.Height );
-                // panel_third.Location = new Point(15, btnbrand.Height + btntaste.Height + btn_forma.Height+dy+(z*2));
-
+                               
             }
             else
             {
                 btntaste.Location = new Point(15, btnbrand.Height *count_brand+ ty);
-                btnexit_taste.Location = new Point(btntaste.Width+32,btnexit_brand.Height*count_brand+ty);
-
-                // btn_forma.Location = new Point(15, btnbrand.Height +(btnbrand.Height*count_brand)+btntaste.Height);
-                //panel_third.Location = new Point(15, btnbrand.Height+(btnbrand.Height*count_brand) + btntaste.Height + btn_forma.Height + ty + (z * 2));
+                btnexit_taste.Location = new Point(btntaste.Width+32,btnexit_brand.Height*count_brand+ty);                                                 
                 
-                    
-                
+            }
+            if(flag_forma)
+            {
+                panel_third.Controls.Clear();
             }
 
         }
 
         private void btn_forma_Click(object sender, EventArgs e)
         {
-            
+            flag_forma = true;
             List<string> forma = new List<string>();
             var filters = GetListFilters();
             var res = from c in filters
@@ -428,6 +409,7 @@ namespace FilterShop
                     forma.Add(t.Value);
                 }
             }
+            List<string> cat = new List<string>();
 
             foreach (var item in forma)
             {
@@ -436,11 +418,34 @@ namespace FilterShop
                 cb.Text = item.ToString();
                 cb.Location = new Point(15, f);
                 cb.Size = new System.Drawing.Size(100, 20);
+                //cb.Checked = false;
+                cb.CheckedChanged += SampleCheckChangedHandler;
                 cb.UseVisualStyleBackColor = true;
                 panel_third.Controls.Add(cb);
                 f += fy;
+                if (cb.Checked)
+                { 
+                    cat.Add(cb.Checked.ToString());
+                    
+                }              
             }
+            cat_prop = cat;
+
+
+
+
+
             panel_third.Location = new Point(btnbrand.Width+btnexit_brand.Width+60,btn_forma.Height+15);
+            if(!flag && !flag_taste)
+            {
+                btn_forma.Location = new Point(btnbrand.Width + btnexit_brand.Width + 50, t_pos);
+                btnexit_forma.Location = new Point(btnbrand.Width + btnexit_brand.Width + btn_forma.Width + s_pos, t_pos);
+                panel_third.Location = new Point(btnbrand.Width + btnexit_brand.Width + 60, btn_forma.Height + 15);
+            }
+            if(!flag && !flag_taste)
+            {
+                panel_third.Location = new Point(btnbrand.Width + btnexit_brand.Width + 60, btn_forma.Height + 15);
+            }
             
         }
 
@@ -450,58 +455,35 @@ namespace FilterShop
             f = 10;
         }
 
-        //private void btn_forma_Click(object sender, EventArgs e)
-        //{
-        //    flag_forma = true;
-        //    List<string> forma = new List<string>();
-        //    var filters = GetListFilters();
-        //    var res = from c in filters
-        //              where c.Name == btn_forma.Text
-        //              select c.Children;
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //List<string> cat = new List<string>();
 
-        //    foreach (var item in res)
-        //    {
-        //        foreach (var t in item)
-        //        {
-        //            forma.Add(t.Value);
-        //        }
-        //    }
+            //for (int i = 0; i <.CheckedItems.Count; i++)
+            //{
+            //    cat.Add(clb2.CheckedItems[i].ToString());
+            //}
 
-        //    foreach (var item in forma)
-        //    {
-        //        panel_third.Height += fy;
-        //        CheckBox cb = new CheckBox();
-        //        cb.Text = item.ToString();
-        //        cb.Location = new Point(15, f);
-        //        cb.Size = new System.Drawing.Size(100, 20);
-        //        cb.UseVisualStyleBackColor = true;
-        //        panel_third.Controls.Add(cb);
-        //        f += fy;
-        //    }
-        //    if (!flag && !flag_taste)
-        //    {
-        //        panel_third.Location = new Point(15,btnbrand.Height+btntaste.Height+btn_forma.Height+dy+20);
-        //        panel_first.Controls.Clear();
-        //    }
-        //    if(!flag&&flag_taste )
-        //    {
-        //        panel_third.Location = new Point(15,btnbrand.Height+btntaste.Height+(btntaste.Height*count_taste)+dy);
-        //        panel_first.Controls.Clear();
-        //    }
-        //    if (flag && flag_taste && flag_forma)
-        //    {
-        //        panel_third.Location = new Point(15, (btnbrand.Height * count_brand) + btnbrand.Height + (btntaste.Height * count_taste) + btntaste.Height);
+            //lbox_res.Items.Clear();
 
-        //    }
-
-        //}
-
-        //private void btnexit_forms_Click(object sender, EventArgs e)
-        //{
-        //    panel_third.Controls.Clear();
-        //    f = 10;
-        //}
+            foreach (var items in cat_prop)
+            {
+                lbox_res.Items.Add(items);
+            }
 
 
+
+        }
+
+        static void SampleCheckChangedHandler(object sender, EventArgs ea)
+        {
+            CheckBox cb = sender as CheckBox; 
+          
+            if (cb.Checked)
+                MessageBox.Show(cb.Text + " checked");
+            else
+                MessageBox.Show(cb.Text + " unchecked");
+        }
     }
 }
+
