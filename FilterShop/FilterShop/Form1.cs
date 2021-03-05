@@ -331,7 +331,7 @@ namespace FilterShop
             }         
 
             panel_third.Location = new Point(btnbrand.Width+btnexit_brand.Width+60,btn_forma.Height+15);
-            if(!flag && !flag_taste)
+            if(flag && !flag_taste)
             {
                 btn_forma.Location = new Point(btnbrand.Width + btnexit_brand.Width + 50, t_pos);
                 btnexit_forma.Location = new Point(btnbrand.Width + btnexit_brand.Width + btn_forma.Width + s_pos, t_pos);
@@ -341,6 +341,7 @@ namespace FilterShop
             {
                 panel_third.Location = new Point(btnbrand.Width + btnexit_brand.Width + 60, btn_forma.Height + 15);
             }
+
             
         }
 
