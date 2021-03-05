@@ -44,9 +44,9 @@ namespace FilterShop
             this.tb_add_value = new System.Windows.Forms.TextBox();
             this.btn_add_value = new System.Windows.Forms.Button();
             this.lbl_name_parent = new System.Windows.Forms.Label();
-            this.tb_parent_name = new System.Windows.Forms.TextBox();
             this.lbl_name_value = new System.Windows.Forms.Label();
             this.btn_reload = new System.Windows.Forms.Button();
+            this.cb_name_parent = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnbrand
@@ -173,12 +173,12 @@ namespace FilterShop
             // 
             this.tb_add_value.Location = new System.Drawing.Point(618, 58);
             this.tb_add_value.Name = "tb_add_value";
-            this.tb_add_value.Size = new System.Drawing.Size(119, 27);
+            this.tb_add_value.Size = new System.Drawing.Size(151, 27);
             this.tb_add_value.TabIndex = 24;
             // 
             // btn_add_value
             // 
-            this.btn_add_value.Location = new System.Drawing.Point(633, 102);
+            this.btn_add_value.Location = new System.Drawing.Point(643, 102);
             this.btn_add_value.Name = "btn_add_value";
             this.btn_add_value.Size = new System.Drawing.Size(94, 29);
             this.btn_add_value.TabIndex = 25;
@@ -195,13 +195,6 @@ namespace FilterShop
             this.lbl_name_parent.TabIndex = 26;
             this.lbl_name_parent.Text = "label1";
             // 
-            // tb_parent_name
-            // 
-            this.tb_parent_name.Location = new System.Drawing.Point(618, 19);
-            this.tb_parent_name.Name = "tb_parent_name";
-            this.tb_parent_name.Size = new System.Drawing.Size(119, 27);
-            this.tb_parent_name.TabIndex = 27;
-            // 
             // lbl_name_value
             // 
             this.lbl_name_value.AutoSize = true;
@@ -214,7 +207,7 @@ namespace FilterShop
             // btn_reload
             // 
             this.btn_reload.BackColor = System.Drawing.Color.LightCyan;
-            this.btn_reload.Location = new System.Drawing.Point(619, 476);
+            this.btn_reload.Location = new System.Drawing.Point(618, 427);
             this.btn_reload.Name = "btn_reload";
             this.btn_reload.Size = new System.Drawing.Size(94, 45);
             this.btn_reload.TabIndex = 29;
@@ -222,14 +215,22 @@ namespace FilterShop
             this.btn_reload.UseVisualStyleBackColor = false;
             this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
+            // cb_name_parent
+            // 
+            this.cb_name_parent.FormattingEnabled = true;
+            this.cb_name_parent.Location = new System.Drawing.Point(618, 19);
+            this.cb_name_parent.Name = "cb_name_parent";
+            this.cb_name_parent.Size = new System.Drawing.Size(151, 28);
+            this.cb_name_parent.TabIndex = 30;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 593);
+            this.ClientSize = new System.Drawing.Size(921, 593);
+            this.Controls.Add(this.cb_name_parent);
             this.Controls.Add(this.btn_reload);
             this.Controls.Add(this.lbl_name_value);
-            this.Controls.Add(this.tb_parent_name);
             this.Controls.Add(this.lbl_name_parent);
             this.Controls.Add(this.btn_add_value);
             this.Controls.Add(this.tb_add_value);
@@ -268,9 +269,9 @@ namespace FilterShop
         private System.Windows.Forms.TextBox tb_add_value;
         private System.Windows.Forms.Button btn_add_value;
         private System.Windows.Forms.Label lbl_name_parent;
-        private System.Windows.Forms.TextBox tb_parent_name;
         private System.Windows.Forms.Label lbl_name_value;
         private System.Windows.Forms.Button btn_reload;
+        private System.Windows.Forms.ComboBox cb_name_parent;
     }
 }
 

@@ -116,6 +116,16 @@ namespace FilterShop
         {
            
             GetListFilters();
+            //Отримую множину значень імен.
+            var resul = from b in GetListFilters()                       
+                        select b.Name;
+
+            //Додаю в комбобокс.
+            foreach (var item in resul)
+            {
+                cb_name_parent.Items.Add(item);
+            }
+
             btntaste.Location = new Point(15,btnbrand.Height+dy);
             btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height + dy);
             btn_forma.Location = new Point(15,btntaste.Height+btnbrand.Height+dy+19);
@@ -392,11 +402,12 @@ namespace FilterShop
                             new FilterValue
                             {
                                 Name = tb_add_value.Text
+                                //Name = cb_name_parent.SelectedItem.ToString()
                             });
             _context.SaveChanges();
 
             var nId = _context.FilterNames
-                        .SingleOrDefault(fname => fname.Name == tb_parent_name.Text).Id;
+                        .SingleOrDefault(fname => fname.Name == cb_name_parent.SelectedItem.ToString()).Id;
             var vId = _context.FilterValues
                 .SingleOrDefault(fvalue => fvalue.Name == tb_add_value.Text).Id;
             if (_context.FilterNameGroups
