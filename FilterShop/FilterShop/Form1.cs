@@ -12,6 +12,7 @@ namespace FilterShop
     public partial class Form1 : Form
     {
         public List<string> cat_prop { get; set; }
+        private List<string> cat = new List<string>();
         private readonly MyContext _context;
         public IQueryable<FilterName> filter { get; set; }
         /// <summary>
@@ -43,6 +44,9 @@ namespace FilterShop
         public int f { get; set; } = 13;
         public int fy { get; set; } = 30;
 
+        /// <summary>
+        /// Кількість елементів в колекції для того,щоб панель і кнопки могла рухатись вниз на потрібну кількість.
+        /// </summary>
         public int count_brand { get; set; }
         public int count_taste { get; set; }
 
@@ -59,18 +63,18 @@ namespace FilterShop
         
         private List<FNameViewModel> GetListFilters()
         {
-            lblTitle_first.Text = "Оберіть перший фільтр";
-            lblTitle_second.Text = "Оберіть другий фільтр";
+            
 
             var queryName = from f in _context.FilterNames.AsQueryable()
                             select f;
+
+            //Зберегла в пропертіз отриманий список назв фільтрів.
             filter = queryName;
-            var countSelect = comboBox1.SelectedItem as FilterName;
 
-
+           
             var queryGroup = from g in _context.FilterNameGroups.AsQueryable()
                              select g;
-            //Отримуємо загальну множину значень
+            
             var query = from u in queryName
                         join g in queryGroup on u.Id equals g.FilterNameId into ua
                         from aEmp in ua.DefaultIfEmpty()
@@ -82,16 +86,14 @@ namespace FilterShop
                             FValue = aEmp != null ? aEmp.FilterValueOf.Name : null,
                         };
 
-
-            //Групуємо по іменам і сортуємо по спаданню імен
-
+          
             var groupNames = query.AsEnumerable()
                       .GroupBy(f => new { Id = f.FNameId, Name = f.FName })
                       .Select(g => g)
                       .OrderBy(p => p.Key.Name);
  
 
-            //По групах отримуємо
+            
             var result = from fName in groupNames
                          select
                          new FNameViewModel
@@ -112,127 +114,27 @@ namespace FilterShop
 
         private void DataLoad()
         {
-           // clb1.Items.Clear();
-
+           
             GetListFilters();
             btntaste.Location = new Point(15,btnbrand.Height+dy);
             btnexit_taste.Location = new Point(btntaste.Width + 32, btnexit_brand.Height + dy);
             btn_forma.Location = new Point(15,btntaste.Height+btnbrand.Height+dy+19);
             btnexit_forma.Location = new Point(btn_forma.Width+32,btnexit_brand.Height+btnexit_taste.Height+dy+19);
             lbl_Title_check.Text = "Перелік обраних фільтрів:";
-            //foreach (var item in filter)
-            //{
-            //    comboBox1.Items.Add(item.Name);
-                
-            //}
-            
-            //var resul = from b in GetListFilters()
-            //            where b.Name !=comboBox1.SelectedItem.ToString()
-            //            select b.Name;
-          
-           
-            //foreach (var item in resul)
-            //{
-            //                comboBox2.Items.Add(item);                
-
-
-            //}
+            lbl_name_parent.Text = "Назва фільтра:";
+            lbl_name_value.Text = "Елемент:";
         }
 
-        /// <summary>
-        /// Get checked elements in other list        
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            List<string> brand = new List<string>();
-
-            for (int i = 0; i <clb1.CheckedItems.Count ; i++)
-            {                
-                brand.Add(clb1.CheckedItems[i].ToString());                
-            }
-
-            listBox1.Items.Clear();
-
-            foreach (var item in brand)
-            {
-                listBox1.Items.Add(item);
-            }
-        }
-
-
-        /// <summary>
-        /// Check caterory name.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var filters = GetListFilters();
-            var res = from c in filters
-                      where c.Name == comboBox1.SelectedItem.ToString()
-                      select c.Children;
-            clb1.Items.Clear();
-            foreach (var item in res)
-            {
-                foreach (var t in item)
-                {
-                    clb1.Items.Add(t.Value, false);
-                }
-            }
-
-            var resul = from b in GetListFilters()
-                        where b.Name != comboBox1.SelectedItem.ToString()
-                        select b.Name;
-
-
-            foreach (var item in resul)
-            {
-                comboBox2.Items.Add(item);
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            var filters = GetListFilters();
-            var res = from c in filters
-                      where c.Name == comboBox2.SelectedItem.ToString()
-                      select c.Children;
-            clb2.Items.Clear();
-            foreach (var item in res)
-            {
-                foreach (var t in item)
-                {
-                    clb2.Items.Add(t.Value, false);
-                }
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            List<string> category2 = new List<string>();
-
-            for (int i = 0; i < clb2.CheckedItems.Count; i++)
-            {
-                category2.Add(clb2.CheckedItems[i].ToString());
-            }
-
-            listBox2.Items.Clear();
-
-            foreach (var item in category2)
-            {
-                listBox2.Items.Add(item);
-            }
-        }
-
+        
         private void btnbrand_Click(object sender, EventArgs e)
         {
-           
-            flag = true;           
+           //Якщо кнопка розкрита.
+            flag = true; 
+            
             List<string> brand = new List<string>();           
             var filters = GetListFilters();
+
+            //Отримали значення.
             var res = from c in filters
                       where c.Name == btnbrand.Text
                       select c.Children;
@@ -245,8 +147,10 @@ namespace FilterShop
                 }            
                       
             }
+            //Кількість елементів у колекції.
             count_brand = brand.Count;
           
+            //Створення чекбоксів.
             foreach (var item in brand)
             {
                 
@@ -255,12 +159,14 @@ namespace FilterShop
                 cb.Text = item.ToString();
                 cb.Location = new Point(15, y);
                 cb.Size = new System.Drawing.Size(150, 22);
+                cb.CheckedChanged += CheckChangedHandler;
                 cb.UseVisualStyleBackColor = true;
                 panel_first.Controls.Add(cb);
                 y += dy;
-            }
-           
+            }           
             y = 10;
+
+            //Координати кнопок в залежності від того розкрита чи закрита кнопка.
             if (flag && !flag_taste)
             {
                
@@ -332,6 +238,7 @@ namespace FilterShop
                 cb.Text = item.ToString();
                 cb.Location = new Point(15, z);
                 cb.Size = new System.Drawing.Size(150, 22);
+                cb.CheckedChanged += CheckChangedHandler;
                 cb.UseVisualStyleBackColor = true;
                 panel_second.Controls.Add(cb);
                 z += ty;
@@ -408,8 +315,7 @@ namespace FilterShop
                 {
                     forma.Add(t.Value);
                 }
-            }
-            List<string> cat = new List<string>();
+            }           
 
             foreach (var item in forma)
             {
@@ -417,23 +323,12 @@ namespace FilterShop
                 CheckBox cb = new CheckBox();
                 cb.Text = item.ToString();
                 cb.Location = new Point(15, f);
-                cb.Size = new System.Drawing.Size(100, 20);
-                //cb.Checked = false;
-                cb.CheckedChanged += SampleCheckChangedHandler;
+                cb.Size = new System.Drawing.Size(100, 20);               
+                cb.CheckedChanged += CheckChangedHandler;
                 cb.UseVisualStyleBackColor = true;
                 panel_third.Controls.Add(cb);
-                f += fy;
-                if (cb.Checked)
-                { 
-                    cat.Add(cb.Checked.ToString());
-                    
-                }              
-            }
-            cat_prop = cat;
-
-
-
-
+                f += fy;                        
+            }         
 
             panel_third.Location = new Point(btnbrand.Width+btnexit_brand.Width+60,btn_forma.Height+15);
             if(!flag && !flag_taste)
@@ -455,34 +350,72 @@ namespace FilterShop
             f = 10;
         }
 
+        /// <summary>
+        /// Додавання чекнутих значень з чекбоксів в лістбокс.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
-            //List<string> cat = new List<string>();
 
-            //for (int i = 0; i <.CheckedItems.Count; i++)
-            //{
-            //    cat.Add(clb2.CheckedItems[i].ToString());
-            //}
+            lbox_res.Items.Clear();
 
-            //lbox_res.Items.Clear();
-
-            foreach (var items in cat_prop)
+            foreach (var items in cat)
             {
                 lbox_res.Items.Add(items);
             }
 
-
-
         }
 
-        static void SampleCheckChangedHandler(object sender, EventArgs ea)
+        /// <summary>
+        /// Обробник чекнутих чекбоксів додавання в ліст.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="ea"></param>
+        private void CheckChangedHandler(object sender, EventArgs ea)
         {
-            CheckBox cb = sender as CheckBox; 
-          
+            CheckBox cb = sender as CheckBox;
+            
             if (cb.Checked)
-                MessageBox.Show(cb.Text + " checked");
-            else
-                MessageBox.Show(cb.Text + " unchecked");
+            {
+                cat.Add(cb.Text);                
+                //MessageBox.Show(cb.Text + " checked");                
+            }          
+            
+            
+        }       
+
+        private void btn_add_value_Click(object sender, EventArgs e)
+        {
+            _context.FilterValues.Add(
+                            new FilterValue
+                            {
+                                Name = tb_add_value.Text
+                            });
+            _context.SaveChanges();
+
+            var nId = _context.FilterNames
+                        .SingleOrDefault(fname => fname.Name == tb_parent_name.Text).Id;
+            var vId = _context.FilterValues
+                .SingleOrDefault(fvalue => fvalue.Name == tb_add_value.Text).Id;
+            if (_context.FilterNameGroups
+                       .SingleOrDefault(f => f.FilterValueId == vId &&
+                       f.FilterNameId == nId) == null)
+            {
+                _context.FilterNameGroups.Add(
+                            new FilterNameGroup
+                            {
+                                FilterNameId = nId,
+                                FilterValueId = vId
+                            });
+                _context.SaveChanges();
+            }
+        }
+
+        private void btn_reload_Click(object sender, EventArgs e)
+        {
+            lbox_res.Items.Clear();
+                        
         }
     }
 }

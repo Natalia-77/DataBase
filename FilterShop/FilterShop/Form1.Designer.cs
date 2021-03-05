@@ -29,18 +29,6 @@ namespace FilterShop
         /// </summary>
         private void InitializeComponent()
         {
-            this.clb1 = new System.Windows.Forms.CheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblTitle_first = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.clb2 = new System.Windows.Forms.CheckedListBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.lblTitle_second = new System.Windows.Forms.Label();
             this.btnbrand = new System.Windows.Forms.Button();
             this.btntaste = new System.Windows.Forms.Button();
             this.btn_forma = new System.Windows.Forms.Button();
@@ -53,123 +41,13 @@ namespace FilterShop
             this.lbox_res = new System.Windows.Forms.ListBox();
             this.lbl_Title_check = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
+            this.tb_add_value = new System.Windows.Forms.TextBox();
+            this.btn_add_value = new System.Windows.Forms.Button();
+            this.lbl_name_parent = new System.Windows.Forms.Label();
+            this.tb_parent_name = new System.Windows.Forms.TextBox();
+            this.lbl_name_value = new System.Windows.Forms.Label();
+            this.btn_reload = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // clb1
-            // 
-            this.clb1.CheckOnClick = true;
-            this.clb1.FormattingEnabled = true;
-            this.clb1.Location = new System.Drawing.Point(847, 130);
-            this.clb1.Name = "clb1";
-            this.clb1.Size = new System.Drawing.Size(172, 158);
-            this.clb1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(847, 294);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 55);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Отримати значення";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(847, 364);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(171, 84);
-            this.listBox1.TabIndex = 2;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(845, 49);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(173, 28);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // lblTitle_first
-            // 
-            this.lblTitle_first.AutoSize = true;
-            this.lblTitle_first.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle_first.ForeColor = System.Drawing.Color.Navy;
-            this.lblTitle_first.Location = new System.Drawing.Point(845, 12);
-            this.lblTitle_first.Name = "lblTitle_first";
-            this.lblTitle_first.Size = new System.Drawing.Size(53, 23);
-            this.lblTitle_first.TabIndex = 4;
-            this.lblTitle_first.Text = "label1";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button2.Location = new System.Drawing.Point(847, 83);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 41);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Обрати";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1044, 49);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(191, 28);
-            this.comboBox2.TabIndex = 6;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button3.Location = new System.Drawing.Point(1043, 83);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 41);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Обрати";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // clb2
-            // 
-            this.clb2.CheckOnClick = true;
-            this.clb2.FormattingEnabled = true;
-            this.clb2.Location = new System.Drawing.Point(1043, 130);
-            this.clb2.Name = "clb2";
-            this.clb2.Size = new System.Drawing.Size(192, 158);
-            this.clb2.TabIndex = 8;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(1043, 294);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 55);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Отримати значення";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(1044, 364);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(191, 84);
-            this.listBox2.TabIndex = 10;
-            // 
-            // lblTitle_second
-            // 
-            this.lblTitle_second.AutoSize = true;
-            this.lblTitle_second.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle_second.ForeColor = System.Drawing.Color.Navy;
-            this.lblTitle_second.Location = new System.Drawing.Point(1077, 12);
-            this.lblTitle_second.Name = "lblTitle_second";
-            this.lblTitle_second.Size = new System.Drawing.Size(53, 23);
-            this.lblTitle_second.TabIndex = 11;
-            this.lblTitle_second.Text = "label1";
             // 
             // btnbrand
             // 
@@ -197,7 +75,7 @@ namespace FilterShop
             // btn_forma
             // 
             this.btn_forma.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btn_forma.Location = new System.Drawing.Point(345, 12);
+            this.btn_forma.Location = new System.Drawing.Point(255, 12);
             this.btn_forma.Name = "btn_forma";
             this.btn_forma.Size = new System.Drawing.Size(136, 41);
             this.btn_forma.TabIndex = 14;
@@ -207,12 +85,13 @@ namespace FilterShop
             // 
             // btnexit_brand
             // 
+            this.btnexit_brand.BackColor = System.Drawing.Color.SeaShell;
             this.btnexit_brand.Location = new System.Drawing.Point(169, 12);
             this.btnexit_brand.Name = "btnexit_brand";
             this.btnexit_brand.Size = new System.Drawing.Size(69, 41);
             this.btnexit_brand.TabIndex = 15;
             this.btnexit_brand.Text = "Hide";
-            this.btnexit_brand.UseVisualStyleBackColor = true;
+            this.btnexit_brand.UseVisualStyleBackColor = false;
             this.btnexit_brand.Click += new System.EventHandler(this.btnexit_Click);
             // 
             // panel_first
@@ -224,12 +103,13 @@ namespace FilterShop
             // 
             // btnexit_taste
             // 
+            this.btnexit_taste.BackColor = System.Drawing.Color.SeaShell;
             this.btnexit_taste.Location = new System.Drawing.Point(169, 247);
             this.btnexit_taste.Name = "btnexit_taste";
             this.btnexit_taste.Size = new System.Drawing.Size(69, 41);
             this.btnexit_taste.TabIndex = 17;
             this.btnexit_taste.Text = "Hide";
-            this.btnexit_taste.UseVisualStyleBackColor = true;
+            this.btnexit_taste.UseVisualStyleBackColor = false;
             this.btnexit_taste.Click += new System.EventHandler(this.btnexit_taste_Click);
             // 
             // panel_second
@@ -241,27 +121,29 @@ namespace FilterShop
             // 
             // btnexit_forma
             // 
-            this.btnexit_forma.Location = new System.Drawing.Point(504, 12);
+            this.btnexit_forma.BackColor = System.Drawing.Color.SeaShell;
+            this.btnexit_forma.Location = new System.Drawing.Point(407, 11);
             this.btnexit_forma.Name = "btnexit_forma";
             this.btnexit_forma.Size = new System.Drawing.Size(69, 41);
             this.btnexit_forma.TabIndex = 19;
             this.btnexit_forma.Text = "Hide";
-            this.btnexit_forma.UseVisualStyleBackColor = true;
+            this.btnexit_forma.UseVisualStyleBackColor = false;
             this.btnexit_forma.Click += new System.EventHandler(this.btnexit_forma_Click);
             // 
             // panel_third
             // 
             this.panel_third.BackColor = System.Drawing.SystemColors.Control;
-            this.panel_third.Location = new System.Drawing.Point(345, 59);
+            this.panel_third.Location = new System.Drawing.Point(255, 58);
             this.panel_third.Name = "panel_third";
             this.panel_third.Size = new System.Drawing.Size(205, 73);
             this.panel_third.TabIndex = 20;
             // 
             // lbox_res
             // 
+            this.lbox_res.BackColor = System.Drawing.Color.Linen;
             this.lbox_res.FormattingEnabled = true;
             this.lbox_res.ItemHeight = 20;
-            this.lbox_res.Location = new System.Drawing.Point(528, 270);
+            this.lbox_res.Location = new System.Drawing.Point(538, 208);
             this.lbox_res.Name = "lbox_res";
             this.lbox_res.Size = new System.Drawing.Size(231, 144);
             this.lbox_res.TabIndex = 21;
@@ -270,7 +152,7 @@ namespace FilterShop
             // 
             this.lbl_Title_check.AutoSize = true;
             this.lbl_Title_check.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Title_check.Location = new System.Drawing.Point(543, 222);
+            this.lbl_Title_check.Location = new System.Drawing.Point(538, 165);
             this.lbl_Title_check.Name = "lbl_Title_check";
             this.lbl_Title_check.Size = new System.Drawing.Size(53, 23);
             this.lbl_Title_check.TabIndex = 22;
@@ -278,19 +160,79 @@ namespace FilterShop
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(558, 436);
+            this.button5.BackColor = System.Drawing.Color.PapayaWhip;
+            this.button5.Location = new System.Drawing.Point(595, 358);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(142, 54);
             this.button5.TabIndex = 23;
             this.button5.Text = "Отримати значення";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // tb_add_value
+            // 
+            this.tb_add_value.Location = new System.Drawing.Point(618, 58);
+            this.tb_add_value.Name = "tb_add_value";
+            this.tb_add_value.Size = new System.Drawing.Size(119, 27);
+            this.tb_add_value.TabIndex = 24;
+            // 
+            // btn_add_value
+            // 
+            this.btn_add_value.Location = new System.Drawing.Point(633, 102);
+            this.btn_add_value.Name = "btn_add_value";
+            this.btn_add_value.Size = new System.Drawing.Size(94, 29);
+            this.btn_add_value.TabIndex = 25;
+            this.btn_add_value.Text = "Додати";
+            this.btn_add_value.UseVisualStyleBackColor = true;
+            this.btn_add_value.Click += new System.EventHandler(this.btn_add_value_Click);
+            // 
+            // lbl_name_parent
+            // 
+            this.lbl_name_parent.AutoSize = true;
+            this.lbl_name_parent.Location = new System.Drawing.Point(497, 21);
+            this.lbl_name_parent.Name = "lbl_name_parent";
+            this.lbl_name_parent.Size = new System.Drawing.Size(50, 20);
+            this.lbl_name_parent.TabIndex = 26;
+            this.lbl_name_parent.Text = "label1";
+            // 
+            // tb_parent_name
+            // 
+            this.tb_parent_name.Location = new System.Drawing.Point(618, 19);
+            this.tb_parent_name.Name = "tb_parent_name";
+            this.tb_parent_name.Size = new System.Drawing.Size(119, 27);
+            this.tb_parent_name.TabIndex = 27;
+            // 
+            // lbl_name_value
+            // 
+            this.lbl_name_value.AutoSize = true;
+            this.lbl_name_value.Location = new System.Drawing.Point(497, 65);
+            this.lbl_name_value.Name = "lbl_name_value";
+            this.lbl_name_value.Size = new System.Drawing.Size(50, 20);
+            this.lbl_name_value.TabIndex = 28;
+            this.lbl_name_value.Text = "label1";
+            // 
+            // btn_reload
+            // 
+            this.btn_reload.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_reload.Location = new System.Drawing.Point(619, 476);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Size = new System.Drawing.Size(94, 45);
+            this.btn_reload.TabIndex = 29;
+            this.btn_reload.Text = "Скинути";
+            this.btn_reload.UseVisualStyleBackColor = false;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1258, 522);
+            this.ClientSize = new System.Drawing.Size(860, 593);
+            this.Controls.Add(this.btn_reload);
+            this.Controls.Add(this.lbl_name_value);
+            this.Controls.Add(this.tb_parent_name);
+            this.Controls.Add(this.lbl_name_parent);
+            this.Controls.Add(this.btn_add_value);
+            this.Controls.Add(this.tb_add_value);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.lbl_Title_check);
             this.Controls.Add(this.lbox_res);
@@ -303,18 +245,6 @@ namespace FilterShop
             this.Controls.Add(this.btnexit_brand);
             this.Controls.Add(this.btn_forma);
             this.Controls.Add(this.btnbrand);
-            this.Controls.Add(this.lblTitle_second);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.clb2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.lblTitle_first);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.clb1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -323,19 +253,6 @@ namespace FilterShop
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckedListBox clb1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label lblTitle_first;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.CheckedListBox clb2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Label lblTitle_second;
         private System.Windows.Forms.Button btnbrand;
         private System.Windows.Forms.Button btntaste;
         private System.Windows.Forms.Button btn_forma;
@@ -348,6 +265,12 @@ namespace FilterShop
         private System.Windows.Forms.ListBox lbox_res;
         private System.Windows.Forms.Label lbl_Title_check;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox tb_add_value;
+        private System.Windows.Forms.Button btn_add_value;
+        private System.Windows.Forms.Label lbl_name_parent;
+        private System.Windows.Forms.TextBox tb_parent_name;
+        private System.Windows.Forms.Label lbl_name_value;
+        private System.Windows.Forms.Button btn_reload;
     }
 }
 
