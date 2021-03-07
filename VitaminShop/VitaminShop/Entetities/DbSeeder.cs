@@ -97,9 +97,9 @@ namespace VitaminShop.Entetities
                         new Product
                         {
                             UniqueName = listname[0],
-                            Price = 32599,
-                            Image = "https://hotline.ua/img/tx/262/2620857135.jpg",
-                            Name = "Ноутбук HP EliteBook 850 G6 (6XD79EA) Silver"
+                            Price = ,
+                            Image = "",
+                            Name = ""
                         });
 
 
