@@ -83,7 +83,7 @@ namespace VitaminShop.Entetities
             #endregion
 
             #region Add products
-            List<string> uniuqe = new List<string>();
+           // List<string> uniuqe = new List<string>();
 
             var name_unique = new Faker("en");
 
