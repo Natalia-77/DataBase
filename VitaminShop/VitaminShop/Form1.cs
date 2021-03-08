@@ -15,6 +15,7 @@ namespace VitaminShop
     public partial class Form1 : Form
     {
         private readonly MyContext _context;
+       
         public Form1()
         {
             InitializeComponent();
@@ -27,8 +28,10 @@ namespace VitaminShop
         {
            
             AutoScroll = true;
+            SuspendLayout();
             DbSeeder.SeedDatabase(_context);
-            //var filters = GetListFilters();
+            var filters = GetListFilters();
+            DynamicFill(filters);
         }
 
         private List<FilterNameModel> GetListFilters()
@@ -36,11 +39,7 @@ namespace VitaminShop
 
 
             var queryName = from f in _context.FilterNames.AsQueryable()
-                            select f;
-
-            //Зберегла в пропертіз отриманий список назв фільтрів.
-            //filter = queryName;
-
+                            select f;            
 
             var queryGroup = from g in _context.FilterNameGroups.AsQueryable()
                              select g;
@@ -80,6 +79,35 @@ namespace VitaminShop
                          };
 
             return result.ToList();
+           
+            
+        }
+
+        private void DynamicFill(List<FilterNameModel>model)
+        {
+            Button btnNameFilter;
+            CheckedListBox clbValuesFilter;
+            int dy = 15;
+           
+            foreach (var item in model)
+            {
+                btnNameFilter = new Button();
+               // clbValuesFilter = new CheckedListBox();
+                //btnNameFilter.SuspendLayout();
+                btnNameFilter.BackColor = System.Drawing.SystemColors.ScrollBar;
+                btnNameFilter.Location = new System.Drawing.Point(10, dy);
+                btnNameFilter.Name =$"btnNameFilter{item.Id}";
+                btnNameFilter.Size = new System.Drawing.Size(125, 48);               
+                btnNameFilter.Text = item.Name;
+                Controls.Add(btnNameFilter);
+                ResumeLayout(false);
+                PerformLayout();
+                btnNameFilter.UseVisualStyleBackColor = false;
+                //btnNameFilter.Click += new System.EventHandler(this.button1_Click);
+                dy += btnNameFilter.Height + 15;
+            }
+            
+           
         }
 
     }
