@@ -36,12 +36,15 @@ namespace VitaminShop
         int kol  = 0;
 
         Panel pan;
-       
-       
+
+        public int hy { get; set; }
+
+        public string name { get; set; }
+
         public Form1()
         {
             InitializeComponent();
-            _context = new MyContext();    
+            _context = new MyContext();   
            
         }
 
@@ -115,15 +118,14 @@ namespace VitaminShop
                 names.Add(item);                
             }
             count = names.Count;
-            MessageBox.Show($"{count}");  
-                   
+           // MessageBox.Show($"{count}");                     
               
            
             for (int i = 0; i < count; i++)
             {
                 Button[] btnNameFilter = new Button[count];
                 btnNameFilter[i] = new Button();
-                btnNameFilter[i].Location = new Point(X, Y + i * 50);
+                btnNameFilter[i].Location = new Point(X, Y + i*50);
                 btnNameFilter[i].Name = $"btnNameFilter{i}";
                 btnNameFilter[i].Size = new Size(125, 48);
                 btnNameFilter[i].Text = names[i];               
@@ -170,18 +172,31 @@ namespace VitaminShop
                 
                 void btnNameFilter_Click(object sender, EventArgs e)
                 {
-
                     //Panel pan = new Panel();                   
                     kol++;
+                    //if ((sender as Button).Text != name)
+                    //{
+                    //    //kol = 1;
+
+                    //}
+                    var name = ((sender as Button).Text.ToString());
+                  
 
                     if (kol % 2 != 0)
                     {
                        
-                        pan = new Panel();
+                        pan = new Panel();                        
                         List<string> child = new List<string>();
                         var res_child = from b in collection
                                         where b.Name == (sender as Button).Text
                                         select b.Children;
+                        var namecheck = from n in collection
+                                        where n.Name == (sender as Button).Text
+                                        select n.Id;
+                        MessageBox.Show($"{namecheck.Count()}");
+                        name = ((sender as Button).Text.ToString());
+
+                        MessageBox.Show($"{name}");
 
                         foreach (var item in res_child)
                         {
@@ -192,16 +207,15 @@ namespace VitaminShop
                         }
                         count_child = child.Count();
 
-
-                        int hy = 20;
-                        hy += 20;
-                        pan.Location = new Point(10 + hy, 200);
+                        int fy = 50;
+                        fy += 50;
+                        pan.Location = new Point(10,fy);
                         pan.Size = new Size(150, 0);
                         pan.BackColor = Color.Red;
                         pan.AutoScroll = true;
                         Controls.Add(pan);
                         pan.Visible = true;
-
+                        dy1 = 0;
                         foreach (var item in child)
                         {
                             CheckBox chb = new CheckBox();
@@ -214,11 +228,12 @@ namespace VitaminShop
                             // Зміщуємо виведення наступного чекбокса на його висоту + інтервал
                             dy1 = dy1 + chb_height + interval;
 
-
                         }
                         //MessageBox.Show($"{pan.Controls.Count}");
                         var height = 2 * chb_height * (count_child - 1) + interval;
                         pan.Height = height;
+                        //MessageBox.Show($"{pan.Height}");
+                        hy = pan.Height;
                     }
                     else
                     {
@@ -233,15 +248,14 @@ namespace VitaminShop
 
                         if (pan.Controls.Count == 0)
                         {
-                            //MessageBox.Show("disp");
-                            // pan.Controls.RemoveByKey((sender as Button).Text);
-                            Controls.Remove(pan);
-                            pan.Dispose();  
                             
+                            //MessageBox.Show("disp");
+                            // pan.Controls.RemoveByKey((sender as Button).Text);                           
+                            Controls.Remove(pan);
+                            pan.Dispose();                             
                             
                         }
-
-                        //    //pan.Controls.RemoveByKey((sender as Button).Text);                   
+                          //pan.Controls.RemoveByKey((sender as Button).Text);                   
 
                     }
                 }
