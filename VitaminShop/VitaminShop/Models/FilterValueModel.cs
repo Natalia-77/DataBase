@@ -17,7 +17,7 @@ namespace VitaminShop.Models
         }
         public class FilterNameModel
         {
-            public long Id { get; set; }
+            public int Id { get; set; }
             public string Name { get; set; }
             public bool IsCollapsed { get; set; } = true;
             public List<FilterValueModel> Children { get; set; }
