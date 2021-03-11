@@ -16,6 +16,7 @@ namespace VitaminShop
     {
        
         private readonly MyContext _context;
+
         /// <summary>
         /// Кількість елементів у Лісті значень імен(кількість імен фільтрів)
         /// </summary>
@@ -33,11 +34,22 @@ namespace VitaminShop
 
         const int chb_height = 15;
 
+        /// <summary>
+        /// Лічильник кількості кліків на кнопку.
+        /// </summary>
         int kol  = 0;
+
+        /// <summary>
+        /// Список чекнутих елементів.
+        /// </summary>
+        private List<int> category = new List<int>();
 
         Panel pan;
 
-        public int hy { get; set; }
+        public int hy { get; set; } 
+
+        public int btnHeight { get; set; } = 48;
+        public int btnWidth { get; set; } = 125;
 
         public string name { get; set; }
 
@@ -118,16 +130,17 @@ namespace VitaminShop
                 names.Add(item);                
             }
             count = names.Count;
-           // MessageBox.Show($"{count}");                     
-              
+            // MessageBox.Show($"{count}");                     
+
            
             for (int i = 0; i < count; i++)
             {
+                //hy += hy;
                 Button[] btnNameFilter = new Button[count];
                 btnNameFilter[i] = new Button();
-                btnNameFilter[i].Location = new Point(X, Y + i*50);
+                btnNameFilter[i].Location = new Point(X, Y + i*50+hy);
                 btnNameFilter[i].Name = $"btnNameFilter{i}";
-                btnNameFilter[i].Size = new Size(125, 48);
+                btnNameFilter[i].Size = new Size(btnWidth, btnHeight);
                 btnNameFilter[i].Text = names[i];               
                 Controls.Add(btnNameFilter[i]);              
                 btnNameFilter[i].Click += new EventHandler(btnNameFilter_Click);
@@ -190,13 +203,18 @@ namespace VitaminShop
                         var res_child = from b in collection
                                         where b.Name == (sender as Button).Text
                                         select b.Children;
-                        var namecheck = from n in collection
-                                        where n.Name == (sender as Button).Text
-                                        select n.Id;
-                        MessageBox.Show($"{namecheck.Count()}");
-                        name = ((sender as Button).Text.ToString());
 
-                        MessageBox.Show($"{name}");
+                        //var namecheck = from n in collection
+                        //                where n.Name == (sender as Button).Text
+                        //                select n.Id;
+
+                       if(res_child==null)
+                        {
+                            MessageBox.Show("Немає елементів для відображення");
+                        }
+
+                        //name = ((sender as Button).Text.ToString());
+                        ////MessageBox.Show($"{name}");
 
                         foreach (var item in res_child)
                         {
@@ -207,11 +225,9 @@ namespace VitaminShop
                         }
                         count_child = child.Count();
 
-                        int fy = 50;
-                        fy += 50;
-                        pan.Location = new Point(10,fy);
-                        pan.Size = new Size(150, 0);
-                        pan.BackColor = Color.Red;
+                        pan.Location = new Point(X,btnHeight*i+interval*2);
+                        pan.Size = new Size(btnWidth, 10);
+                        pan.BackColor = Color.Transparent;
                         pan.AutoScroll = true;
                         Controls.Add(pan);
                         pan.Visible = true;
@@ -223,17 +239,19 @@ namespace VitaminShop
                             chb.Location = new System.Drawing.Point(1, dy1);
                             chb.Size = new System.Drawing.Size(82, chb_height);
                             chb.Text = item.ToString();
+                            chb.CheckedChanged += CheckChangedHandler;
+                            chb.Tag = item;
                             chb.UseVisualStyleBackColor = true;
                             pan.Controls.Add(chb);
                             // Зміщуємо виведення наступного чекбокса на його висоту + інтервал
                             dy1 = dy1 + chb_height + interval;
 
                         }
-                        //MessageBox.Show($"{pan.Controls.Count}");
-                        var height = 2 * chb_height * (count_child - 1) + interval;
-                        pan.Height = height;
-                        //MessageBox.Show($"{pan.Height}");
-                        hy = pan.Height;
+                       
+                        var height = (chb_height+ interval)*count_child ;
+                        pan.Height = height;                       
+                       // hy = pan.Height;
+                      
                     }
                     else
                     {
@@ -247,10 +265,8 @@ namespace VitaminShop
                         //MessageBox.Show($"{pan.Controls.Count}");
 
                         if (pan.Controls.Count == 0)
-                        {
-                            
-                            //MessageBox.Show("disp");
-                            // pan.Controls.RemoveByKey((sender as Button).Text);                           
+                        {                          
+                                                     
                             Controls.Remove(pan);
                             pan.Dispose();                             
                             
@@ -258,8 +274,131 @@ namespace VitaminShop
                           //pan.Controls.RemoveByKey((sender as Button).Text);                   
 
                     }
+                   
                 }
             }
+
+        }
+        /// <summary>
+        /// Ліст чекнутих елементів.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="ea"></param>
+
+        private void CheckChangedHandler(object sender, EventArgs ea)
+        {
+
+            CheckBox cb = sender as CheckBox;
+
+
+            //if (cb.Checked)
+            //{
+            //    string t=
+            //    int x = Convert.ToInt32(cb.Tag);
+            //    category.Add(x);   
+
+            //    MessageBox.Show(cb.Text + " checked");                
+            //}
+
+
+            //var queryGroup = from g in _context..AsQueryable()
+            //                 select g;
+
+            var cat2 = GetListFilters();
+                    
+
+            //foreach (var item in cat2)
+            //{
+            //    category.Add(item);
+            //    MessageBox.Show(item + " checked");
+            //}
+
+            //var res = from b in cat2
+
+            //          where b == (sender as Button).Text              
+            //          select b.Children;
+
+
+            //if (cb.Checked)
+            //{
+                
+            //    foreach (var y in res)
+            //    {
+            //        foreach (var item in y)
+            //        {
+                        
+            //            category.Add(item.Id);
+            //        }        
+                                        
+
+                    
+            //    }
+            //}
+
+           
+            
+
+
+
+
+
+
+        }
+
+
+        private void btn_add_element_Click(object sender, EventArgs e)
+        {
+            new AddNew().ShowDialog();
+        }
+
+        private void btn_find_Click(object sender, EventArgs e)
+        {
+
+
+           
+            var filtersList = GetListFilters();
+            int[] filterValueSearchList = category.ToArray();
+
+            var query = _context
+                    .Products
+                    .AsQueryable();
+
+            foreach (var fName in filtersList)
+            {
+                int countFilter = 0; //Кількість співпадінь у даній групі фільтрів
+                var predicate = PredicateBuilder.False<Product>();
+                foreach (var fValue in fName.Children)
+                {
+                    for (int i = 0; i < filterValueSearchList.Length; i++)
+                    {
+                        var idV = fValue.Id; //id - значення фільтра
+                        if (filterValueSearchList[i] == idV) //маємо співпадіння
+                        {
+                            predicate = predicate
+                                .Or(p => p.Filters
+                                    .Any(f => f.FilterValueId == idV));
+                            countFilter++;
+                        }
+                    }
+                }
+                if (countFilter != 0)
+                    query = query.Where(predicate);
+            }
+
+            var listProduct = query.ToList();
+            dgv_products.Rows.Clear();
+            foreach (var p in listProduct)
+            {
+                object[] row =
+                {
+                    p.Id,
+                    p.Name,
+                    p.Price,
+                    null,                    
+                };
+                dgv_products.Rows.Add(row);
+            }
+
 
         }
 
@@ -273,7 +412,7 @@ namespace VitaminShop
 
         //    foreach (var item in model)
         //    {
-               
+
         //        btnNameFilter = new Button();           
         //        btnNameFilter.BackColor = System.Drawing.SystemColors.ScrollBar;
         //        btnNameFilter.Location = new Point(10, dy);
@@ -312,7 +451,7 @@ namespace VitaminShop
         //private void ButtonName_Click(object sender, EventArgs e)
         //{
         //    var button = (sender as Button);
-                       
+
         //    //якщо кнопка натиснута
         //    //if (button != null)
         //    //{
@@ -330,6 +469,6 @@ namespace VitaminShop
 
         //}
 
-        
+
     }
 }
