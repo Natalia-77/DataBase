@@ -129,13 +129,11 @@ namespace VitaminShop
             {
                 names.Add(item);                
             }
-            count = names.Count;
-            // MessageBox.Show($"{count}");                     
-
-           
+            count = names.Count;                          
+                       
             for (int i = 0; i < count; i++)
             {
-                //hy += hy;
+               
                 Button[] btnNameFilter = new Button[count];
                 btnNameFilter[i] = new Button();
                 btnNameFilter[i].Location = new Point(X, Y + i*50+hy);
@@ -187,11 +185,7 @@ namespace VitaminShop
                 {
                     //Panel pan = new Panel();                   
                     kol++;
-                    //if ((sender as Button).Text != name)
-                    //{
-                    //    //kol = 1;
-
-                    //}
+                   
                     var name = ((sender as Button).Text.ToString());
                   
 
@@ -202,11 +196,7 @@ namespace VitaminShop
                         List<string> child = new List<string>();
                         var res_child = from b in collection
                                         where b.Name == (sender as Button).Text
-                                        select b.Children;
-
-                        //var namecheck = from n in collection
-                        //                where n.Name == (sender as Button).Text
-                        //                select n.Id;
+                                        select b.Children;                                  
 
                        if(res_child==null)
                         {
@@ -214,7 +204,7 @@ namespace VitaminShop
                         }
 
                         //name = ((sender as Button).Text.ToString());
-                        ////MessageBox.Show($"{name}");
+                       
 
                         foreach (var item in res_child)
                         {
@@ -297,8 +287,7 @@ namespace VitaminShop
 
                 foreach (var y in res)
                 {
-                       category.Add(y);                 
-
+                       category.Add(y);                
                 }  
 
         }
@@ -311,8 +300,6 @@ namespace VitaminShop
 
         private void btn_find_Click(object sender, EventArgs e)
         {
-
-
            
             var filtersList = GetListFilters();
             int[] filterValueSearchList = category.ToArray();
@@ -352,7 +339,7 @@ namespace VitaminShop
                     p.Id,
                     p.Name,
                     p.Price,
-                    null,                    
+                    null                  
                 };
                 dgv_products.Rows.Add(row);
             }
@@ -360,73 +347,7 @@ namespace VitaminShop
 
         }
 
-        //private void DynamicFill(List<FilterNameModel> model)
-        //{
-        //    Button btnNameFilter;
-        //    CheckedListBox clbValuesFilter;
-        //    Panel p;
-        //    int dy = 15;
-        //    //int y = 20;
-
-        //    foreach (var item in model)
-        //    {
-
-        //        btnNameFilter = new Button();           
-        //        btnNameFilter.BackColor = System.Drawing.SystemColors.ScrollBar;
-        //        btnNameFilter.Location = new Point(10, dy);
-        //        btnNameFilter.Name = $"btnNameFilter{item.Id}";
-        //        btnNameFilter.Size = new Size(125, 48);
-        //        btnNameFilter.Text = item.Name;
-        //        btnNameFilter.Tag = item;             
-        //        btnNameFilter.UseVisualStyleBackColor = false;
-        //        Controls.Add(btnNameFilter);
-        //        btnNameFilter.Click += new System.EventHandler(ButtonName_Click);
-        //        ResumeLayout(false);
-        //        PerformLayout();
-
-
-        //        clbValuesFilter = new CheckedListBox();               
-        //        clbValuesFilter.Name = $"clbValuesFilter{item.Id}";
-        //        clbValuesFilter.Width = 150;
-        //        clbValuesFilter.Location = new System.Drawing.Point(0, 45);
-        //        clbValuesFilter.Size = new Size(150, 22);                      
-        //        btnNameFilter.Controls.Add(clbValuesFilter);
-
-        //        foreach (var child in item.Children)
-        //        {
-        //            clbValuesFilter.Items.Add(child);
-        //        }
-        //        dy += btnNameFilter.Size.Height + 30;
-
-        //        p = new Panel();
-        //        p.Tag = item.Children;
-        //        p.Size = new Size(clbValuesFilter.Size.Width, clbValuesFilter.Size.Height+10);
-        //        p.Controls.Add(clbValuesFilter);
-        //        Controls.Add(p);
-        //    }
-        //}
-
-        //private void ButtonName_Click(object sender, EventArgs e)
-        //{
-        //    var button = (sender as Button);
-
-        //    //якщо кнопка натиснута
-        //    //if (button != null)
-        //    //{
-
-        //    //    var height = checkedList.Height + 30;
-        //    //    panel.Height = height;
-        //    //}
-        //    //else
-        //    //{
-
-        //    //    var height = checkedList.Height;
-        //    //    panel.Height = height;
-        //    //}            
-
-
-        //}
-
+        
 
     }
 }

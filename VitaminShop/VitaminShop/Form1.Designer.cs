@@ -43,9 +43,9 @@ namespace VitaminShop
             // 
             this.btn_add_element.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btn_add_element.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_add_element.Location = new System.Drawing.Point(12, 386);
+            this.btn_add_element.Location = new System.Drawing.Point(12, 389);
             this.btn_add_element.Name = "btn_add_element";
-            this.btn_add_element.Size = new System.Drawing.Size(121, 39);
+            this.btn_add_element.Size = new System.Drawing.Size(121, 36);
             this.btn_add_element.TabIndex = 0;
             this.btn_add_element.Text = "Додати елемент";
             this.btn_add_element.UseVisualStyleBackColor = false;
