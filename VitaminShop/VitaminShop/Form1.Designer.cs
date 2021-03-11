@@ -69,11 +69,11 @@ namespace VitaminShop
             this.ColName,
             this.ColPrice,
             this.ColImage});
-            this.dgv_products.Location = new System.Drawing.Point(304, 178);
+            this.dgv_products.Location = new System.Drawing.Point(304, 110);
             this.dgv_products.Name = "dgv_products";
             this.dgv_products.RowHeadersWidth = 51;
             this.dgv_products.RowTemplate.Height = 29;
-            this.dgv_products.Size = new System.Drawing.Size(484, 134);
+            this.dgv_products.Size = new System.Drawing.Size(484, 202);
             this.dgv_products.TabIndex = 2;
             // 
             // ColId

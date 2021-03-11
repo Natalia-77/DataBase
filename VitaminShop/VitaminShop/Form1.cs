@@ -237,7 +237,7 @@ namespace VitaminShop
                             CheckBox chb = new CheckBox();
                             chb.AutoSize = true;
                             chb.Location = new System.Drawing.Point(1, dy1);
-                            chb.Size = new System.Drawing.Size(82, chb_height);
+                            chb.Size = new System.Drawing.Size(82, chb_height);                            
                             chb.Text = item.ToString();
                             chb.CheckedChanged += CheckChangedHandler;
                             chb.Tag = item;
@@ -289,59 +289,17 @@ namespace VitaminShop
         {
 
             CheckBox cb = sender as CheckBox;
-
-
-            //if (cb.Checked)
-            //{
-            //    string t=
-            //    int x = Convert.ToInt32(cb.Tag);
-            //    category.Add(x);   
-
-            //    MessageBox.Show(cb.Text + " checked");                
-            //}
-
-
-            //var queryGroup = from g in _context..AsQueryable()
-            //                 select g;
-
             var cat2 = GetListFilters();
-                    
+            var filterNameValue = from x in _context.FilterNameGroups.AsQueryable() select x;
+            var res = from y in filterNameValue
+                      where y.FilterValueOf.Name ==cb.Text
+                      select y.FilterValueId;          
 
-            //foreach (var item in cat2)
-            //{
-            //    category.Add(item);
-            //    MessageBox.Show(item + " checked");
-            //}
+                foreach (var y in res)
+                {
+                       category.Add(y);                 
 
-            //var res = from b in cat2
-
-            //          where b == (sender as Button).Text              
-            //          select b.Children;
-
-
-            //if (cb.Checked)
-            //{
-                
-            //    foreach (var y in res)
-            //    {
-            //        foreach (var item in y)
-            //        {
-                        
-            //            category.Add(item.Id);
-            //        }        
-                                        
-
-                    
-            //    }
-            //}
-
-           
-            
-
-
-
-
-
+                }  
 
         }
 
