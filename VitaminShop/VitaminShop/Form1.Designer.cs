@@ -43,7 +43,7 @@ namespace VitaminShop
             // 
             this.btn_add_element.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btn_add_element.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_add_element.Location = new System.Drawing.Point(12, 389);
+            this.btn_add_element.Location = new System.Drawing.Point(419, 489);
             this.btn_add_element.Name = "btn_add_element";
             this.btn_add_element.Size = new System.Drawing.Size(121, 36);
             this.btn_add_element.TabIndex = 0;
@@ -53,7 +53,7 @@ namespace VitaminShop
             // 
             // btn_find
             // 
-            this.btn_find.Location = new System.Drawing.Point(164, 389);
+            this.btn_find.Location = new System.Drawing.Point(615, 489);
             this.btn_find.Name = "btn_find";
             this.btn_find.Size = new System.Drawing.Size(108, 36);
             this.btn_find.TabIndex = 1;
@@ -69,11 +69,11 @@ namespace VitaminShop
             this.ColName,
             this.ColPrice,
             this.ColImage});
-            this.dgv_products.Location = new System.Drawing.Point(304, 110);
+            this.dgv_products.Location = new System.Drawing.Point(269, 50);
             this.dgv_products.Name = "dgv_products";
             this.dgv_products.RowHeadersWidth = 51;
             this.dgv_products.RowTemplate.Height = 29;
-            this.dgv_products.Size = new System.Drawing.Size(484, 202);
+            this.dgv_products.Size = new System.Drawing.Size(519, 239);
             this.dgv_products.TabIndex = 2;
             // 
             // ColId
@@ -109,7 +109,7 @@ namespace VitaminShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 559);
             this.Controls.Add(this.dgv_products);
             this.Controls.Add(this.btn_find);
             this.Controls.Add(this.btn_add_element);

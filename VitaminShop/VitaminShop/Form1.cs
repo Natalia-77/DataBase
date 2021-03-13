@@ -15,43 +15,32 @@ namespace VitaminShop
     public partial class Form1 : Form
     {
        
-        private readonly MyContext _context;
-
-        /// <summary>
-        /// Кількість елементів у Лісті значень імен(кількість імен фільтрів)
-        /// </summary>
-        public int count { get; set; }
-
-        public int count_child { get; set; }
-
-        int X { get; set; } = 10;
-
-        int Y { get; set; } = 10;
-
-        int interval { get; set; } = 8;
-
-        int dy1 { get; set; }
-
-        const int chb_height = 15;
-
+        private readonly MyContext _context;     
+               
+        public List<int> category { get; set; }
         /// <summary>
         /// Лічильник кількості кліків на кнопку.
         /// </summary>
-        int kol  = 0;
+        
+        int kol  = 0;     
+
+        public int height { get; set; } = 50;
+        public int width { get; set; } = 220;
 
         /// <summary>
-        /// Список чекнутих елементів.
+        /// Відступ по довжині між  групбокса і чекедлістбокса всередині нього.
         /// </summary>
-        private List<int> category = new List<int>();
+        public int chy { get; set; } = 30;
 
-        Panel pan;
+        /// <summary>
+        /// Відступ по ширині між шириною групбокса і чекедлістбокса всередині нього.
+        /// </summary>
+        public int chw { get; set; } = 20;
 
-        public int hy { get; set; } 
-
-        public int btnHeight { get; set; } = 48;
-        public int btnWidth { get; set; } = 125;
-
-        public string name { get; set; }
+        /// <summary>
+        /// Інтервал по висоті між групбоксами.
+        /// </summary>
+        public int gb_interval { get; set; } = 5;
 
         public Form1()
         {
@@ -119,178 +108,97 @@ namespace VitaminShop
 
         public void Load_Form()
         {
-            var collection=GetListFilters();
-            List<string> names = new List<string>();
-           
+            GroupBox gbNameFilter;
+            CheckedListBox cbValuesFilter;
+
+            var collection=GetListFilters();          
+            int hy = 15;
+
             //Отримую множину значень імен.
             var result = from b in collection select b.Name;
-            
-            foreach (var item in result)
-            {
-                names.Add(item);                
-            }
-            count = names.Count;                          
-                       
-            for (int i = 0; i < count; i++)
+
+            foreach (var item in collection)
             {
                
-                Button[] btnNameFilter = new Button[count];
-                btnNameFilter[i] = new Button();
-                btnNameFilter[i].Location = new Point(X, Y + i*50+hy);
-                btnNameFilter[i].Name = $"btnNameFilter{i}";
-                btnNameFilter[i].Size = new Size(btnWidth, btnHeight);
-                btnNameFilter[i].Text = names[i];               
-                Controls.Add(btnNameFilter[i]);              
-                btnNameFilter[i].Click += new EventHandler(btnNameFilter_Click);
+                gbNameFilter = new GroupBox();
+                cbValuesFilter = new CheckedListBox();
+                gbNameFilter.SuspendLayout();
 
-                //Panel[] panel = new Panel[count];
-                //panel[i] = new Panel();
-                //panel[i].BackColor = System.Drawing.Color.Transparent;
-                //panel[i].Location = new Point(X * 2, Y + btnNameFilter[i].Height + interval);
-                //panel[i].Name = $"{panel[i]}";
-                //panel[i].Size = new Size(173, 0);
-                //panel[i].Controls.Add(btnNameFilter[i]);
-                //Controls.Add(panel[i]);
-                //panel[i].Visible = false;
+                gbNameFilter.Controls.Add(cbValuesFilter);
+                gbNameFilter.Location = new Point(10, hy);
+                gbNameFilter.Name = $"gbNameFilter{item.Name}";
+                gbNameFilter.Size = new Size(width, height);
+                gbNameFilter.Text = item.Name;
+                gbNameFilter.Tag = item;               
+                gbNameFilter.Click += new EventHandler(gbNameFilter_Click);               
 
-                //List<string> child = new List<string>();
-                //var res_child = from b in collection
-                //                where b.Name == btnNameFilter[i].Text
-                //                select b.Children;
 
-                //foreach (var item in res_child)
-                //{
-                //    foreach (var it in item)
-                //    {
-                //        child.Add(it.Name);
-                //    }
-                //}
-                //count_child = child.Count();
+                cbValuesFilter.AutoSize = true;
 
-                //foreach (var item in child)
-                //{
-                //    CheckBox chb = new CheckBox();
-                //    chb.AutoSize = true;
-                //    chb.Location = new System.Drawing.Point(1, dy1);
-                //    chb.Size = new System.Drawing.Size(82, chb_height);
-                //    chb.Text = item.ToString();
-                //    chb.UseVisualStyleBackColor = true;
-                //    btnNameFilter[i].Controls.Add(chb);
-                //    // Зміщуємо виведення наступного чекбокса на його висоту + інтервал
-                //    dy1 = dy1 + chb_height + interval;
-                //}
+                //Координати розміщення чекедлістбокса всередині групбокса.
+                cbValuesFilter.Location = new System.Drawing.Point(10, 25);
+                //cbValuesFilter.Click += new EventHandler( CheckChangedHandler);
 
-                
-                void btnNameFilter_Click(object sender, EventArgs e)
-                {
-                    //Panel pan = new Panel();                   
-                    kol++;
-                   
-                    var name = ((sender as Button).Text.ToString());
-                  
+                //cbValuesFilter.Name = $"{item}";
 
-                    if (kol % 2 != 0)
-                    {
-                       
-                        pan = new Panel();                        
-                        List<string> child = new List<string>();
-                        var res_child = from b in collection
-                                        where b.Name == (sender as Button).Text
-                                        select b.Children;                                  
+                foreach (var ch in item.Children)
+                {                 
+                   //Додаю до чекедлістбокса назви дітей.
+                    cbValuesFilter.Items.Add(ch);
 
-                       if(res_child==null)
-                        {
-                            MessageBox.Show("Немає елементів для відображення");
-                        }
+                }               
+;
 
-                        //name = ((sender as Button).Text.ToString());
-                       
+                //Новий розмір групбокса.
+                gbNameFilter.Size = new Size(cbValuesFilter.Size.Width+chw,cbValuesFilter.Size.Height+chy);
 
-                        foreach (var item in res_child)
-                        {
-                            foreach (var it in item)
-                            {
-                                child.Add(it.Name);
-                            }
-                        }
-                        count_child = child.Count();
+                //Інтервал по висоті між групбоксами.
+                hy += gbNameFilter.Height+gb_interval;
 
-                        pan.Location = new Point(X,btnHeight*i+interval*2);
-                        pan.Size = new Size(btnWidth, 10);
-                        pan.BackColor = Color.Transparent;
-                        pan.AutoScroll = true;
-                        Controls.Add(pan);
-                        pan.Visible = true;
-                        dy1 = 0;
-                        foreach (var item in child)
-                        {
-                            CheckBox chb = new CheckBox();
-                            chb.AutoSize = true;
-                            chb.Location = new System.Drawing.Point(1, dy1);
-                            chb.Size = new System.Drawing.Size(82, chb_height);                            
-                            chb.Text = item.ToString();
-                            chb.CheckedChanged += CheckChangedHandler;
-                            chb.Tag = item;
-                            chb.UseVisualStyleBackColor = true;
-                            pan.Controls.Add(chb);
-                            // Зміщуємо виведення наступного чекбокса на його висоту + інтервал
-                            dy1 = dy1 + chb_height + interval;
-
-                        }
-                       
-                        var height = (chb_height+ interval)*count_child ;
-                        pan.Height = height;                       
-                       // hy = pan.Height;
+                //Додаю групбокс на форму.
+                Controls.Add(gbNameFilter);
+            }           
                       
-                    }
-                    else
-                    {
-                        pan.Controls.Clear();
-                        for (int i = 0; i < pan.Controls.Count; i++)
-                        {
-                            pan.Controls[i].Enabled = false;
-                            pan.Controls[i].Dispose();
-                            i--;
-                        }
-                        //MessageBox.Show($"{pan.Controls.Count}");
 
-                        if (pan.Controls.Count == 0)
-                        {                          
-                                                     
-                            Controls.Remove(pan);
-                            pan.Dispose();                             
-                            
-                        }
-                          //pan.Controls.RemoveByKey((sender as Button).Text);                   
 
-                    }
-                   
-                }
+        }
+
+        void gbNameFilter_Click(object sender, EventArgs e)
+        {
+            var name = (sender as GroupBox);
+            var res_list = name.Controls.OfType<CheckedListBox>().FirstOrDefault();
+
+           //Лічильник натискань кнопки.
+            kol++;
+
+            //Control.ControlCollection locais = name.Controls;
+            //foreach (CheckedListBox chkBox in locais)
+
+            if (kol % 2 != 0)
+            {                     
+                    var Height = res_list.Height + 25 ;
+                    name.Height = Height;
             }
 
-        }
-        /// <summary>
-        /// Ліст чекнутих елементів.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="ea"></param>
+            else
+            {
+                    var Height =  25;
+                    name.Height = Height;                               
 
-        private void CheckChangedHandler(object sender, EventArgs ea)
-        {
+            }
 
-            CheckBox cb = sender as CheckBox;
-            var cat2 = GetListFilters();
-            var filterNameValue = from x in _context.FilterNameGroups.AsQueryable() select x;
-            var res = from y in filterNameValue
-                      where y.FilterValueOf.Name ==cb.Text
-                      select y.FilterValueId;          
+            int item_y = 15;
+            //Обхід по всім контролам типу Групбокс.
+            foreach (var item in Controls.OfType<GroupBox>())
+            {
+                //Нові координати для кожного групбокса.
+                item.Location = new Point(item.Location.X,item_y);
+                //Зміна координати розміщення групбокса по осі Y,відповідно до висоти інших групбоксів .
+                item_y += item.Size.Height + 5;
+            }
 
-                foreach (var y in res)
-                {
-                       category.Add(y);                
-                }  
 
-        }
+        }       
 
 
         private void btn_add_element_Click(object sender, EventArgs e)
@@ -300,28 +208,43 @@ namespace VitaminShop
 
         private void btn_find_Click(object sender, EventArgs e)
         {
-           
-            var filtersList = GetListFilters();
-            int[] filterValueSearchList = category.ToArray();
+            List<int> values = new List<int>();
+            var list_items = Controls.OfType<GroupBox>();
+            foreach (var groupBox in list_items)
+            {
+                var res_check = groupBox.Controls.OfType<CheckedListBox>().FirstOrDefault().CheckedItems;
+                foreach (var listItem in res_check)
+                {
+                    var data = listItem as FilterValueModel;
+                    values.Add(data.Id);
+                    //MessageBox.Show($"{data.Id}");
+                }
+            }
+
+            var filter_list = GetListFilters();
+            int[] filter_int = values.ToArray();
 
             var query = _context
                     .Products
                     .AsQueryable();
 
-            foreach (var fName in filtersList)
+            foreach (var fName in filter_list)
             {
-                int countFilter = 0; //Кількість співпадінь у даній групі фільтрів
+                int countFilter = 0; 
+
                 var predicate = PredicateBuilder.False<Product>();
+
                 foreach (var fValue in fName.Children)
                 {
-                    for (int i = 0; i < filterValueSearchList.Length; i++)
+                    for (int i = 0; i < filter_int.Length; i++)
                     {
-                        var idV = fValue.Id; //id - значення фільтра
-                        if (filterValueSearchList[i] == idV) //маємо співпадіння
+                        var value_Id = fValue.Id; 
+
+                        if (filter_int[i] == value_Id) 
                         {
                             predicate = predicate
                                 .Or(p => p.Filters
-                                    .Any(f => f.FilterValueId == idV));
+                                    .Any(f => f.FilterValueId == value_Id));
                             countFilter++;
                         }
                     }
@@ -347,7 +270,6 @@ namespace VitaminShop
 
         }
 
-        
-
+       
     }
 }
